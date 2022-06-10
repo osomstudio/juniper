@@ -1,0 +1,213 @@
+@mixin grid {
+	margin: 0 auto;
+	width: 90%;
+	position: relative;
+
+	@include media($gridWidth + 100, min) {
+		width: $gridWidth;
+	}
+}
+
+/*
+* Centers element by type
+*/
+@mixin center($type: flex) {
+	@if $type=='flex' {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@else {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+
+/*
+* Sets element media query
+*/
+@mixin media($breakpoint, $type: max) {
+	@media screen and (#{$type}-width: #{$breakpoint}) {
+		@content;
+	}
+}
+
+/*
+* Flexbox row system
+*/
+@mixin flex($align:'start', $space:'start') {
+	display: flex;
+	flex-wrap: wrap;
+
+	@if $align=='center' {
+		align-items: center;
+	}
+
+	@if $align=='start' {
+		align-items: flex-start;
+	}
+
+	@if $align=='end' {
+		align-items: flex-end;
+	}
+
+	@if $align=='strech' {
+		align-items: stretch;
+	}
+
+	@if $space=='center' {
+		justify-content: center;
+	}
+
+	@if $space=='space' {
+		justify-content: space-between;
+	}
+
+	@if $space=='end' {
+		justify-content: flex-end;
+	}
+}
+
+/*
+* Column width system
+*/
+@mixin col($items) {
+	@include media($mobile, min) {
+		width: calc(8.3333333% * #{$items});
+	}
+}
+
+/*
+* Styles input placeholder
+* This is getting prefixed by gulp
+*/
+@mixin input-placeholder {
+	&::placeholder {
+		@content;
+	}
+}
+
+/*
+* Fills relative parent width and height
+*/
+@mixin cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+/*
+* Includes pseudo element if param is true
+* Wrapper for @cover
+*/
+@mixin fw {
+	position: relative;
+
+	&::after {
+		content: '';
+		@include cover();
+	}
+}
+
+
+/*
+* Sets item width and height 
+*/
+@mixin box($width, $height:$width, $display:inline-flex) {
+	width: $width;
+	height: $height;
+	display: $display;
+}
+
+/*
+* Includes animation with params
+*/
+@mixin keyframes($name, $params) {
+	animation: #{$name} #{$params};
+
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+/*
+* Keeps item aspect ratio
+* Item height is based on padding-top
+*/
+@mixin ratio($x, $y) {
+	$padding: unquote(($y / $x) * 100 + '%');
+	padding-top: $padding;
+}
+
+/*
+* Px to vw calculator
+* Remember to define your laytout width in _app.scss
+*/
+@function vw($px) {
+	$vw: ($projectWidth * 0.01) * 1px;
+	@return ($px / $vw) * 1vw;
+}
+
+@mixin fixed {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin pushup($i:2, $pos:relative) {
+	z-index: $i;
+	position: $pos;
+}
+
+@function randomNum($min, $max) {
+	$rand: random();
+	$randomNum: $min + floor($rand * (($max - $min) + 1));
+
+	@return $randomNum;
+}
+
+@mixin hover-underline($color: $secondary, $pos: -3px, $height: 1px) {
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: $height;
+		pointer-events: none;
+		left: 0;
+		bottom: $pos;
+		max-width: 0%;
+		transition: $transition;
+		background: $color;
+	}
+
+	&.active,
+	&:hover {
+		&::after {
+			max-width: 100%;
+		}
+	}
+}
+
+
+@mixin hover-scale($amount: 1.1) {
+	transform: scale(1);
+	transition: $transition;
+
+	&:hover {
+		transform: scale($amount)
+	}
+}
