@@ -63,33 +63,6 @@ Timber::$dirname = array( 'templates', 'views' );
 Timber::$autoescape = false;
 
 
-
-//Mail-checker start
-function mailchecker() {
-	$mail_transient = get_transient( 'mailchecker' );
-
-	if ( 'email-sent' !== $mail_transient ) {
-		$site_url  = get_bloginfo( 'url' );
-		$timestamp = time();
-		$response  = wp_mail( 'test@osomstudio.com', 'Test mail', 'Test message' );
-
-		if ( false === $response ) {
-			$response_string = 'false';
-		} else {
-			$response_string = 'true';
-		}
-
-		$url_to_ping = 'https://osommail:checkmail@mailchecker.osomapps.com/?mail-checker=' . $site_url . '&response=' . $response_string . '&url=' . $site_url . '&date_timestamp=' . $timestamp;
-
-		file_get_contents( $url_to_ping );
-
-		set_transient( 'mailchecker', 'email-sent', DAY_IN_SECONDS );
-	}
-}
-
-add_action( 'init', 'mailchecker' );
-//Mail-checker end
-
 //StarterSite class
 require_once 'class-startersite.php';
 new StarterSite();
