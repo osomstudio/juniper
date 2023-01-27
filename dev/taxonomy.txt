@@ -1,0 +1,27 @@
+<?php
+
+namespace Osom;
+
+class replace_taxonomy_slugTaxonomy {
+	public string $taxonomy_slug;
+	public string $taxonomy_name;
+
+	public function __construct() {
+		$this->taxonomy_slug = 'replace_taxonomy_slug';
+		$this->taxonomy_name = 'replace_taxonomy_name';
+
+		add_action( 'init', array( $this, 'register_custom_taxonomy' ) );
+	}
+
+	public function register_custom_taxonomy() {
+		$args = array(
+			'label'        => $this->taxonomy_name,
+			'public'       => true,
+			'rewrite'      => false,
+			'hierarchical' => true
+		);
+
+		register_taxonomy( $this->taxonomy_slug, 'selected_post_type', $args );
+	}
+
+}

@@ -1,0 +1,73 @@
+html {
+	box-sizing: border-box;
+	vertical-align: baseline;
+	scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+img,
+body,
+article,
+main,
+aside,
+address,
+details,
+figcaption,
+figure,
+footer,
+header,
+nav {
+	display: block;
+}
+
+img {
+	max-width: 100%;
+}
+
+main {
+	overflow: hidden;
+}
+
+ol,
+ul {
+	list-style: none
+}
+
+li:empty,
+p:empty {
+	display: none;
+}
+
+textarea,
+select,
+input,
+button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	color: inherit;
+	background: transparent;
+	border: none;
+}
+
+strong {
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+// sorry
+:focus,
+:active {
+	outline: none;
+}

@@ -1,0 +1,42 @@
+name: PHP Composer
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install PHP
+      uses: shivammathur/setup-php@2.7.0
+      with:
+        php-version: '7.4'
+        coverage: none
+        tools: composer:v1
+
+    - name: Install dependencies
+      working-directory: ./github
+      run: composer install --prefer-dist --no-progress
+
+    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getcomposer.org/doc/articles/scripts.md
+
+    - name: Run set phpcs suite
+      working-directory: ./github
+      run: composer run set
+      
+    - name: Run test phpcs
+      working-directory: ./github
+      run: composer run test

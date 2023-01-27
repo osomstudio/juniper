@@ -1,0 +1,14 @@
+{
+    "name": "osomtheme/osomtheme",
+    "type": "library",
+    "require": {
+        "timber/timber": "^1.19",
+        "palmiak/timber-acf-wp-blocks": "^1.15"
+    },
+    "authors": [
+        {
+            "name": "bartnovak",
+            "email": "b.nowak@osomstudio.com"
+        }
+    ]
+}

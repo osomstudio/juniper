@@ -1,0 +1,17 @@
+{
+    "name": "bartosznowak/github",
+    "authors": [
+        {
+            "name": "bartnovak",
+            "email": "b.nowak@osomstudio.com"
+        }
+    ],
+    "require": {
+        "squizlabs/php_codesniffer": "*",
+        "wp-coding-standards/wpcs": "*"
+    },
+    "scripts": {
+        "test": "phpcs --standard=WordPress-Extra --extensions=php ../web/app/themes -n",
+        "set" : "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
+    }
+}
