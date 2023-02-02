@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://osomstudio.com">
-    <img alt="OsomStudio" src="https://www.osomstudio.com/hubfs/raw_assets/public/osom-studio-hs/images/images/global/osom-logo.svg" height="100">
+    <img alt="Juniper" src="https://5924544.fs1.hubspotusercontent-na1.net/hubfs/5924544/juniper/398672602-juniper-logo-01.png" height="100">
   </a>
 </p>
 
