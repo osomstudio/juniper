@@ -7,7 +7,6 @@
   "authors": [
     {
       "name": "OsomStudio",
-      "email": "",
       "homepage": "https://osomstudio.com"
     }
   ],
@@ -50,12 +49,14 @@
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.0",
     "roave/security-advisories": "dev-latest",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
     "wp-coding-standards/wpcs": "*"
   },
   "config": {
     "optimize-autoloader": true,
-    "preferred-install": "dist"
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "pivvenit/acf-pro-installer": true
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
