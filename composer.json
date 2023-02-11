@@ -55,7 +55,9 @@
     "optimize-autoloader": true,
     "preferred-install": "dist",
     "allow-plugins": {
-      "pivvenit/acf-pro-installer": true
+      "pivvenit/acf-pro-installer": true,
+      "composer/installers": true,
+      "roots/wordpress-core-installer": true
     }
   },
   "minimum-stability": "dev",
