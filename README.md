@@ -59,4 +59,19 @@ the only thing you need is plugin slug from the main WP repository.
 
 You can update them with the same easy way by changing version in composer.json.
 
+## Bash scripts
+
+The main operations that we automate have been handled by below scripts: :
+
+1) start.sh - used for the initial configuration of the project. Through this process, we areable to enter the basic data to the database, define the main URL and ACF key. After providing those information, the installer will generate an .env file, which in our case will contain all configuration data (as in wp-config.php in a vanilla WordPress installation).
+
+2) work.sh - used every time you work on a project. It compiles the styles in real time by calling a parcel script to listen for file changes.
+
+Other scripts worth mentioning are:
+
+1) block.sh - a set of commands that will create a custom Gutenberg block for the user. Juniper utilizes the ACF Timber Blocks solution, which requires only one .twig file with the appropriate comment to create a block.
+2) cpt.sh - here the name speaks for itself. After going through the configuration, a CPT will be created. Its editing will of course be possible later, because this command will generate a file in the theme directory.
+
+3) taxonomy.sh - similarly to the antecedent case, the answer to questions posed by a series of commands allows you to expeditiously create a taxonomy assigned to a given type of post.
+
 ## 
