@@ -1,6 +1,6 @@
 <?php
 
-namespace Osom;
+namespace Osom\Ajax;
 
 class OsomAjaxFilteringposts {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Osom;
+namespace Osom\Blocks;
 
 class OsomBlocks {
 	public string $blocks_dir;
