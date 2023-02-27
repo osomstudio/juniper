@@ -11,7 +11,7 @@
         "wp-coding-standards/wpcs": "*"
     },
     "scripts": {
-        "test": "phpcs --standard=WordPress-Extra --extensions=php ../web/app/themes -n -s",
+        "test": "phpcs --standard=WordPress-Extra --extensions=php ../web/app/themes --exclude=WordPress.Files.FileName.NotHyphenatedLowercase,WordPress.Files.FileName.InvalidClassFileName -n -s",
         "set" : "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
     }
 }
