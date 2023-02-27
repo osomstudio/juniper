@@ -18,5 +18,5 @@ add_filter(
 $block_name       = 'filteringposts';
 $js_dir           = get_template_directory_uri() . '/dist/blocks/' . $block_name . '/ajax.js';
 $ajax_action_name = $block_name;
-$osom_ajax        = new \Osom\OsomAjaxFilteringposts( $ajax_action_name, $js_dir, $block_name );
+$osom_ajax        = new \Osom\Ajax\OsomAjaxFilteringposts( $ajax_action_name, $js_dir, $block_name );
 
