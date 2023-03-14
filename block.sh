@@ -37,8 +37,8 @@ frontend="{#\n
 \tAlign: left\n
 \tPostTypes: page post\n
 \tSupportsAlign: left right\n
-\tSupportsMode: false\n
-\tSupportsMultiple: false\n"\
+\tSupportsMode: true\n
+\tSupportsMultiple: true\n"\
 "#}"
 
 #CREATING STYLES
