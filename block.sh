@@ -53,13 +53,17 @@ scripts=""
 functions="<?php\n\n"\
 "add_action('wp_enqueue_scripts', function() {\n"\
 "\tif (has_block('acf/${slug_name}')) {\n"\
-"\t\twp_enqueue_style( '${slug_name}-css', get_template_directory_uri() . '/dist/blocks/${slug_name}/style.css', array(), time(), 'all');\n"\
-"\t\twp_enqueue_script('${slug_name}-js', get_template_directory_uri() . '/dist/blocks/${slug_name}/script.js', array(), time(), true);\n"\
+"\t\$time = time();\n"\
+"\t\$theme_path = get_template_directory_uri();\n\n"\
+"\t\twp_enqueue_style('${slug_name}-css', \$theme_path . '/dist/blocks/${slug_name}/style.css', array(), \$time, 'all');\n"\
+"\t\twp_enqueue_script('${slug_name}-js', \$theme_path . '/dist/blocks/${slug_name}/script.js', array(), \$time, true);\n"\
 "\t}\n"\
 "});\n\n
 add_filter(\n\n
 \t'timber/acf-gutenberg-blocks-data/${slug_name}',\n\n
-\tfunction( \$context ) {});"
+\tfunction( \$context ) {\n
+\treturn \$context;\n
+});"
 
 #GET TO BLOCKS FOLDER
 cd ./web/app/themes/osom-theme/views/blocks/
