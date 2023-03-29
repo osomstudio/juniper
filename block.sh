@@ -34,9 +34,9 @@ frontend="{#\n
 \tIcon: admin-comments\n
 \tKeywords: ${keywords}\n
 \tMode: edit\n
-\tAlign: left\n
+\tAlign: full\n
 \tPostTypes: page post\n
-\tSupportsAlign: left right\n
+\tSupportsAlign: left right full\n
 \tSupportsMode: true\n
 \tSupportsMultiple: true\n"\
 "#}"
