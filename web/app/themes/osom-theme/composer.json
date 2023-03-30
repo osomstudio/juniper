@@ -5,6 +5,11 @@
         "timber/timber": "^1.19",
         "palmiak/timber-acf-wp-blocks": "^1.15"
     },
+    "autoload": {
+        "psr-4": {
+            "Osom\\": "inc"
+        }
+    },
     "authors": [
         {
             "name": "bartnovak",
