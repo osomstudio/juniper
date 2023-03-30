@@ -11,7 +11,7 @@ fi
 
 #CREATING A SLUG
 lowercase_full_name=$(echo $full_name | tr '[:upper:]' '[:lower:]')
-slug_name=$(echo $lowercase_full_name | tr ' ' '_')
+slug_name=$(echo $lowercase_full_name | tr ' ' '-')
 
 #CHECK IF A BLOCK ALREADY EXISTS
 [ -d "./web/app/themes/osom-theme/views/blocks/${slug_name}" ] && echo "A block with this name already exists" && exit
