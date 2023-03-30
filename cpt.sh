@@ -11,7 +11,7 @@ fi
 
 #CREATING A SLUG
 lowercase_full_name=$(echo $full_name | tr '[:upper:]' '[:lower:]')
-slug_name=$(echo $lowercase_full_name | tr ' ' '_')
+slug_name=$(echo $lowercase_full_name | tr ' ' '-')
 
 #CHECK IF A CPT ALREADY EXISTS
 [ -f "./web/app/themes/osom-theme/inc/cpt/class-${slug_name}.php" ] && echo "A CPT with this name already exists" && exit
