@@ -11,7 +11,7 @@ fi
 
 #CREATING A SLUG
 lowercase_full_name=$(echo $full_name | tr '[:upper:]' '[:lower:]')
-slug_name=$(echo $lowercase_full_name | tr ' ' '_')
+slug_name=$(echo $lowercase_full_name | tr ' ' '-')
 
 #CHECK IF A Taxonomy ALREADY EXISTS
 [ -f "./web/app/themes/osom-theme/inc/taxonomies/class-${slug_name}.php" ] && echo "A Taxonomy with this name already exists" && exit
