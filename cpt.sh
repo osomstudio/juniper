@@ -2,7 +2,7 @@
 
 clear
 
-read -p "What's the name of the CPT ? (max 20 characters)" full_name
+read -p "What's the name of the CPT (max 20 characters)? " full_name
 #VALIDATION -IT CAN ONLY HAVE BIG AND SMALL LETTERS, SPACES, DASHES, FLOORS
 if [[ $full_name =~ ['!@#$%^&*()+'] ]]; then
     echo "CPT name can only have: letters, spaces, dashes, floors"
