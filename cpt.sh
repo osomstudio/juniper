@@ -10,6 +10,8 @@ if [[ $full_name =~ ['!@#$%^&*()+'] ]]; then
 fi
 
 #CREATING A SLUG
+variable_name=$(echo $full_name | tr '[:upper:]' '[:lower:]')
+variable_name=$(echo $variable_name | tr ' ' '_')
 lowercase_full_name=$(echo $full_name | tr '[:upper:]' '[:lower:]')
 slug_name=$(echo $lowercase_full_name | awk '{for(i=1;i<=NF;i++){$i=toupper(substr($i,1,1)) substr($i,2)}}1')
 slug_name=${slug_name// /}
@@ -42,7 +44,7 @@ composer dump-autoload -o
 
 echo '$osom_cpt_replace_cpt_slug = new \Osom\Cpt\replace_cpt_slugCPT();' >> include.php
 
-sed -i'' -e "s/$searchSlug/$slug_name/" include.php
+sed -i'' -e "s/$searchSlug/$variable_name/" include.php
 rm include.php-e
 
 sed -i'' -e "s/$searchClassName/$replaceClassName/" include.php
