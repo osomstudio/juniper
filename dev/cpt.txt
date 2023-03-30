@@ -7,8 +7,8 @@ class replace_cpt_slug {
 	public string $cpt_name;
 
 	public function __construct() {
-		$this->cpt_slug = 'replace_cpt_slug';
-		$this->cpt_name = 'replace_cpt_name';
+		$this->cpt_slug = substr( 'replace_cpt_slug', 0, 20 );
+		$this->cpt_name = substr( 'replace_cpt_name', 0, 20 );
 
 		add_action( 'init', array( $this, 'register_custom_cpt' ) );
 	}
