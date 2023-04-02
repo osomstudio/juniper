@@ -60,7 +60,4 @@ npm install
 
 composer install --ignore-platform-reqs
 
-cd ../../../wp/wp-content
-rm -rf themes/*
-
 echo "That's all. If you set up your DB and htaccess correctly environment should be ready."
