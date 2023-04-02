@@ -35,3 +35,5 @@ node_modules
 web/app/advanced-cache.php
 web/app/cache
 web/app/w3tc-config
+
+!web/.htaccess
