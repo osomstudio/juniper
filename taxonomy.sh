@@ -21,7 +21,7 @@ slug_name=${slug_name// /}
 rewrite_name=$(echo $lowercase_full_name | tr ' ' '-')
 
 #CHECK IF A Taxonomy ALREADY EXISTS
-[ -f "./web/app/themes/osom-theme/inc/Taxonomies/${slug_name}.php" ] && echo "A Taxonomy with this name already exists" && exit
+[ -f "./web/app/themes/juniper-theme/inc/Taxonomies/${slug_name}.php" ] && echo "A Taxonomy with this name already exists" && exit
 
 read -p "What's the name of the select post type ? " selected_post_type
 #VALIDATION -IT CAN ONLY HAVE BIG AND SMALL LETTERS, SPACES, DASHES, FLOORS
@@ -30,10 +30,10 @@ if [[ $selected_post_type =~ ['!@#$%^&*()+'] ]]; then
     exit
 fi
 
-cp "dev/taxonomy.txt" "./web/app/themes/osom-theme/inc/Taxonomies/${slug_name}.php"
+cp "dev/taxonomy.txt" "./web/app/themes/juniper-theme/inc/Taxonomies/${slug_name}.php"
 
 #GET TO CPT FOLDER
-cd ./web/app/themes/osom-theme/inc/Taxonomies/
+cd ./web/app/themes/juniper-theme/inc/Taxonomies/
 
 
 searchSlug="replace_taxonomy_slug"
@@ -54,7 +54,7 @@ cd ..
 
 composer dump-autoload -o
 
-echo '$osom_taxonomy_replace_rewrite_name = new \Osom\Taxonomies\replace_taxonomy_slug();' >> include.php
+echo '$juniper_taxonomy_replace_rewrite_name = new \Juniper\Taxonomies\replace_taxonomy_slug();' >> include.php
 
 sed -i'' -e "s/$searchSlug/$slug_name/" include.php
 rm include.php-e

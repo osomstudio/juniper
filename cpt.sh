@@ -21,13 +21,13 @@ slug_name=${slug_name// /}
 rewrite_name=$(echo $lowercase_full_name | tr ' ' '-')
 
 #CHECK IF A CPT ALREADY EXISTS
-[ -f "./web/app/themes/osom-theme/inc/Cpt/${slug_name}.php" ] && echo "A CPT with this name already exists" && exit
+[ -f "./web/app/themes/juniper-theme/inc/Cpt/${slug_name}.php" ] && echo "A CPT with this name already exists" && exit
 
 
-cp "dev/cpt.txt" "./web/app/themes/osom-theme/inc/Cpt/${slug_name}.php"
+cp "dev/cpt.txt" "./web/app/themes/juniper-theme/inc/Cpt/${slug_name}.php"
 
 #GET TO CPT FOLDER
-cd ./web/app/themes/osom-theme/inc/Cpt/
+cd ./web/app/themes/juniper-theme/inc/Cpt/
 
 
 searchSlug="replace_cpt_slug"
@@ -48,7 +48,7 @@ cd ..
 
 composer dump-autoload -o
 
-echo '$osom_cpt_replace_cpt_slug = new \Osom\Cpt\replace_cpt_slugCPT();' >> include.php
+echo '$juniper_cpt_replace_cpt_slug = new \Juniper\Cpt\replace_cpt_slugCPT();' >> include.php
 
 sed -i'' -e "s/$searchSlug/$variable_name/" include.php
 rm include.php-e

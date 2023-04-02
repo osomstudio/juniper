@@ -1,8 +1,8 @@
 <?php
 
-namespace Osom\Ajax;
+namespace Juniper\Ajax;
 
-class OsomAjaxFilteringposts {
+class JuniperAjaxFilteringposts {
 
 	const TEXT_FIELD     = 'text_field'; // sanitize_text_field.
 	const TEXTAREA_FIELD = 'textarea_field'; // sanitize_textarea_field / wp_kses.

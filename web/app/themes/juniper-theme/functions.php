@@ -1,7 +1,7 @@
 <?php
 /**
- * Timber Osom Theme
- * https://github.com/osomstudio/OsomTheme
+ * Timber Juniper Theme
+ * https://github.com/osomstudio/JuniperTheme
  *
  * @package  WordPress
  * @subpackage  Timber
@@ -22,12 +22,12 @@ if ( file_exists( $composer_autoload ) ) {
 
 require_once 'inc/include.php';
 
-function osom_theme_enqueue() {
+function juniper_theme_enqueue() {
 	wp_enqueue_style( 'app-css', get_template_directory_uri() . '/dist/_app.css', array(), time() );
 	wp_enqueue_script( 'app-js', get_template_directory_uri() . '/dist/src/js/_app.js', array(), time(), true );
 }
 
-add_action( 'wp_enqueue_scripts', 'osom_theme_enqueue' );
+add_action( 'wp_enqueue_scripts', 'juniper_theme_enqueue' );
 
 
 /**

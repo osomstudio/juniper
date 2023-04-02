@@ -1,6 +1,6 @@
 <?php
 
-namespace Osom\Taxonomies;
+namespace Juniper\Taxonomies;
 
 class replace_taxonomy_slug {
 	public string $taxonomy_slug;

@@ -55,7 +55,7 @@ echo "#/ SALTS" >> .env;
 
 composer install --ignore-platform-reqs
 
-cd web/app/themes/osom-theme
+cd web/app/themes/juniper-theme
 npm install
 
 composer install --ignore-platform-reqs

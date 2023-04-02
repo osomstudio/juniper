@@ -13,7 +13,7 @@ if [ ! -f "$FILE" ] && [ ! -f "$ENV" ]; then
 else
   echo "It seems that your project is already installed. You can begin editing scss and js files now."
   sleep 5
-  cd web/app/themes/osom-theme
+  cd web/app/themes/juniper-theme
   npm run dev
 fi
 

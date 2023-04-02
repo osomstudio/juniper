@@ -11,7 +11,7 @@
 
 ## Overview
 
-OsomTheme is symbiosis of <a href="https://github.com/roots/bedrock">Bedrock</a> boilerplate and <a href="https://github.com/timber/timber">Timber</a>.
+JuniperTheme is symbiosis of <a href="https://github.com/roots/bedrock">Bedrock</a> boilerplate and <a href="https://github.com/timber/timber">Timber</a>.
 
 Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
 Timber allows you to use twig templating system in your WP project.
@@ -48,7 +48,7 @@ With this approach you can create theme code with logic files separated from fro
    $ bash work.sh
    ```
    in main project directory
-7. Start coding your theme in /web/app/themes/osom-theme/ :)
+7. Start coding your theme in /web/app/themes/juniper-theme/ :)
 
 ## Composer dependencies
 

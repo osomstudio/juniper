@@ -14,7 +14,7 @@ lowercase_full_name=$(echo $full_name | tr '[:upper:]' '[:lower:]')
 slug_name=$(echo $lowercase_full_name | tr ' ' '-')
 
 #CHECK IF A BLOCK ALREADY EXISTS
-[ -d "./web/app/themes/osom-theme/views/blocks/${slug_name}" ] && echo "A block with this name already exists" && exit
+[ -d "./web/app/themes/juniper-theme/views/blocks/${slug_name}" ] && echo "A block with this name already exists" && exit
 
 read -p "What are the keywords ? " keywords
 #VALIDATION -IT CAN ONLY HAVE BIG AND SMALL LETTERS, SPACES, DASHES, FLOORS
@@ -66,7 +66,7 @@ add_filter(\n\n
 });"
 
 #GET TO BLOCKS FOLDER
-cd ./web/app/themes/osom-theme/views/blocks/
+cd ./web/app/themes/juniper-theme/views/blocks/
 
 # shellcheck disable=SC2016
 touch "${slug_name}.twig"

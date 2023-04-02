@@ -1,8 +1,8 @@
 <?php
 
-namespace Osom\Blocks;
+namespace Juniper\Blocks;
 
-class OsomBlocks {
+class JuniperBlocks {
 	public string $blocks_dir;
 	private array $blocks_list;
 
