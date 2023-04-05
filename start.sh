@@ -40,6 +40,9 @@ echo "#/ ENV" >> .env;
 echo "" >> .env;
 echo "" >> .env;
 
+htaccess="$(cat '.htaccess')"
+> '.htaccess'
+echo "$htaccess" | sed -r "s/juniper.local/$domain/g" >> '.htaccess'
 
 echo "# SALTS" >> .env;
 wget -qO /tmp/wp.keys https://api.wordpress.org/secret-key/1.1/salt/
