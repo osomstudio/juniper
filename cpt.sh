@@ -46,8 +46,6 @@ phpcbf "${slug_name}.php"
 
 cd ..
 
-composer dump-autoload -o
-
 echo '$juniper_cpt_replace_cpt_slug = new \Juniper\Cpt\replace_cpt_slugCPT();' >> include.php
 
 sed -i'' -e "s/$searchSlug/$variable_name/" include.php

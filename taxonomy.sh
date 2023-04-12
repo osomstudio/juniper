@@ -52,8 +52,6 @@ phpcbf "${slug_name}.php"
 
 cd ..
 
-composer dump-autoload -o
-
 echo '$juniper_taxonomy_replace_rewrite_name = new \Juniper\Taxonomies\replace_taxonomy_slug();' >> include.php
 
 sed -i'' -e "s/$searchSlug/$slug_name/" include.php
