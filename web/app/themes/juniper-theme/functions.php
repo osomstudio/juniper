@@ -23,8 +23,9 @@ if ( file_exists( $composer_autoload ) ) {
 require_once 'inc/include.php';
 
 function juniper_theme_enqueue() {
-	wp_enqueue_style( 'app-css', get_template_directory_uri() . '/dist/_app.css', array(), time() );
-	wp_enqueue_script( 'app-js', get_template_directory_uri() . '/dist/src/js/_app.js', array(), time(), true );
+	$refresh_cache_time = time();
+	wp_enqueue_style( 'app-css', get_template_directory_uri() . '/dist/_app.css', array(), $refresh_cache_time );
+	wp_enqueue_script( 'app-js', get_template_directory_uri() . '/dist/src/js/_app.js', array(), $refresh_cache_time, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'juniper_theme_enqueue' );
