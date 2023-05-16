@@ -1,21 +1,79 @@
-name: Deploy to Remote Server
+# name: Deploy to Remote Server
+# on:
+#   push:
+#     branches: [ 'master' ]
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v2
+
+#       - name: Configure SSH Key
+#         run: |
+#           echo "${{ secrets.DEPLOY_KEY }}" > deploy_key
+#           chmod 600 ./deploy_key
+
+#       - name: Deploy to Remote Server
+#         run: |
+#           rsync -r -e "ssh -i ./deploy_key -o StrictHostKeyChecking=no -p 18765" --delete ./web/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:~/www/webdevw30.sg-host.com/
+name: Deploy via rsync
+#
+# More info: https://docs.github.com/en/actions/reference/events-that-trigger-workflows
+#
+# Requires 4 secret keys:
+#
+# PRODUCTION_SERVER_SSH_KEY       --Private SSH key
+# PRODUCTION_SERVER_REMOTE_USER   --SSH user on receiving end
+# PRODUCTION_SERVER_REMOTE_HOST   --host.domain.com or IP
+# PRODUCTION_SERVER_REMOTE_TARGET --Base target directory, ex: /home/user/public_html
+#
+
 on:
   push:
     branches: [ 'master' ]
-
+   
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # This workflow contains a single job called "deploy"
   deploy:
-    runs-on: ubuntu-latest
+    # The type of runner that the job will run on
+    # Replace with your preferred runner tag if needed
+    runs-on: self-hosted
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout Repository
+      - name: Checkout Branch
         uses: actions/checkout@v2
-
-      - name: Configure SSH Key
-        run: |
-          echo "${{ secrets.DEPLOY_KEY }}" > deploy_key
-          chmod 600 ./deploy_key
-
-      - name: Deploy to Remote Server
-        run: |
-          rsync -r -e "ssh -i ./deploy_key -o StrictHostKeyChecking=no -p 18765" --delete ./web/ u15-6vpbutqugswn@$35.207.112.194:~/www/webdevw30.sg-host.com/
+      
+      - name: Deploy to Production via rsync
+        # https://github.com/easingthemes/ssh-deploy
+        uses: easingthemes/ssh-deploy@v2
+        env:
+          
+          # SSH key must be PEM format, 4096 bit:
+          # ssh-keygen -m PEM -t rsa -b 4096
+          
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          
+          # rsync arguments explained (more detail here: https://ss64.com/bash/rsync_options.html)
+          #
+          # -r, --recursive This tells rsync to copy directories recursively. See also --dirs (-d).
+          # -l, --links When symlinks are encountered, recreate the symlink on the destination.
+          # -t, --times This tells rsync to transfer modification times along with the files and update them on the remote system.        
+          # -D The -D option is equivalent to --devices --specials. 
+          # -z, --compress With this option, rsync compresses the file data as it is sent to the destination machine
+          # -v, --verbose This option increases the amount of information you are given during the transfer. 
+          # -O, --omit-dir-times This tells rsync to omit directories when it is preserving modification times (see --times).
+          # --delete This tells rsync to delete extraneous files from the receiving side (ones that aren't on the sending side),
+          #          but only for the directories that are being synchronized.
+          
+          ARGS: "-rltDzvO --delete"
+          # SOURCE is excluded here, defaults to root of repository. For post-build deploys, see example below:
+          # SOURCE: "public/"
+          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }} # format host.domain.com or IP
+          REMOTE_USER: ${{ secrets.DEPLOY_USER }} # SSH user on receiving end
+          TARGET: ~/www/webdevw30.sg-host.com/    # Base target directory, ex: /home/user/public_html
+          EXCLUDE: "logs, .gitignore, .github"           # Exclude specific files and directories
