@@ -39,4 +39,6 @@ jobs:
       
     - name: Run test phpcs
       working-directory: ./github
-      run: composer run test
+      run: |
+        composer run test
+        composer run phpcbf
