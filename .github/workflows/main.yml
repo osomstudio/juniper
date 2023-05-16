@@ -18,4 +18,4 @@ jobs:
 
       - name: Deploy to Remote Server
         run: |
-          rsync -r -e "ssh -i ./deploy_key -o StrictHostKeyChecking=no -p 18765" --delete ./web/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:~/www/webdevw30.sg-host.com/
+          rsync -r -e "ssh -i ./deploy_key -o StrictHostKeyChecking=no -p 18765" --delete ./web/ u15-6vpbutqugswn@$35.207.112.194:~/www/webdevw30.sg-host.com/
