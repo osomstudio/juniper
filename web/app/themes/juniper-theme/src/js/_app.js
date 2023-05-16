@@ -30,8 +30,8 @@ function LoadApp() {
   app.initCore(); // runs on initialize
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', LoadApp);
-} else {
-  LoadApp();
+if (document.readyState === 'loading') { 
+  document.addEventListener('DOMContentLoaded', LoadApp); 
+} else { 
+  LoadApp(); 
 }

@@ -31,7 +31,7 @@
 		"build-editor": "parcel build src/js/_editor.js --public-url ./",
 		"cypress": "./node_modules/.bin/cypress open",
 		"flint": "eslint --fix ./src/js/**/*",
-		"pretest": "eslint --ignore-path .gitignore ./src/js/**/* --fix"
+		"pretest": "eslint --ignore-path .gitignore ./src/js/**/* --fix && eslint --ignore-path .gitignore ./blocks/**/*.js --fix"
 	},
 	"husky": {
 		"hooks": {
