@@ -13,7 +13,6 @@ jobs:
 
       - name: Configure SSH Key
         run: |
-          mkdir -p ~/.ssh/
           echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -t rsa ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
