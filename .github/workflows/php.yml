@@ -1,12 +1,12 @@
-# name: PHP Composer
+name: PHP Composer
 
-# on:
-#   push:
-#     branches:
-#       - '**'
-#   pull_request:
-#     branches:
-#       - '**'
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
 
 # permissions:
 #   contents: read
