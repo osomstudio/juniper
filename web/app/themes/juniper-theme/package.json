@@ -19,9 +19,9 @@
 		"@parcel/transformer-sass": "^2.5.0",
 		"eslint": "^8.40.0",
 		"eslint-config-airbnb-base": "^15.0.0",
+		"husky": "^4.3.8",
 		"litepicker": "^2.0.11",
 		"parcel": "^2.5.0",
-		"pre-commit": "^1.2.2",
 		"sass": "^1.26.5"
 	},
 	"scripts": {
@@ -30,11 +30,14 @@
 		"build": "parcel build src/js/_app.js blocks/**/*.js blocks/**/*.scss --public-url ./",
 		"build-editor": "parcel build src/js/_editor.js --public-url ./",
 		"cypress": "./node_modules/.bin/cypress open",
-		"flint": "eslint --fix ./src/js/**/*"
+		"flint": "eslint --fix ./src/js/**/*",
+		"pretest": "eslint --ignore-path .gitignore ./src/js/**/* --fix"
 	},
-  "pre-commit": [
-    "flint"
-  ],
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run pretest"
+		}
+	},
 	"author": "osom",
 	"license": "ISC"
 }
