@@ -53,8 +53,35 @@ $toplayer: 100;
 
 @import 'views/page-home';
 
-@import 'components/buttons';
-@import 'components/forms';
+// @import 'components/buttons';
+// @import 'components/forms';
 
-@import 'layout/footer';
-@import './../css/vendor/swiper.scss';
+// @import 'layout/footer';
+// @import './../css/vendor/swiper.scss';
+
+/**
+*
+* Here we can write all of our theme-wide scss
+*
+**/
+
+
+#footer {
+    color: #fff;
+    position: relative;
+}
+
+#footer:after {
+    background: #093642;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 50%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transform: skewY(1.5deg);
+    transform-origin: 100%;
+    z-index: -1;
+}
+

@@ -4,6 +4,8 @@
   </a>
 </p>
 
+## Release number: %%version%%
+
 
 <p align="center">
   <strong>Juniper - WordPress starter boilerplate + theme</strong>

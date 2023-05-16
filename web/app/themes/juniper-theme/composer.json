@@ -3,7 +3,8 @@
     "type": "library",
     "require": {
         "timber/timber": "^1.19",
-        "palmiak/timber-acf-wp-blocks": "^1.15"
+        "palmiak/timber-acf-wp-blocks": "^1.15",
+        "scssphp/scssphp": "^1.11"
     },
     "autoload": {
         "psr-4": {
@@ -12,8 +13,13 @@
     },
     "authors": [
         {
-            "name": "bartnovak",
-            "email": "b.nowak@osomstudio.com"
+            "name": "Will Nahmens",
+            "email": "will@wp-stars.com"
         }
-    ]
+    ],
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
 }

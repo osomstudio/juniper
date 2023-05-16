@@ -1,0 +1,24 @@
+
+
+
+// #footer {
+//     color: #fff;
+//     position: relative;
+//     &:after {
+//         background: #093642;
+//         bottom: 0;
+//         content: '';
+//         display: block;
+//         height: 50%;
+//         left: 0;
+//         position: absolute;
+//         right: 0;
+//         transform: skewY(1.5deg);
+//         transform-origin: 100%;
+//         z-index: -1;
+//     }
+// }
+
+#content {
+    height: calc(100vh - ( 68px + 151px ));
+}

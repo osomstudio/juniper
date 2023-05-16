@@ -14,7 +14,7 @@ else
   echo "It seems that your project is already installed. You can begin editing scss and js files now."
   sleep 5
   cd web/app/themes/juniper-theme
-  npm run dev
+  npx tailwindcss -i ./tailwind.css -o ./src/css/_tailwindStyles.css --watch
 fi
 
 

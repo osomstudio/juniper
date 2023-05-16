@@ -22,10 +22,77 @@ if ( file_exists( $composer_autoload ) ) {
 
 require_once 'inc/include.php';
 
+
+
+/**
+ * @param string $scssFile the File we want to watch
+ * @param bool $is_import the watched file is a file that gets importet in scss via @import
+ * @param string $fileToCombile the file that needs to be recombiled when the $scssFile file changes
+ */
+
+function check_for_recompile( string $scssFile, bool $is_import = false, string $fileToCombile=''){
+    $cssFile = __DIR__ . '/src/css/theme.min.css';
+    $mapFile = 'style.map';
+
+    if(!file_exists($scssFile)){
+
+        // show message for Administrators
+        if(function_exists('current_user_can')){
+            if(current_user_can('Administrator')){
+                $style="position:fixed; top: 0; left: 0; right: 0; background: red; color: white; text-align: center; padding: 0.5rem;";
+                echo '<div style="'.$style.'">'.$scssFile . ' - file not found in scss compiler'.'</div>';
+            }
+        }
+        return;
+    };
+
+    
+    if( filemtime($scssFile) > filemtime($cssFile) || filesize($cssFile) == 0) {
+
+        try {
+            $wp_root_path = str_replace('/wp-content/themes', '', get_theme_root());
+            $compiler = new ScssPhp\ScssPhp\Compiler();
+            $compiler->setImportPaths(__DIR__ . '/scss');
+            $compiler->setOutputStyle(ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
+            $compiler->setSourceMap(ScssPhp\ScssPhp\Compiler::SOURCE_MAP_FILE);
+            $compiler->setSourceMapOptions([
+                'sourceMapURL' =>  get_stylesheet_directory_uri() . '/style.map',
+                'sourceMapBasepath' => get_stylesheet_directory_uri(),//$wp_root_path
+            ]);
+
+            if(true === $is_import){
+                $scssRawString = file_get_contents($fileToCombile);
+            }else{
+                $scssRawString = file_get_contents($scssFile);
+            }
+
+            $result =  $compiler->compileString($scssRawString);
+
+            if(!!$result){
+                file_put_contents($mapFile, $result->getSourceMap());
+                file_put_contents($cssFile, $result->getCss());
+            }
+
+        } catch(\Exception $e){
+            // show message for Administrators
+            if(function_exists('current_user_can')){
+                if(current_user_can('administrator')){
+                    $style="position:fixed; top: 0; left: 0; right: 0; background: red; color: white; text-align: center; padding: 0.5rem; z-index: 999999999;";
+                    echo '<div style="'.$style.'">scssphp: Unable to compile content: '.$e->getMessage().'</div>';
+                }
+            }
+        }
+    }
+}
+
 function juniper_theme_enqueue() {
 	$refresh_cache_time = time();
-	wp_enqueue_style( 'app-css', get_template_directory_uri() . '/dist/_app.css', array(), $refresh_cache_time );
+	wp_enqueue_style( 'tailwind-css', get_template_directory_uri() . '/src/css/_tailwindStyles.css', array(), $refresh_cache_time );
 	wp_enqueue_script( 'app-js', get_template_directory_uri() . '/dist/src/js/_app.js', array(), $refresh_cache_time, true );
+
+    check_for_recompile( __DIR__ . '/src/scss/_project.scss', true, __DIR__ . '/src/scss/_project.scss');
+	wp_enqueue_style( 'theme-css', get_template_directory_uri() . '/src/css/theme.min.css', array(), $refresh_cache_time );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'juniper_theme_enqueue' );

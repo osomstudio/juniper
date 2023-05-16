@@ -1,0 +1,26 @@
+{#
+ 	Title: split-text-image
+ 	Description: This block shows an image on one side, and a title, text, and link on the other.
+ 	Category: formatting
+ 	Icon: admin-comments
+ 	Keywords: column text image split
+ 	Mode: edit
+ 	Align: full
+ 	PostTypes: page post
+ 	SupportsAlign: left right full
+ 	SupportsMode: true
+ 	SupportsMultiple: true
+#}
+<style>
+	
+</style>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<div class="card shadow">
+				<h1>{{ fields.title }}</h1>
+				<p>{{ fields.content }}</p>
+			</div>
+		</div>
+	</div>
+</div>

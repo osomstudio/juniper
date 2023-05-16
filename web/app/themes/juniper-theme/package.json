@@ -1,5 +1,5 @@
 {
-	"name": "parcel-juniper-theme",
+	"name": "juniper-theme",
 	"version": "1.0.0",
 	"description": "",
 	"repository": {
@@ -13,19 +13,26 @@
 		"cypress": "^12.0.2",
 		"imagesloaded": "^4.1.4",
 		"jquery": "^3.6.0",
-		"postcss": "^8.3.6"
+		"postcss": "^8.3.6",
+		"postcss-nested": "^6.0.1",
+		"tailwindcss": "^3.3.2"
 	},
 	"devDependencies": {
 		"@parcel/transformer-sass": "^2.5.0",
+		"cross-env": "^7.0.3",
+		"laravel-mix": "^6.0.49",
 		"litepicker": "^2.0.11",
 		"parcel": "^2.5.0",
 		"sass": "^1.26.5"
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "parcel watch src/js/_app.js blocks/**/*.js blocks/**/*.scss --public-url ./ --no-source-maps",
-		"build": "parcel build src/js/_app.js blocks/**/*.js blocks/**/*.scss --public-url ./",
-		"build-editor": "parcel build src/js/_editor.js --public-url ./",
+		"dev": "npm run development",
+		"development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"watch": "npm run development -- --watch",
+		"watch-poll": "npm run watch -- --watch-poll",
+		"hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"prod": "npm run production",
+		"production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js",
 		"cypress": "./node_modules/.bin/cypress open"
 	},
 	"author": "osom",
