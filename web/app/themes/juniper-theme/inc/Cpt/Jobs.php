@@ -18,8 +18,8 @@ class Jobs {
 			$this->cpt_slug,
 			array(
 				'labels'      => array(
-					'name'          => __( $this->cpt_name ),
-					'singular_name' => __( $this->cpt_name, ),
+					'name'          => $this->cpt_name,
+					'singular_name' => $this->cpt_name,
 				),
 				'public'      => true,
 				'has_archive' => true,
