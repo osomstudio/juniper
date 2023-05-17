@@ -18,4 +18,4 @@ jobs:
 
       - name: Deploy to Remote Server
         run: |
-          rsync -r --progress --exclude='node_modules/' --exclude='vendor/' -e "ssh -i ./deploy_key -o StrictHostKeyChecking=no -p 18765"  ./ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:~/www/webdevw30.sg-host.com/public_html/
+          ssh -i ./deploy_key -o StrictHostKeyChecking=no -p 18765 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} 'cd ~/www/webdevw30.sg-host.com/public_html/juniper && git pull'
