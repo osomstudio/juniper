@@ -30,15 +30,16 @@ jobs:
       working-directory: ./github
       run: composer install --prefer-dist --no-progress
 
-#     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-#     # Docs: https://getcomposer.org/doc/articles/scripts.md
+    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getcomposer.org/doc/articles/scripts.md
 
-#     - name: Run set phpcs suite
-#       working-directory: ./github
-#       run: composer run set
+    - name: Run set phpcs suite
+      working-directory: ./github
+      run: composer run set
       
-#     - name: Run test phpcs
-#       working-directory: ./github
-#       run: |
-#         composer run test
-#         composer run phpcbf
+    - name: Run fix phpcbf then test
+      working-directory: ./github
+      run: |
+        composer run fix
+        composer run test
+

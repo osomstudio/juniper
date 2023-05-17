@@ -77,6 +77,9 @@
     "test": [
       "phpcs"
     ],
+    "fix": [
+      "phpcbf -d memory_limit=512M -p"
+    ],
     "start": [
       "composer install",
       "cd web/app/themes/* && npm install && composer install"
