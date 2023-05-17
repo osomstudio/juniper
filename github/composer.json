@@ -12,6 +12,7 @@
     },
     "scripts": {
         "test": "phpcs --standard=WordPress-Extra --extensions=php ../web/app/themes --exclude=WordPress.Files.FileName -n -s",
-        "set" : "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
+        "set" : "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs",
+        "fix" : "phpcbf -d memory_limit=512M -p"
     }
 }
