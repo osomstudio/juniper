@@ -1,11 +1,8 @@
 <p align="center">
-  <a href="https://osomstudio.com">
+  <a href="https://wp-stars.com">
     <img alt="Juniper" src="https://5924544.fs1.hubspotusercontent-na1.net/hubfs/5924544/juniper/398672602-juniper-logo-01.png" height="300">
   </a>
 </p>
-
-## Release number: %%version%%
-
 
 <p align="center">
   <strong>Juniper - WordPress starter boilerplate + theme</strong>
@@ -32,7 +29,7 @@ With this approach you can create theme code with logic files separated from fro
 - PHP >= 7.4
 - Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
 
-## Installation
+## Local Installation
 
 1. Create local database as you would do for normal WP instance
 2. Map project main catalogue to domain on your localhost
@@ -51,6 +48,57 @@ With this approach you can create theme code with logic files separated from fro
    ```
    in main project directory
 7. Start coding your theme in /web/app/themes/juniper-theme/ :)
+
+## Remote Installation
+
+
+Add ssh key from server to GitHub account
+
+Clone repo
+
+Run bash start.sh
+
+Enter these details: 
+
+dbm8dzw1rjchyp
+
+ujl0wiukrrpkb
+junipeR&&
+
+b3JkZXJfaWQ9NTc3NDN8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE1LTA2LTA5IDE0OjE4OjMz
+
+
+Put this .htaccess in the public_html folder
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^(www.)webdevw30.sg-host.com$
+RewriteCond %{REQUEST_URI} !^/juniper/web/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /juniper/web/$1
+RewriteCond %{HTTP_HOST} ^(www.)webdevw30.sg-host.com$
+RewriteRule ^(/)?$ juniper/web/index.php [L]
+
+RewriteEngine On
+RewriteRule ^$ /juniper/web/ [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/juniper/web/
+RewriteRule ^(.*)$ /juniper/web/$1
+
+# This does not expose the internal URL.
+RewriteCond %{SCRIPT_FILENAME} -d
+RewriteRule ^juniper/web/(.*[^/])$ http://webdevw30.sg-host.com/$1/ [R=301]
+
+</IfModule>
+
+Folder structure ~/www.example.com/public_html/juniper/web/
+
+
+
+## Deployment 
 
 ## Composer dependencies
 

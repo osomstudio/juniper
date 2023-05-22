@@ -31,8 +31,8 @@ require_once 'inc/include.php';
  */
 
 function check_for_recompile( string $scssFile, bool $is_import = false, string $fileToCombile=''){
-    $cssFile = __DIR__ . '/src/css/theme.min.css';
-    $mapFile = 'style.map';
+    $css_file = __DIR__ . '/src/css/theme.min.css';
+    $map_file = 'style.map';
 
     if(!file_exists($scssFile)){
 
@@ -47,7 +47,7 @@ function check_for_recompile( string $scssFile, bool $is_import = false, string 
     };
 
     
-    if( filemtime($scssFile) > filemtime($cssFile) || filesize($cssFile) == 0) {
+    if( filemtime($scssFile) > filemtime($css_file) || filesize($css_file) == 0) {
 
         try {
             $wp_root_path = str_replace('/wp-content/themes', '', get_theme_root());
@@ -61,16 +61,16 @@ function check_for_recompile( string $scssFile, bool $is_import = false, string 
             ]);
 
             if(true === $is_import){
-                $scssRawString = file_get_contents($fileToCombile);
+                $scss_raw_string = file_get_contents($fileToCombile);
             }else{
-                $scssRawString = file_get_contents($scssFile);
+                $scss_raw_string = file_get_contents($scssFile);
             }
 
-            $result =  $compiler->compileString($scssRawString);
+            $result =  $compiler->compileString($scss_raw_string);
 
             if(!!$result){
-                file_put_contents($mapFile, $result->getSourceMap());
-                file_put_contents($cssFile, $result->getCss());
+                file_put_contents($map_file, $result->getSourceMap());
+                file_put_contents($css_file, $result->getCss());
             }
 
         } catch(\Exception $e){
