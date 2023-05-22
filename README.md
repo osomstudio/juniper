@@ -51,22 +51,11 @@ With this approach you can create theme code with logic files separated from fro
 
 ## Remote Installation
 
-
 Add ssh key from server to GitHub account
 
 Clone repo
 
 Run bash start.sh
-
-Enter these details: 
-
-dbm8dzw1rjchyp
-
-ujl0wiukrrpkb
-junipeR&&
-
-b3JkZXJfaWQ9NTc3NDN8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE1LTA2LTA5IDE0OjE4OjMz
-
 
 Put this .htaccess in the public_html folder
 
