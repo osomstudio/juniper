@@ -40,14 +40,15 @@ With this approach you can create theme code with logic files separated from fro
    and follow the instructions in the console.
    Type in details from step 1 and 2. .env file will
    be crated for you (all DB and site details sits there)
-4. Fill correct domain details in .htaccess in main catalogue.
-5. Check if /web/ directory has .htaccess file with default WP entries.
-6. Run 
+4. Local url should be localhost:8888/juniper/web
+5. Fill correct domain details in .htaccess in main catalogue.
+6. Check if /web/ directory has .htaccess file with default WP entries.
+7. Run 
    ```sh
    $ bash work.sh
    ```
    in main project directory
-7. Start coding your theme in /web/app/themes/juniper-theme/ :)
+8. Start coding your theme in /web/app/themes/juniper-theme/ :)
 
 ## Remote Installation
 
@@ -58,7 +59,7 @@ Clone repo
 Run bash start.sh
 
 Put this .htaccess in the public_html folder
-
+```
 <IfModule mod_rewrite.c>
 RewriteEngine on
 RewriteCond %{HTTP_HOST} ^(www.)webdevw30.sg-host.com$
@@ -82,9 +83,8 @@ RewriteCond %{SCRIPT_FILENAME} -d
 RewriteRule ^juniper/web/(.*[^/])$ http://webdevw30.sg-host.com/$1/ [R=301]
 
 </IfModule>
-
+```
 Folder structure ~/www.example.com/public_html/juniper/web/
-
 
 
 ## Deployment 
