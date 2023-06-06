@@ -4,3 +4,64 @@
  * Author: WP Stars
 */
 
+@font-face {
+    font-family: 'Red Hat Display Light';
+    src: url('fonts/RedHatDisplay/RedHatDisplay-Light.eot');
+    src: url('fonts/RedHatDisplay/RedHatDisplay-Light.eot?#iefix') format('embedded-opentype'),
+    url('fonts/RedHatDisplay/RedHatDisplay-Light.woff2') format('woff2'),
+    url('fonts/RedHatDisplay/RedHatDisplay-Light.woff') format('woff'),
+    url('fonts/RedHatDisplay/RedHatDisplay-Light.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Red Hat Display Bold';
+    src: url('fonts/RedHatDisplay/RedHatDisplay-Bold.eot');
+    src: url('fonts/RedHatDisplay/RedHatDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+    url('fonts/RedHatDisplay/RedHatDisplay-Bold.woff2') format('woff2'),
+    url('fonts/RedHatDisplay/RedHatDisplay-Bold.woff') format('woff'),
+    url('fonts/RedHatDisplay/RedHatDisplay-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Red Hat Display Extra Bold';
+    src: url('fonts/RedHatDisplay/RedHatDisplay-ExtraBold.eot');
+    src: url('fonts/RedHatDisplay/RedHatDisplay-ExtraBold.eot?#iefix') format('embedded-opentype'),
+    url('fonts/RedHatDisplay/RedHatDisplay-ExtraBold.woff2') format('woff2'),
+    url('fonts/RedHatDisplay/RedHatDisplay-ExtraBold.woff') format('woff'),
+    url('fonts/RedHatDisplay/RedHatDisplay-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Red Hat Display Italic';
+    src: url('fonts/RedHatDisplay/RedHatDisplay-Italic.eot');
+    src: url('fonts/RedHatDisplay/RedHatDisplay-Italic.eot?#iefix') format('embedded-opentype'),
+    url('fonts/RedHatDisplay/RedHatDisplay-Italic.woff2') format('woff2'),
+    url('fonts/RedHatDisplay/RedHatDisplay-Italic.woff') format('woff'),
+    url('fonts/RedHatDisplay/RedHatDisplay-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Red Hat Display Variable';
+    src: url('fonts/RedHatDisplay/RedHatDisplay-Variable.eot');
+    src: url('fonts/RedHatDisplay/RedHatDisplay-Variable.eot?#iefix') format('embedded-opentype'),
+    url('fonts/RedHatDisplay/RedHatDisplay-Variable.woff2') format('woff2'),
+    url('fonts/RedHatDisplay/RedHatDisplay-Variable.woff') format('woff'),
+    url('fonts/RedHatDisplay/RedHatDisplay-Variable.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Red Hat Mono';
+    src: url('fonts/RedHatMono/RedHatMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

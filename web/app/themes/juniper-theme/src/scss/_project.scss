@@ -1,22 +1,90 @@
+/* General styles */
+body {
+    font-family: 'Red Hat Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+}
 
-// #footer {
-//     color: #fff;
-//     position: relative;
-//     &:after {
-//         background: #093642;
-//         bottom: 0;
-//         content: '';
-//         display: block;
-//         height: 50%;
-//         left: 0;
-//         position: absolute;
-//         right: 0;
-//         transform: skewY(1.5deg);
-//         transform-origin: 100%;
-//         z-index: -1;
-//     }
-// }
+h1 {
+    font-family: 'Red Hat Display Variable';
+    font-style: normal;
+    font-weight: 645;
+    font-size: 90px;
+    line-height: 110px;
+}
+
+h2 {
+    font-family: 'Red Hat Display Variable';
+    font-style: normal;
+    font-weight: 645;
+    font-size: 50px;
+    line-height: 66px;
+    color: #1E1E1E;
+}
+
+
+/**
+* Custom Utilities
+ */
+
+.text-white {
+    color: #fff !important;
+}
+
+.bg-dark-transparent {
+    background-color: rgba(9, 54, 66, 0.7);
+}
+
+.angled-bottom {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 77%);
+}
+
+.angled-top {
+    clip-path: polygon(0 0, 100% 23%, 100% 100%, 0 100%);
+}
 
 #content {
-    height: calc(100vh - ( 68px + 151px ));
+    min-height: calc(100vh - ( 68px + 151px ));
+}
+
+.background {
+    z-index: -1;
+}
+
+.split-text-background {    
+    height: 1000px;
+    width: 500px;
+    top: -200px;
+    right: 0;
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+
+// Jumbotron styles
+.jumbotron-shape-left {
+    position: absolute;
+    top: -100px;
+    height: 600px;
+    width: 400px;
+    clip-path: polygon(0 0, 0 100%, 17% 60%);
+    background-color: rgba(180, 212, 61, 0.6);
+}
+
+
+footer {
+    height: 505px;
+    background: #093642;
+
+    // &:after {
+    //     content: "";
+    //     background: #093642;
+    //     height: 300px;
+    //     transform: skewY(2deg);
+    //     position: absolute;
+    //     top: 5rem;
+    //     left: 0;
+    //     right: 0;
+    //     z-index: -1;
+    // }
 }

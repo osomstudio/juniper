@@ -15,8 +15,7 @@ add_action(
 add_filter(
     'timber/acf-gutenberg-blocks-data/employee-grid',
     function ( $context ) {
-
-        
+        $context['title'] = "Employees";
         return $context;
     }
 );

@@ -7,7 +7,12 @@ module.exports = {
     "!**/vendor/**"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#B4D43D',
+        dark: '#093642'
+      },
+    },
   },
   plugins: [],
 }

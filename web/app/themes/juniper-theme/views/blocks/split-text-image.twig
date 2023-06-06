@@ -11,17 +11,21 @@
  	SupportsMode: true
  	SupportsMultiple: true
 #}
-
-<div class="container mx-auto">
-	<div class="inline-flex {% if fields.orientation == 'textleft' %} flex-row-reverse {% endif %}">
-		<div>
-			<img src="{{ fields.image }}" />
-		</div>
-		<div>
-			<h5 class="text-xl font-bold">{{ fields.subtitle }}</h5>
-			<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">{{ fields.title }}</h1>
-			<p class="mb-3 text-gray-500 dark:text-gray-400">{{ fields.content }}</p>
-			<button class="btn btn-primary"></button>
+<div class="w-full relative">
+	<div class="bg-dark absolute split-text-background background">
+	</div>
+	<div class="container mx-auto relative">
+		<div class="inline-flex {% if fields.orientation == 'textleft' %} flex-row-reverse {% endif %}">
+			<div>
+				<img src="{{ fields.image }}" />
+			</div>
+			<div>
+				<h5 class="text-xl font-bold">{{ fields.intro_title }}</h5>
+				<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">{{ fields.title }}</h1>
+				<h3 class="text-xl font-bold text-primary">{{ fields.subtitle }}</h3>
+				<p class="mb-3 text-gray-500 dark:text-gray-400">{{ fields.content }}</p>
+				<a class="btn btn-primary" href="{{ fields.link_value }}">{{ fields.link_text }}</a>
+			</div>
 		</div>
 	</div>
 </div>

@@ -1,8 +1,8 @@
 {% if menu %}
-	<ul>
+	<ul class="flex flex-col font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
 	{% for item in items %}
 		<li class="{{ item.classes | join(' ') }}">
-			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+			<a class="block py-2 pl-3 pr-4 text-white bg-transparent rounded" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
 			{% include "menu.twig" with {'items': item.children} %}
 		</li>
 	{% endfor %}

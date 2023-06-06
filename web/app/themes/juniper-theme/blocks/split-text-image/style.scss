@@ -1,5 +1,10 @@
-.split-text-image {}
 
-body.wp-admin {
-	.split-text-image {}
+.split-text-background {
+    height: 600px;
+    width: 300px;
+    transform: rotate(0deg);
+    top: -100px;
+    right: 0;
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
 }
+

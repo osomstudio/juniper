@@ -8,6 +8,7 @@
  * @since   Timber 0.1
  */
 
+
 /**
  * If you are installing Timber as a Composer dependency in your theme, you'll need this block
  * to load your dependencies and initialize Timber. If you are using Timber via the WordPress.org
@@ -134,4 +135,22 @@ Timber::$autoescape = false;
 
 //StarterSite class
 require_once 'class-startersite.php';
-new StarterSite();
+$site = new StarterSite();
+
+add_theme_support( 'custom-logo' );
+
+add_filter( 'timber/context', 'wps_add_to_context' );
+function wps_add_to_context( $context ) {
+
+    $custom_logo_id = get_theme_mod( 'custom_logo' );
+    $logo = wp_get_attachment_image_url( $custom_logo_id , 'full' );
+    $context['logo'] = $logo;
+
+    $upload_dir = wp_upload_dir();
+    $context['uploads'] = $upload_dir;
+
+
+    //$context['menu'] = new \Timber\Menu( 'primary-menu' );
+
+    return $context;
+}

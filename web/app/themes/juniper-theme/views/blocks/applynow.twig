@@ -1,0 +1,30 @@
+{#
+ 	Title: applynow
+ 	Description: A block that displays an apply now field
+ 	Category: formatting
+ 	Icon: admin-comments
+ 	Keywords: contact apply
+ 	Mode: edit
+ 	Align: full
+ 	PostTypes: page post
+ 	SupportsAlign: left right full
+ 	SupportsMode: true
+ 	SupportsMultiple: true
+#}
+
+<div class="w-full relative">
+	<div class="container mx-auto relative">
+		<div class="inline-flex">
+			<div>
+				<h1 class="mb-4 text-5xl">{{ fields.title }}</h1>
+				<h3 class="text-xl font-bold text-primary">{{ fields.contact_name }}</h3>
+				<p class="mb-3 text-gray-500 dark:text-gray-400">{{ fields.contact_email }}</p>
+				<p class="mb-3 text-gray-500 dark:text-gray-400">{{ fields.contact_phone }}</p>
+				<a class="btn btn-primary" href="#">Jetzt Bewerben</a>
+			</div>
+			<div>
+				<img src="{{ fields.image }}" />
+			</div>
+		</div>
+	</div>
+</div>
