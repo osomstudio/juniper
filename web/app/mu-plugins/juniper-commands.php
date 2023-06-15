@@ -40,14 +40,16 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				);
 			}
 
-			//TODO: check if cpt and taxonomy already exists
-
 			public function cpt( $args, $assoc_args ) {
 				$og_name = $this->get_name( $assoc_args );
 
 				$this->validate_name( $og_name );
 
 				extract( $this->get_needed_names( $og_name ) );
+
+				if ( file_exists( "./web/app/themes/juniper-theme/inc/Cpt/$slug_name.php" ) ) {
+					WP_CLI::error( 'Custom post type already exists' );
+				}
 
 				$replace_array = array(
 					array( 'replace_cpt_slug', $slug_name ),
@@ -86,6 +88,10 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				$this->validate_name( $post_cpt );
 
 				extract( $this->get_needed_names( $og_name ) );
+
+				if ( file_exists( "./web/app/themes/juniper-theme/inc/Taxonomies/$slug_name.php" ) ) {
+					WP_CLI::error( 'Taxonomy already exists' );
+				}
 
 				$replace_array = array(
 					array( 'replace_taxonomy_slug', $slug_name ),
