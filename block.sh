@@ -1,31 +1,3 @@
-#!/bin/bash
-
-clear
-
-read -p "What's the name of the module ? " full_name
-#VALIDATION -IT CAN ONLY HAVE BIG AND SMALL LETTERS, SPACES, DASHES, FLOORS
-if [[ $full_name =~ ['!@#$%^&*()+'] ]]; then
-    echo "Module name can only have: letters, spaces, dashes, floors"
-    exit
-fi
-
-#CREATING A SLUG
-lowercase_full_name=$(echo $full_name | tr '[:upper:]' '[:lower:]')
-slug_name=$(echo $lowercase_full_name | tr ' ' '-')
-
-#CHECK IF A BLOCK ALREADY EXISTS
-[ -d "./web/app/themes/juniper-theme/views/blocks/${slug_name}" ] && echo "A block with this name already exists" && exit
-
-read -p "What are the keywords ? " keywords
-#VALIDATION -IT CAN ONLY HAVE BIG AND SMALL LETTERS, SPACES, DASHES, FLOORS
-if [[ $keywords =~ ['!@#$%^&*()+'] ]]; then
-    echo "Module name can only have: letters, spaces, dashes, floors"
-    exit
-fi
-
-read -p "Description ? " description
-
-
 #CREATING ADNOTATION
 frontend="{#\n
 \tTitle: ${full_name}\n

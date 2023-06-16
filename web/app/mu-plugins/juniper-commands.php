@@ -62,14 +62,10 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 					$file_contents = str_replace( $search_replace[0], $search_replace[1], $file_contents );
 				}
 
-				$new_file = fopen( "./web/app/themes/juniper-theme/inc/Cpt/$slug_name.php", 'w' );
-				fwrite( $new_file, $file_contents );
-				fclose( $new_file );
+				file_put_contents("./web/app/themes/juniper-theme/inc/Cpt/$slug_name.php", $file_contents);
 
 				$new_class   = "\$juniper_$slug_name = new \Juniper\cpt\\$slug_name();" . PHP_EOL;
-				$include_php = fopen( './web/app/themes/juniper-theme/inc/include.php', 'a' ) or die( 'Unable to open file!' );
-				fwrite( $include_php, $new_class );
-				fclose( $include_php );
+				file_put_contents('./web/app/themes/juniper-theme/inc/include.php', $new_class, FILE_APPEND);
 
 				shell_exec( "phpcbf --standard=WordPress-Extra ./web/app/themes/juniper-theme/inc/Cpt/$slug_name.php" );
 				shell_exec( 'phpcbf --standard=WordPress-Extra ./web/app/themes/juniper-theme/inc/include.php' );
@@ -105,16 +101,41 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 					$file_contents = str_replace( $search_replace[0], $search_replace[1], $file_contents );
 				}
 
-				$new_file = fopen( "./web/app/themes/juniper-theme/inc/Taxonomies/$slug_name.php", 'w' );
-				fwrite( $new_file, $file_contents );
-				fclose( $new_file );
+				file_put_contents("./web/app/themes/juniper-theme/inc/Taxonomies/$slug_name.php", $file_contents);
 
 				$new_class   = "\$juniper_$slug_name = new \Juniper\Taxonomies\\$slug_name();" . PHP_EOL;
-				$include_php = fopen( './web/app/themes/juniper-theme/inc/include.php', 'a' ) or die( 'Unable to open file!' );
-				fwrite( $include_php, $new_class );
-				fclose( $include_php );
+				file_put_contents('./web/app/themes/juniper-theme/inc/include.php', $new_class, FILE_APPEND);
 
 				shell_exec( 'phpcbf --standard=WordPress-Extra ./web/app/themes/juniper-theme/inc/include.php' );
+			}
+
+			public function block( $args, $assoc_args ) {
+				$og_name = $this->get_name( $assoc_args );
+
+				if ( ! preg_match( '/^[A-Za-z0-9-_ ]+$/i', $og_name ) ) {
+					WP_CLI::error( 'Name can only have: letters, spaces, dashes, floors' );
+				}
+
+				$lowercase_name = strtolower($og_name);
+				$slug_name = str_replace( ' ', '_', $lowercase_name );
+
+				if ( file_exists( "./web/app/themes/juniper-theme/Blocks/$slug_name/" ) ) {
+					WP_CLI::error( 'Block already exists' );
+				}
+
+				mkdir("./web/app/themes/juniper-theme/Blocks/$slug_name/", 0755);
+
+				$keywords = "";
+				if (key_exists('keywords', $assoc_args)) {
+					$keywords = $assoc_args['keywords'];
+				}
+
+				$description = "";
+				if (key_exists('description', $assoc_args)) {
+					$description = $assoc_args['description'];
+				}
+
+				file_put_contents("./web/app/themes/juniper-theme/Blocks/$slug_name/scripts.js", '');
 			}
 		}
 
