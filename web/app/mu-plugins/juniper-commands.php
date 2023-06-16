@@ -136,6 +136,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				}
 
 				file_put_contents("./web/app/themes/juniper-theme/Blocks/$slug_name/scripts.js", '');
+				file_put_contents("./web/app/themes/juniper-theme/Blocks/$slug_name/ajax.js", '');
 
 				$css = ".$slug_name {}\n\n" .
 				"body.wp-admin {\n" .
@@ -151,28 +152,28 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				"\t\twp_enqueue_style('$slug_name-css', \$theme_path . '/dist/blocks/$slug_name/style.css', array(), \$time, 'all');\n" .
 				"\t\twp_enqueue_script('$slug_name-js', \$theme_path . '/dist/blocks/$slug_name/script.js', array(), \$time, true);\n" .
 				"\t}\n" . 
-				"});\n\n
-				add_filter(\n\n
-				\t'timber/acf-gutenberg-blocks-data/$slug_name',\n\n
-				\tfunction( \$context ) {\n
-				\treturn \$context;\n
-				});";
+				"});\n\n" .
+				"add_filter(\n" .
+				"\t'timber/acf-gutenberg-blocks-data/$slug_name',\n" .
+				"\tfunction( \$context ) {\n" .
+				"\treturn \$context;\n" .
+				"});";
 				file_put_contents("./web/app/themes/juniper-theme/Blocks/$slug_name/functions.php", $php);
 
-				$html = "{#\n
-				\tTitle: $og_name\n
-				\tDescription: $description\n
-				\tCategory: formatting\n
-				\tIcon: admin-comments\n
-				\tKeywords: $keywords\n
-				\tMode: edit\n
-				\tAlign: full\n
-				\tPostTypes: page post\n
-				\tSupportsAlign: left right full\n
-				\tSupportsMode: true\n
-				\tSupportsMultiple: true\n" .
+				$html = "{#\n" .
+				"\tTitle: $og_name\n" .
+				"\tDescription: $description\n" .
+				"\tCategory: formatting\n" .
+				"\tIcon: admin-comments\n" .
+				"\tKeywords: $keywords\n" .
+				"\tMode: edit\n" .
+				"\tAlign: full\n" .
+				"\tPostTypes: page post\n" .
+				"\tSupportsAlign: left right full\n" .
+				"\tSupportsMode: true\n" .
+				"\tSupportsMultiple: true\n" .
 				"#}";
-				file_put_contents("./web/app/themes/juniper-theme/Blocks/$slug_name/$slug_name.twig", $html);
+				file_put_contents("./web/app/themes/juniper-theme/views/blocks/$slug_name.twig", $html);
 
 				shell_exec( "phpcbf --standard=WordPress-Extra ./web/app/themes/juniper-theme/Blocks/$slug_name/functions.php" );
 			}
