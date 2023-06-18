@@ -2,6 +2,27 @@
 
 clear
 
+echo "Checking if you have required packages."
+sleep 2
+
+phpcs_not_installed=$(which phpcs)
+if [[ $phpcs_not_installed == "" ]]; then
+  echo "PHPCS is not installed"
+  exit
+fi
+
+phpcbf_not_installed=$(which phpcbf)
+if [[ $phpcbf_not_installed == "" ]]; then
+  echo "PHPCBF is not installed"
+  exit
+fi
+
+standard_not_installed=$(phpcbf -i | grep "WordPress-Extra")
+if [[ -z $standard_not_installed ]]; then
+  echo "WordPress-Extra standard is not installed"
+  exit
+fi
+
 echo "Checking if it's fresh install of project."
 sleep 2
 
@@ -9,7 +30,7 @@ FILE=composer.json
 
 if [ ! -f "$FILE" ]; then
   echo "No composer.json found."
-  sleep 10
+  exit
 else
   echo "I found composer.json. Let's begin downloading required libraries."
   sleep 2
