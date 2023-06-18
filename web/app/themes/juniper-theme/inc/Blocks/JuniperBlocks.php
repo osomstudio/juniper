@@ -7,7 +7,7 @@ class JuniperBlocks {
 	private array $blocks_list;
 
 	public function __construct() {
-		$this->blocks_dir  = get_template_directory() . '/blocks';
+		$this->blocks_dir  = get_template_directory() . '/views/blocks';
 		$this->blocks_list = $this->get_all_blocks();
 
 	}
@@ -18,7 +18,7 @@ class JuniperBlocks {
 
 	public function include_blocks_functions() {
 		foreach ( $this->blocks_list as $single_block ) {
-			require_once get_template_directory() . '/blocks/' . $single_block . '/functions.php';
+			require_once get_template_directory() . '/views/blocks/' . $single_block . '/functions.php';
 		}
 	}
 }
