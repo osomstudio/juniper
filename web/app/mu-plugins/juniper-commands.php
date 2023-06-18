@@ -40,6 +40,20 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				);
 			}
 
+			/**
+			 * Adds a new custom post type.
+			 *
+			 * ## OPTIONS
+			 *
+			 * [--name]
+			 * : The name of custom post type you want
+			 *
+			 * ## EXAMPLES
+			 *
+			 *     wp add cpt --name="Products"
+			 *
+			 * @when before_wp_load
+			 */
 			public function cpt( $args, $assoc_args ) {
 				$og_name = $this->get_name( $assoc_args );
 
@@ -47,7 +61,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 
 				extract( $this->get_needed_names( $og_name ) );
 
-				if ( file_exists( "./web/app/themes/juniper-theme/inc/Cpt/$slug_name.php" ) ) {
+				if ( file_exists( dirname(__FILE__) . "/../themes/juniper-theme/inc/Cpt/$slug_name.php" ) ) {
 					WP_CLI::error( 'Custom post type already exists' );
 				}
 
@@ -57,20 +71,37 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 					array( 'replace_rewrite_name', $rewrite_name ),
 				);
 
-				$file_contents = file_get_contents( './dev/cpt.txt' );
+				$file_contents = file_get_contents( dirname(__FILE__) . "/../../../dev/cpt.txt" );
 				foreach ( $replace_array as $search_replace ) {
 					$file_contents = str_replace( $search_replace[0], $search_replace[1], $file_contents );
 				}
 
-				file_put_contents("./web/app/themes/juniper-theme/inc/Cpt/$slug_name.php", $file_contents);
+				file_put_contents(dirname(__FILE__) . "/../themes/juniper-theme/inc/Cpt/$slug_name.php", $file_contents);
 
 				$new_class   = "\$juniper_$slug_name = new \Juniper\cpt\\$slug_name();" . PHP_EOL;
-				file_put_contents('./web/app/themes/juniper-theme/inc/include.php', $new_class, FILE_APPEND);
+				file_put_contents(dirname(__FILE__) . "/../themes/juniper-theme/inc/include.php", $new_class, FILE_APPEND);
 
-				shell_exec( "phpcbf --standard=WordPress-Extra ./web/app/themes/juniper-theme/inc/Cpt/$slug_name.php" );
-				shell_exec( 'phpcbf --standard=WordPress-Extra ./web/app/themes/juniper-theme/inc/include.php' );
+				shell_exec( "phpcbf --standard=WordPress-Extra " . dirname(__FILE__) . "/../themes/juniper-theme/inc/Cpt/$slug_name.php" );
+				shell_exec( "phpcbf --standard=WordPress-Extra " . dirname(__FILE__) . "/../themes/juniper-theme/inc/include.php" );
 			}
 
+			/**
+			 * Adds a new taxonomy and attaches it to a post type.
+			 *
+			 * ## OPTIONS
+			 *
+			 * [--name]
+			 * : The name of custom taxonomy you want
+			 * 
+			 * [--post]
+			 * : The name of the custom post type that this taxonomy should be attached to
+			 *
+			 * ## EXAMPLES
+			 *
+			 *     wp add taxonomy --name="Categories" --post="products"
+			 *
+			 * @when before_wp_load
+			 */
 			public function taxonomy( $args, $assoc_args ) {
 				$og_name = $this->get_name( $assoc_args );
 
@@ -85,7 +116,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 
 				extract( $this->get_needed_names( $og_name ) );
 
-				if ( file_exists( "./web/app/themes/juniper-theme/inc/Taxonomies/$slug_name.php" ) ) {
+				if ( file_exists( dirname(__FILE__) . "/../themes/juniper-theme/inc/Taxonomies/$slug_name.php" ) ) {
 					WP_CLI::error( 'Taxonomy already exists' );
 				}
 
@@ -96,19 +127,41 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 					array( 'selected_post_type', $post_cpt ),
 				);
 
-				$file_contents = file_get_contents( './dev/taxonomy.txt' );
+				$file_contents = file_get_contents( dirname(__FILE__) . "/../../../dev/taxonomy.txt" );
 				foreach ( $replace_array as $search_replace ) {
 					$file_contents = str_replace( $search_replace[0], $search_replace[1], $file_contents );
 				}
 
-				file_put_contents("./web/app/themes/juniper-theme/inc/Taxonomies/$slug_name.php", $file_contents);
+				file_put_contents(dirname(__FILE__) . "/../themes/juniper-theme/inc/Taxonomies/$slug_name.php", $file_contents);
 
 				$new_class   = "\$juniper_$slug_name = new \Juniper\Taxonomies\\$slug_name();" . PHP_EOL;
-				file_put_contents('./web/app/themes/juniper-theme/inc/include.php', $new_class, FILE_APPEND);
+				file_put_contents(dirname(__FILE__) . "/../themes/juniper-theme/inc/include.php", $new_class, FILE_APPEND);
 
-				shell_exec( 'phpcbf --standard=WordPress-Extra ./web/app/themes/juniper-theme/inc/include.php' );
+				shell_exec( 'phpcbf --standard=WordPress-Extra ' . dirname(__FILE__) . '/../themes/juniper-theme/inc/include.php' );
 			}
 
+
+			/**
+			 * Adds a gutenberg block.
+			 *
+			 * ## OPTIONS
+			 *
+			 * [--name]
+			 * : The name of the new gutenberg block
+			 *
+			 * [--keywords]
+			 * : Optional keywords of the gutenberg block
+			 *
+			 * [--description]
+			 * : Optional description of the gutenberg block
+			 *
+			 * ## EXAMPLES
+			 *     wp add block --name="Reviews"
+			 *     wp add block --name="Reviews" --keywords="people,stars,quotes"
+			 *     wp add block --name="Reviews" --keywords="people,stars,quotes" --description="This section shows the three newest reviews"
+			 *
+			 * @when before_wp_load
+			 */
 			public function block( $args, $assoc_args ) {
 				$og_name = $this->get_name( $assoc_args );
 
@@ -119,11 +172,11 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				$lowercase_name = strtolower($og_name);
 				$slug_name = str_replace( ' ', '_', $lowercase_name );
 
-				if ( file_exists( "./web/app/themes/juniper-theme/Blocks/$slug_name/" ) ) {
+				if ( file_exists( "../themes/juniper-theme/blocks/$slug_name/" ) ) {
 					WP_CLI::error( 'Block already exists' );
 				}
 
-				mkdir("./web/app/themes/juniper-theme/Blocks/$slug_name/", 0755);
+				mkdir(dirname(__FILE__) . "/../themes/juniper-theme/blocks/$slug_name/", 0755);
 
 				$keywords = "";
 				if (key_exists('keywords', $assoc_args)) {
@@ -135,14 +188,14 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 					$description = $assoc_args['description'];
 				}
 
-				file_put_contents("./web/app/themes/juniper-theme/Blocks/$slug_name/scripts.js", '');
-				file_put_contents("./web/app/themes/juniper-theme/Blocks/$slug_name/ajax.js", '');
+				file_put_contents(dirname(__FILE__) . "/../themes/juniper-theme/blocks/$slug_name/scripts.js", '');
+				file_put_contents(dirname(__FILE__) . "/../themes/juniper-theme/blocks/$slug_name/ajax.js", '');
 
 				$css = ".$slug_name {}\n\n" .
 				"body.wp-admin {\n" .
 				"\t.$slug_name {}\n" .
 				"}";
-				file_put_contents("./web/app/themes/juniper-theme/Blocks/$slug_name/style.scss", $css);
+				file_put_contents(dirname(__FILE__) . "/../themes/juniper-theme/blocks/$slug_name/style.scss", $css);
 
 				$php = "<?php\n\n" .
 				"add_action('wp_enqueue_scripts', function() {\n" .
@@ -158,7 +211,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				"\tfunction( \$context ) {\n" .
 				"\treturn \$context;\n" .
 				"});";
-				file_put_contents("./web/app/themes/juniper-theme/Blocks/$slug_name/functions.php", $php);
+				file_put_contents(dirname(__FILE__) . "/../themes/juniper-theme/blocks/$slug_name/functions.php", $php);
 
 				$html = "{#\n" .
 				"\tTitle: $og_name\n" .
@@ -173,9 +226,9 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				"\tSupportsMode: true\n" .
 				"\tSupportsMultiple: true\n" .
 				"#}";
-				file_put_contents("./web/app/themes/juniper-theme/views/blocks/$slug_name.twig", $html);
+				file_put_contents(dirname(__FILE__) . "/../themes/juniper-theme/views/blocks/$slug_name.twig", $html);
 
-				shell_exec( "phpcbf --standard=WordPress-Extra ./web/app/themes/juniper-theme/Blocks/$slug_name/functions.php" );
+				shell_exec( "phpcbf --standard=WordPress-Extra " . dirname(__FILE__) . "/../themes/juniper-theme/Blocks/$slug_name/functions.php" );
 			}
 		}
 
