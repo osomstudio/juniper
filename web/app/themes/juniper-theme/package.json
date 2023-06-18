@@ -22,7 +22,8 @@
 		"husky": "^4.3.8",
 		"litepicker": "^2.0.11",
 		"parcel": "^2.5.0",
-		"sass": "^1.26.5"
+		"sass": "^1.26.5",
+		"browserslist": "^4.21.9"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
@@ -39,5 +40,8 @@
 		}
 	},
 	"author": "osom",
-	"license": "ISC"
+	"license": "ISC",
+	"browserslist": [
+		"last 2 versions"
+	]
 }
