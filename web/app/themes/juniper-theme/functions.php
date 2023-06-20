@@ -149,6 +149,7 @@ function wps_add_to_context( $context ) {
     $upload_dir = wp_upload_dir();
     $context['uploads'] = $upload_dir;
 
+    $context['theme_dir'] = get_stylesheet_directory_uri();
 
     //$context['menu'] = new \Timber\Menu( 'primary-menu' );
 

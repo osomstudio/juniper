@@ -14,7 +14,7 @@
 					<nav class="bg-transparent">
 						<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 							<a href="{{site.url}}" class="flex items-center">
-								<img src="{{ logo }}" class="h-10 mr-3" alt="{{site.name}}" />
+								<img src="{{ logo }}" class="min-w-[150px] mr-3" alt="{{site.name}}" />
 							</a>
 							<div class="flex items-end md:order-2">
 								<div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
@@ -27,12 +27,14 @@
 			{% endblock %}
 		</header>
 
-		<section class="bg-center bg-no-repeat bg-blend-multiply angled-bottom" style="background-image: url('{{uploads.url}}/Vector-1.png'); background-size: cover;">
-			<div class="mx-0 w-full text-start py-24 lg:py-56 bg-dark-transparent">
-				<div class="jumbotron-shape-left"></div>
-				<h1 class="mb-4 text-white">Der <span class="text-primary">Stern</span> Am Wordpress Himmel</h1>
-				<div class="jumbotron-shape-bottom"></div>
+		<section class="bg-center bg-no-repeat bg-blend-multiply angled-bottom min-h-[970px]" style="background-image: url('{{ uploads.url }}/Vector-1.png'); background-size: cover;">
+			<div class="jumbotron-shape-left"></div>
+			<div class="mx-0 w-full h-full flex flex-col justify-center bg-dark-transparent min-h-[970px]">
+				<div class="container mx-auto">
+					<h1 class="mb-4 text-white">Der <span class="text-primary">Stern</span> Am <br /> Wordpress - Himmel</h1>
+				</div>
 			</div>
+			<div class="jumbotron-shape-bottom"></div>
 		</section>
 
 		<section id="content" role="main" class="content-wrapper">

@@ -1,3 +1,8 @@
+/* Variables */
+
+$primary: #B4D43D;
+$text: #093642;
+
 /* General styles */
 body {
     font-family: 'Red Hat Mono';
@@ -5,6 +10,7 @@ body {
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
+    color: rgba(9, 54, 66, 1);
 }
 
 h1 {
@@ -24,10 +30,55 @@ h2 {
     color: #1E1E1E;
 }
 
+.admin-bar header {
+    top: 32px;
+}
+
 
 /**
 * Custom Utilities
  */
+
+.btn-primary {
+    background-color: $primary;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    gap: 10px;
+    isolation: isolate;
+
+    font-family: 'Red Hat Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 33px;
+    color: $text;
+    border: 2px solid $primary;
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 60px;
+        width: 60px;
+        background-color: $text;
+        clip-path: polygon(0 50%, 0% 100%, 50% 100%);
+    }
+}
+
+.red-hat-var-medium {
+
+    font-family: 'Red Hat Display Variable';
+    font-style: normal;
+    font-weight: 645;
+    font-size: 26px;
+    line-height: 26px;
+}
 
 .text-white {
     color: #fff !important;
@@ -61,30 +112,50 @@ h2 {
     clip-path: polygon(100% 0, 0 50%, 100% 100%);
 }
 
+.contact-link {
+    border-bottom: 3px solid $primary;
+    color: $text;
+    font-family: 'Red Hat Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    display: block;
+    width: fit-content;
+}
+
 // Jumbotron styles
 .jumbotron-shape-left {
     position: absolute;
-    top: -100px;
-    height: 600px;
-    width: 400px;
+    top: 0;
+    height: 700px;
+    width: 700px;
     clip-path: polygon(0 0, 0 100%, 17% 60%);
     background-color: rgba(180, 212, 61, 0.6);
 }
 
+.jumbotron-shape-bottom {
+    position: absolute;
+    bottom: -227px;
+    right: 0;
+    height: 600px;
+    width: 800px;
+    clip-path: polygon(0 85%, 100% 100%, 100% 74%);
+    background-color: rgba(180, 212, 61, 0.6);
+}
+
+// Footer styles
 
 footer {
+    overflow: hidden;
     height: 505px;
-    background: #093642;
-
-    // &:after {
-    //     content: "";
-    //     background: #093642;
-    //     height: 300px;
-    //     transform: skewY(2deg);
-    //     position: absolute;
-    //     top: 5rem;
-    //     left: 0;
-    //     right: 0;
-    //     z-index: -1;
-    // }
+    background: $text;
+    .asterisk {
+        height: 800px;
+        width: 600px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: 0.2;
+        top: -200px;
+    }
 }
