@@ -6,8 +6,8 @@ add_action(
             $time = time();
             $theme_path = get_template_directory_uri();
 
-            wp_enqueue_style('slider-css', $theme_path . '/dist/blocks/slider/style.css', array(), $time, 'all');
-            wp_enqueue_script('slider-js', $theme_path . '/dist/blocks/slider/script.js', array(), $time, true);
+            wp_enqueue_style('slider-css', $theme_path . '/blocks/slider/style.css', array(), $time, 'all');
+            wp_enqueue_script('slider-js', $theme_path . '/blocks/slider/script.js', array(), $time, true);
         }
     }
 );

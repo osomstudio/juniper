@@ -7,8 +7,8 @@ add_action(
             $time = time();
             $theme_path = get_template_directory_uri();
 
-            wp_enqueue_style('split-text-image-css', $theme_path . '/dist/blocks/split-text-image/style.css', array(), $time, 'all');
-            wp_enqueue_script('split-text-image-js', $theme_path . '/dist/blocks/split-text-image/script.js', array(), $time, true);
+            wp_enqueue_style('split-text-image-css', $theme_path . '/blocks/split-text-image/style.css', array(), $time, 'all');
+            wp_enqueue_script('split-text-image-js', $theme_path . '/blocks/split-text-image/script.js', array(), $time, true);
         }
     }
 );

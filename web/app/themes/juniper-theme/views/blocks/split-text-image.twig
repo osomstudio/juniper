@@ -11,7 +11,7 @@
  	SupportsMode: true
  	SupportsMultiple: true
 #}
-<div class="w-full relative">
+<div class="w-full relative py-10 {% if fields.style == 'dark' %} text-white dark-style {% endif %}">
 	<div class="bg-dark absolute split-text-background background">
 	</div>
 	<div class="container mx-auto relative">
@@ -24,7 +24,7 @@
 				<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">{{ fields.title }}</h1>
 				<h3 class="text-xl font-bold text-primary">{{ fields.subtitle }}</h3>
 				<p class="mb-3 text-gray-500 dark:text-gray-400">{{ fields.content }}</p>
-				<a class="btn btn-primary" href="{{ fields.link_value }}">{{ fields.link_text }}</a>
+				<a class="btn {% if fields.style == 'dark' %} btn-transparent {% else %} btn-primary {% endif %} w-fit" href="{{ fields.link_value }}">{{ fields.link_text }}</a>
 			</div>
 		</div>
 	</div>

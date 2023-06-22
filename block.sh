@@ -55,8 +55,8 @@ functions="<?php\n\n"\
 "\tif (has_block('acf/${slug_name}')) {\n"\
 "\t\$time = time();\n"\
 "\t\$theme_path = get_template_directory_uri();\n\n"\
-"\t\twp_enqueue_style('${slug_name}-css', \$theme_path . '/dist/blocks/${slug_name}/style.css', array(), \$time, 'all');\n"\
-"\t\twp_enqueue_script('${slug_name}-js', \$theme_path . '/dist/blocks/${slug_name}/script.js', array(), \$time, true);\n"\
+"\t\twp_enqueue_style('${slug_name}-css', \$theme_path . '/blocks/${slug_name}/style.css', array(), \$time, 'all');\n"\
+"\t\twp_enqueue_script('${slug_name}-js', \$theme_path . '/blocks/${slug_name}/script.js', array(), \$time, true);\n"\
 "\t}\n"\
 "});\n\n
 add_filter(\n\n

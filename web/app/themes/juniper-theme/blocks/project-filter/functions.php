@@ -6,8 +6,8 @@ add_action(
             $time = time();
             $theme_path = get_template_directory_uri();
 
-            wp_enqueue_style('project-filter-css', $theme_path . '/dist/blocks/project-filter/style.css', array(), $time, 'all');
-            wp_enqueue_script('project-filter-js', $theme_path . '/dist/blocks/project-filter/script.js', array(), $time, true);
+            wp_enqueue_style('project-filter-css', $theme_path . '/blocks/project-filter/style.css', array(), $time, 'all');
+            wp_enqueue_script('project-filter-js', $theme_path . '/blocks/project-filter/script.js', array(), $time, true);
 
             $attributes = [];
             wp_enqueue_script( 'dashboardBlockFrontendScript', $theme_path . '/blocks/project-filter/build/frontend.js', array(

@@ -11,3 +11,25 @@
  	SupportsMode: true
  	SupportsMultiple: true
 #}
+<div class="container min-h-[800px] my-12 mx-auto px-4 slider">
+	{% if fields.style == "timeline" %}
+		<div class="grid grid-cols-2 gap-8">
+			<div class="timeline">
+			</div>
+			<div class="flex">
+				<div class="h-[600px] w-[600px]">
+					<div class="timeline-slider snap-y snap-mandatory h-full overflow-scroll">
+						{% for item in fields.timeline_slider_items %}
+							<div data-slide-num="{{ loop.index }}" class="timeline-slide snap-start w-full h-screen flex flex-col items-start justify-center">
+								<p class="bold bg-dark text-primary p-4 text-4xl bold">{{ loop.index }}.</p>
+								<h4 class="text-4xl">{{ item.slider_title }}</h4>
+								<p>{{ item.slider_text }}</p>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+				<button id="sliderScroll" class="btn btn-primary h-fit align-self-bottom">Next</button>
+			</div>
+		</div>
+	{% endif %}
+</div>

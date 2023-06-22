@@ -11,3 +11,20 @@
  	SupportsMode: true
  	SupportsMultiple: true
 #}
+<div class="container my-12 mx-auto px-4 cardgrid">
+	<div class="max-w-[70%]">
+		<p class="uppercase bold">{{ fields.subtitle }}</p>
+		<h2>{{ fields.title }}</h2>
+		<p class="my-10">{{ fields.intro }}</p>
+	</div>
+	<div class="grid grid-cols-2 gap-8">
+		{% for card in fields.cards %}
+			<div class="min-w-[100%] min-h-[300px] flex flex-col max-w-sm p-8 border border-4 border-dark {% if loop.index is odd %}-mt-4 mb-4 justify-self-end bg-white text-dark {% else %}-mb-4 mt-4 even justify-self-start bg-dark text-white {% endif %}">
+				<img class="w-fit" src="{{ card.card_image}}" alt="{{ card.card_title}}" />
+				<h3 class="mb-2 text-2xl font-bold tracking-tight w-fit">{{ card.card_title }}</h3>
+				<a href="{{ card.button_location }}" class="btn btn-underline w-fit mt-auto">{{ card.button_text}}</a>
+			</div>
+		{% endfor %}
+	</div>
+	<a href="#" class="btn btn-primary w-fit mt-10">Alle Leistungen ansehen</a>
+</div>

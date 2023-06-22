@@ -6,8 +6,8 @@ add_action(
             $time = time();
             $theme_path = get_template_directory_uri();
 
-            wp_enqueue_style('cardgrid-css', $theme_path . '/dist/blocks/cardgrid/style.css', array(), $time, 'all');
-            wp_enqueue_script('cardgrid-js', $theme_path . '/dist/blocks/cardgrid/script.js', array(), $time, true);
+            wp_enqueue_style('cardgrid-css', $theme_path . '/blocks/cardgrid/style.css', array(), $time, 'all');
+            wp_enqueue_script('cardgrid-js', $theme_path . '/blocks/cardgrid/script.js', array(), $time, true);
         }
     }
 );
