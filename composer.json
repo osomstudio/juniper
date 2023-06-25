@@ -23,8 +23,8 @@
       "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
     },
     {
-      "type": "composer",
-      "url": "https://pivvenit.github.io/acf-composer-bridge/composer/v3/wordpress-plugin/"
+        "type":"composer",
+        "url":"https://connect.advancedcustomfields.com"
     }
   ],
   "require": {
@@ -44,7 +44,7 @@
     "wpackagist-plugin/contact-form-7-honeypot":"2.1.1",
     "wpackagist-plugin/webp-express":"0.25.5",
     "wpackagist-plugin/svg-support":"2.5.5",
-    "advanced-custom-fields/advanced-custom-fields-pro": "6.1.2"
+    "wpengine/advanced-custom-fields-pro": "6.1,2"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.0",
