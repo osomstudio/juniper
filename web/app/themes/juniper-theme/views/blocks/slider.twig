@@ -14,7 +14,13 @@
 <div class="container min-h-[800px] my-12 mx-auto px-4 slider">
 	{% if fields.style == "timeline" %}
 		<div class="grid grid-cols-2 gap-8">
-			<div class="timeline">
+			<div class="timeline-wrapper">
+				<div class="timeline flex inline-flex w-full justify-between">
+					{% for item in fields.timeline_slider_items %}
+						<div data-timeline-num="{{ loop.index }}" class="{% if loop.index == 1 %}active {% endif %}timeline-point rounded-full bg-primary h-8 w-8">
+						</div>
+					{% endfor %}
+				</div>
 			</div>
 			<div class="flex">
 				<div class="h-[600px] w-[600px]">
