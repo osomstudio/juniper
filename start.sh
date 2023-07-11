@@ -62,6 +62,7 @@ echo "#/ ENV" >> .env;
 sed -i'' -e "s/acf_pro_key/$acf_pro_key/" auth.json
 
 read -p "Enter ACF PRO DOMAIN: " acf_pro_domain
+acf_pro_domain=${acf_pro_domain//\//\\/}
 sed -i'' -e "s/acf_pro_domain/$acf_pro_domain/" auth.json
 
 rm auth.json-e
