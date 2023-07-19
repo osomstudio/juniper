@@ -28,7 +28,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 
 			private function validate_name( $name ) {
 				if ( strlen( $name ) > 20 ) {
-					WP_CLI::error( 'This name is to long - Max 20 characters' );
+					WP_CLI::error( 'The name is too long - Max 20 characters' );
 				}
 
 				if ( ! preg_match( '/^[A-Za-z0-9-_ ]+$/i', $name ) ) {
@@ -97,7 +97,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 			 * ## OPTIONS
 			 *
 			 * [--name]
-			 * : The name of custom taxonomy you want
+			 * : The name of custom taxonomy you want to add
 			 *
 			 * [--post]
 			 * : The name of the custom post type that this taxonomy should be attached to
@@ -148,18 +148,18 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 
 
 			/**
-			 * Adds a gutenberg block.
+			 * Adds a Gutenberg block.
 			 *
 			 * ## OPTIONS
 			 *
 			 * [--name]
-			 * : The name of the new gutenberg block
+			 * : The name of the new Gutenberg block
 			 *
 			 * [--keywords]
-			 * : Optional keywords of the gutenberg block
+			 * : Optional keywords of the Gutenberg block
 			 *
 			 * [--description]
-			 * : Optional description of the gutenberg block
+			 * : Optional description of the Gutenberg block
 			 *
 			 * ## EXAMPLES
 			 *     wp add block --name="Reviews"
