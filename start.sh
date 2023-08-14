@@ -68,7 +68,7 @@ echo "$htaccess" | sed -r "s/juniper.local/$domain/g" >> '.htaccess'
 echo "# SALTS" >> .env;
 wget -qO - https://api.wordpress.org/secret-key/1.1/salt/ \
   | tr "'" '"' \
-  | sed -n -e 's#^define("\([A-Z_]\+\)",\s\+\("[^"]\+"\));$#\1=\2#p' >> .env
+  | sed -n -e 's#^define("\([A-Z_]\+\)", \+\("[^"]\+"\));$#\1=\2#p' >> .env
 echo "#/ SALTS" >> .env;
 
 composer install --ignore-platform-reqs
