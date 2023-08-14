@@ -63,7 +63,7 @@ echo >> .env;
 
 htaccess="$(cat '.htaccess')"
 > '.htaccess'
-echo "$htaccess" | sed -r "s/juniper.local/$domain/g" >> '.htaccess'
+echo "$htaccess" | sed -E "s/juniper\\.local/${domain}/g" >> '.htaccess'
 
 echo "# SALTS" >> .env;
 wget -qO - https://api.wordpress.org/secret-key/1.1/salt/ \
