@@ -21,3 +21,5 @@ sliderBtn.addEventListener("click", () => {
     targetPoint.classList.add('active')
 
 })
+
+

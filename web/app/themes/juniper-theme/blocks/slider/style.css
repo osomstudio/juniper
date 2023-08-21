@@ -1,0 +1,24 @@
+.simple-slider .swiper-slide .slide-inner {
+    height: 200px;
+    width: 200px;
+    border: 1px solid var(--greyscale-90, #343434);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.simple-slider .swiper-button-next, 
+.simple-slider .swiper-button-prev {
+    position: relative;
+    left: unset;
+    right: unset;
+    top: unset;
+    bottom: unset;
+    margin-top: 0;
+}
+
+
+.simple-slider .swiper-button-next:after, 
+.simple-slider .swiper-button-prev:after {
+    display: none;
+}

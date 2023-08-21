@@ -19,7 +19,8 @@
             "choices": {
                 "split": "Split Slider",
                 "timeline": "Timeline",
-                "full": "Full Width"
+                "full": "Full Width",
+                "simple": "Simple"
             },
             "default_value": false,
             "return_format": "value",
@@ -220,6 +221,73 @@
                     "parent_repeater": "field_6492e8e773187"
                 }
             ]
+        },
+        {
+            "key": "field_64de131129314",
+            "label": "Simple Slider Items",
+            "name": "simple_slider_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_64de132729315",
+                    "label": "Slide Image",
+                    "name": "slide_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_64de131129314"
+                },
+                {
+                    "key": "field_64de133c29316",
+                    "label": "Slide Link",
+                    "name": "slide_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "parent_repeater": "field_64de131129314"
+                }
+            ]
         }
     ],
     "location": [
@@ -240,5 +308,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687350789
+    "modified": 1692275546
 }

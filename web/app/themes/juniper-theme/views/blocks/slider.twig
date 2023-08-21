@@ -38,4 +38,73 @@
 			</div>
 		</div>
 	{% endif %}
+
+	{% if fields.style == "simple" %}
+		<style>
+			.swiper {
+				width: 100%;
+				height: 100%;
+			}
+
+			.swiper-slide {
+				text-align: center;
+				font-size: 18px;
+				background: #fff;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.swiper-slide img {
+				display: flex;
+			}
+		</style>
+		<div class="simple-slider relative">
+			<div class="swiper mySwiper">
+				<div class="swiper-wrapper">
+					{% for item in fields.simple_slider_items %}
+						<div class="swiper-slide">
+							{% if item.slide_link %}
+								<a href="{{ item.slide_link }}">
+							{% endif %}
+								<div class="slide-inner">
+									{{ item.slide_image }}
+								</div>
+							{% if item.slide_link %}
+								</a>
+							{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="controls-wrapper absolute right-0 inline-flex mt-5">
+				<div class="swiper-button-prev bg-primary w-fit p-3">
+					<svg xmlns="http://www.w3.org/2000/svg" width="42" height="25" viewBox="0 0 42 25" fill="none">
+						<path d="M12.5061 1.9876L1.99991 12.4938L12.5061 23" stroke="#093642" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<rect x="31.4939" y="14.2446" width="15.7593" height="3.50207" rx="1.75103" transform="rotate(-180 31.4939 14.2446)" fill="#093642"/>
+						<rect x="42" y="14.2446" width="7.00413" height="3.50207" rx="1.75103" transform="rotate(-180 42 14.2446)" fill="#093642"/>
+					</svg>
+				</div>
+				<div class="swiper-button-next bg-primary w-fit p-3">
+					<svg xmlns="http://www.w3.org/2000/svg" width="42" height="25" viewBox="0 0 42 25" fill="none">
+						<path d="M29.4939 23.0124L40.0001 12.5062L29.4939 2" stroke="#093642" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<rect x="10.5061" y="10.7554" width="15.7593" height="3.50207" rx="1.75103" fill="#093642"/>
+						<rect y="10.7554" width="7.00413" height="3.50207" rx="1.75103" fill="#093642"/>
+						</svg>	
+				</div>
+			</div>
+		</div>
+		<script>
+			var swiper = new Swiper(".mySwiper", {
+				slidesPerView: 6,
+				spaceBetween: 50,
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+			});
+			console.log(swiper.slidesPerView)
+		</script>
+		</body>
+	{% endif %}
 </div>
