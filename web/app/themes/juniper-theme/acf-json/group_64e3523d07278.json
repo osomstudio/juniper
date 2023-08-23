@@ -1,9 +1,9 @@
 {
-    "key": "group_645c9f4f175ce",
-    "title": "Employee Grid",
+    "key": "group_64e3523d07278",
+    "title": "Location List",
     "fields": [
         {
-            "key": "field_64e3277b5943a",
+            "key": "field_64e3523d3cc07",
             "label": "Tagline",
             "name": "tagline",
             "aria-label": "",
@@ -23,7 +23,7 @@
             "append": ""
         },
         {
-            "key": "field_64e3277259439",
+            "key": "field_64e3538a3cc08",
             "label": "Title",
             "name": "title",
             "aria-label": "",
@@ -43,7 +43,7 @@
             "append": ""
         },
         {
-            "key": "field_64e327835943b",
+            "key": "field_64e353933cc09",
             "label": "Subtitle",
             "name": "subtitle",
             "aria-label": "",
@@ -63,11 +63,11 @@
             "append": ""
         },
         {
-            "key": "field_64e327a45943c",
+            "key": "field_64e353993cc0a",
             "label": "Intro Text",
             "name": "intro_text",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -77,15 +77,15 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_646b1d568d0dc",
-            "label": "Employees",
-            "name": "employees",
+            "key": "field_64e353a8d5e7a",
+            "label": "Locations",
+            "name": "locations",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -105,7 +105,7 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_646b1d6b8d0dd",
+                    "key": "field_64e353bad5e7b",
                     "label": "Image",
                     "name": "image",
                     "aria-label": "",
@@ -128,10 +128,10 @@
                     "max_size": "",
                     "mime_types": "",
                     "preview_size": "medium",
-                    "parent_repeater": "field_646b1d568d0dc"
+                    "parent_repeater": "field_64e353a8d5e7a"
                 },
                 {
-                    "key": "field_646b1d788d0de",
+                    "key": "field_64e353c4d5e7c",
                     "label": "Name",
                     "name": "name",
                     "aria-label": "",
@@ -149,14 +149,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_646b1d568d0dc"
+                    "parent_repeater": "field_64e353a8d5e7a"
                 },
                 {
-                    "key": "field_64e330ddde0fb",
-                    "label": "Skills",
-                    "name": "skills",
+                    "key": "field_64e35e8c53217",
+                    "label": "Country",
+                    "name": "country",
                     "aria-label": "",
-                    "type": "repeater",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -165,37 +165,74 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "table",
-                    "pagination": 0,
-                    "min": 0,
-                    "max": 0,
-                    "collapsed": "",
-                    "button_label": "Add Row",
-                    "rows_per_page": 20,
-                    "sub_fields": [
-                        {
-                            "key": "field_64e33120de0fc",
-                            "label": "Skill",
-                            "name": "skill",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_64e330ddde0fb"
-                        }
-                    ],
-                    "parent_repeater": "field_646b1d568d0dc"
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64e353a8d5e7a"
+                },
+                {
+                    "key": "field_64e353d3d5e7d",
+                    "label": "Email",
+                    "name": "email",
+                    "aria-label": "",
+                    "type": "email",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64e353a8d5e7a"
+                },
+                {
+                    "key": "field_64e353d8d5e7e",
+                    "label": "Phone",
+                    "name": "phone",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64e353a8d5e7a"
+                },
+                {
+                    "key": "field_64e353edd5e7f",
+                    "label": "Address",
+                    "name": "address",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64e353a8d5e7a"
                 }
             ]
         }
@@ -205,7 +242,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/employee-grid"
+                "value": "acf\/locationlist"
             }
         ]
     ],
@@ -218,5 +255,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692610913
+    "modified": 1692631456
 }

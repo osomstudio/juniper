@@ -11,3 +11,30 @@
  	SupportsMode: true
  	SupportsMultiple: true
 #}
+
+<div class="relative timeline">
+	<div class="side-image">
+		<div class="side-image-inner">
+			<img src="{{ fields.decoration_image.url }}" alt="" />
+		</div>
+	</div>
+	<div class="container mx-auto">
+		<div class="mb-5">
+			<p class="tagline">{{ fields.tagline }}</p>
+			<h2 class="mb-4">{{ fields.title }}</h2>
+			<h3 class="mb-4">{{ fields.subtitle }}</h3>
+			<p class="mb-4">{{ fields.intro_text }}</p>
+		</div>
+		<div class="timeline-items flex flex-col">
+			{% for timeline_item in fields.timeline_items %}
+				<div class="bg-dark w-96 timeline-item inline-flex p-2 items-center">
+					<img class="mr-4" height="70" width="70" src="{{timeline_item.icon.url }}" />
+					<div>
+						<p class="timeline-tagline text-white uppercase">{{ timeline_item.tagline }}</p>
+						<p class="timeline-text text-primary font-bold">{{ timeline_item.text }}</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>

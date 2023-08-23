@@ -1,9 +1,9 @@
 {
-    "key": "group_645c9f4f175ce",
-    "title": "Employee Grid",
+    "key": "group_64e369c14f82f",
+    "title": "Timeline",
     "fields": [
         {
-            "key": "field_64e3277b5943a",
+            "key": "field_64e369c13f103",
             "label": "Tagline",
             "name": "tagline",
             "aria-label": "",
@@ -23,7 +23,7 @@
             "append": ""
         },
         {
-            "key": "field_64e3277259439",
+            "key": "field_64e369cf3f104",
             "label": "Title",
             "name": "title",
             "aria-label": "",
@@ -43,7 +43,7 @@
             "append": ""
         },
         {
-            "key": "field_64e327835943b",
+            "key": "field_64e369db3f105",
             "label": "Subtitle",
             "name": "subtitle",
             "aria-label": "",
@@ -63,7 +63,7 @@
             "append": ""
         },
         {
-            "key": "field_64e327a45943c",
+            "key": "field_64e369e33f106",
             "label": "Intro Text",
             "name": "intro_text",
             "aria-label": "",
@@ -83,9 +83,9 @@
             "delay": 0
         },
         {
-            "key": "field_646b1d568d0dc",
-            "label": "Employees",
-            "name": "employees",
+            "key": "field_64e36a183f107",
+            "label": "Timeline Items",
+            "name": "timeline_items",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -105,9 +105,9 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_646b1d6b8d0dd",
-                    "label": "Image",
-                    "name": "image",
+                    "key": "field_64e36a543f108",
+                    "label": "Icon",
+                    "name": "icon",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
@@ -128,12 +128,12 @@
                     "max_size": "",
                     "mime_types": "",
                     "preview_size": "medium",
-                    "parent_repeater": "field_646b1d568d0dc"
+                    "parent_repeater": "field_64e36a183f107"
                 },
                 {
-                    "key": "field_646b1d788d0de",
-                    "label": "Name",
-                    "name": "name",
+                    "key": "field_64e36a6d3f109",
+                    "label": "Tagline",
+                    "name": "tagline",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -149,14 +149,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_646b1d568d0dc"
+                    "parent_repeater": "field_64e36a183f107"
                 },
                 {
-                    "key": "field_64e330ddde0fb",
-                    "label": "Skills",
-                    "name": "skills",
+                    "key": "field_64e36a763f10a",
+                    "label": "Text",
+                    "name": "text",
                     "aria-label": "",
-                    "type": "repeater",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -165,39 +165,39 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "table",
-                    "pagination": 0,
-                    "min": 0,
-                    "max": 0,
-                    "collapsed": "",
-                    "button_label": "Add Row",
-                    "rows_per_page": 20,
-                    "sub_fields": [
-                        {
-                            "key": "field_64e33120de0fc",
-                            "label": "Skill",
-                            "name": "skill",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_64e330ddde0fb"
-                        }
-                    ],
-                    "parent_repeater": "field_646b1d568d0dc"
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64e36a183f107"
                 }
             ]
+        },
+        {
+            "key": "field_64e381a9013e0",
+            "label": "Decoration Image",
+            "name": "decoration_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -205,7 +205,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/employee-grid"
+                "value": "acf\/timeline"
             }
         ]
     ],
@@ -218,5 +218,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692610913
+    "modified": 1692631479
 }

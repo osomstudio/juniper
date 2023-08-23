@@ -1,0 +1,65 @@
+.timeline-item {
+    margin-bottom: 140px;
+    position: relative;
+}
+
+.timeline-item:not(:last-child)::after {
+    position: absolute;
+    border-left: 3px solid #093642; 
+    content: "";
+    margin-top: 20px;
+    height: 100px;
+    width: 100px;
+    bottom: -120px;
+    left: 50px;
+}
+
+.timeline-item .timeline-tagline {
+    color: var(--greyscale-white, #F9F9F9);
+    font-family: "Red Hat Mono";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.875rem; /* 166.667% */
+    text-transform: uppercase;
+}
+
+.timeline-item .timeline-text {
+    color: var(--primary-green, #B4D43D);
+    /* Desktop/Headline3 */
+    font-family: "Red Hat Mono";
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3rem; /* 133.333% */
+}
+
+.timeline .side-image {
+    display: block;
+    position: absolute;
+    right: -150px;
+    top: 0;
+    height: 600px;
+    width: 600px; 
+}
+
+.timeline .side-image-inner {
+    overflow: hidden;
+    height: 600px;
+    width: 600px; 
+    clip-path: polygon(18% 1%, 100% 33%, 100% 100%, 0 63%);
+    position: relative;
+}
+
+.timeline .side-image::before {
+    content: "";
+    display: block;
+    height: calc(100% + 15px);
+    width: calc(100% + 15px);
+    background-color: #093642;
+    position: absolute;
+    z-index: -1;
+    top: -15px;
+    left: 15px;
+    clip-path: polygon(18% 1%, 100% 33%, 100% 100%, 0 63%);
+}

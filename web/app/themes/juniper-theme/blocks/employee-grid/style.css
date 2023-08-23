@@ -1,0 +1,64 @@
+.employee-grid .right-decoration {
+    position: absolute;
+    right: 0;
+}
+
+.employee-card {
+    position: relative;
+}
+
+.employee-card:hover {
+    cursor: pointer;
+}
+
+.employee-card .overlay {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+.employee-card:hover .overlay {
+    opacity: 1;
+    display: flex;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.employee-card .top-decoration {
+    background-color: rgba(180, 212, 61, 0.60);
+    height: 11rem;
+    width: 100%;
+    clip-path: polygon(100% 0, 0 0, 0 53%);
+}
+
+.employee-card .name {
+    position: absolute;
+    transform: rotate(-90deg);
+    color: #fff;
+    top: 10rem;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.employee-card .skill-list {
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+    background-color: var(--primary-petrol-dark, #093642);
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    height: fit-content;
+    width: 100%;
+    padding: 4rem 2rem 2rem 2rem;
+}
+
+.you-bubble {
+    height: 148px;
+    width: 156px;
+    color: var(--primary-petrol-dark, #093642);
+    font-family: "Red Hat Display Bold";
+    font-size: 2.75rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 3.375rem;
+    left: -1.5rem;
+    top: -1rem;
+}

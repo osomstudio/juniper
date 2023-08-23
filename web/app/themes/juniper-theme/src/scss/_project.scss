@@ -22,12 +22,34 @@ h1 {
 }
 
 h2 {
-    font-family: 'Red Hat Display Variable';
+    color: var(--greyscale-black, #1E1E1E);
+    /* Desktop/Headline2 */
+    font-family: "Red Hat Display Bold";
+    font-size: 3.125rem;
     font-style: normal;
-    font-weight: 645;
-    font-size: 50px;
-    line-height: 66px;
-    color: #1E1E1E;
+    font-weight: 700;
+    line-height: 4.125rem; /* 132% */
+}
+
+h3 {
+    color: var(--primary-petrol-dark, #093642);
+    /* Desktop/Headline3 */
+    font-family: "Red Hat Mono";
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3rem; /* 133.333% */
+}
+
+.tagline {
+    color: var(--greyscale-black, #1E1E1E);
+    /* Desktop/SubHeadline */
+    font-family: "Red Hat Mono";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.875rem; /* 150% */
+    text-transform: uppercase;
 }
 
 .admin-bar header {

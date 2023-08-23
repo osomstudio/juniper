@@ -11,19 +11,47 @@
  	SupportsMode: true
  	SupportsMultiple: true
 #}
-<div class="container mx-auto">
-	<h1>{{ title }}</h1>
+<div class="employee-grid container mx-auto">
+	<div class="right-decoration">
+		<svg xmlns="http://www.w3.org/2000/svg" width="110" height="416" viewBox="0 0 110 416" fill="none">
+			<path d="M0 141.5L110 0V416L0 141.5Z" fill="#B4D43D" fill-opacity="0.6"/>
+		</svg>
+	</div>
+	<div class="mb-5">
+		<p class="tagline">{{ fields.tagline }}</p>
+		<h2 class="mb-4">{{ fields.title }}</h2>
+		<h3 class="mb-4">{{ fields.subtitle }}</h3>
+		<p class="mb-4">{{ fields.intro_text }}</p>
+	</div>
 	<div class="grid lg:grid-cols-4 md:grid-cols-3 gap-4">
-		<div class="max-w-sm bg-white border-4 rounded-none">
-			<a href="#">
-				You?
-			</a>
-		</div>
+		<a href="#">
+			<div class="max-w-sm bg-white border-4 border-dark rounded-none h-full flex items-center justify-center flex-col">
+				<div class="flex items-center justify-center relative you-bubble">
+					<span class="uppercase -mt-3">You?</span>
+					<svg class="absolute top-0 left-0" xmlns="http://www.w3.org/2000/svg" width="156" height="148" viewBox="0 0 156 148" fill="none">
+						<path d="M141.945 0.398438H14.5079C7.01407 0.398438 0.95166 6.16613 0.95166 13.267V109.241C0.95166 116.328 7.0281 122.096 14.5079 122.096H87.5935L100.041 143.875C101.318 146.107 103.676 147.468 106.244 147.468H106.412C109.05 147.398 111.422 145.896 112.615 143.567L123.505 122.11H141.959C149.452 122.11 155.515 116.342 155.515 109.255V13.267C155.515 6.1521 149.438 0.398438 141.959 0.398438H141.945ZM141.243 107.838H119.112C116.432 107.838 113.962 109.339 112.755 111.739L105.851 125.295L97.936 111.416C96.659 109.185 94.3014 107.824 91.7333 107.824H15.2095V14.6844H141.229V107.838H141.243Z" fill="#093642"/>
+					</svg>
+				</div>
+				<svg xmlns="http://www.w3.org/2000/svg" width="215" height="172" viewBox="0 0 215 172" fill="none">
+					<path d="M108.791 98.288C135.917 98.288 157.908 76.2977 157.908 49.1714C157.908 22.045 135.917 0.0546875 108.791 0.0546875C81.6646 0.0546875 59.6743 22.045 59.6743 49.1714C59.6743 76.2977 81.6646 98.288 108.791 98.288Z" fill="#093642"/>
+					<path d="M107.5 171.303C166.434 171.303 214.209 158.637 214.209 143.012C214.209 127.387 166.434 114.721 107.5 114.721C48.566 114.721 0.790527 127.387 0.790527 143.012C0.790527 158.637 48.566 171.303 107.5 171.303Z" fill="#093642"/>
+				</svg>
+			</div>
+		</a>
 		{% for employee in fields.employees %}
-			<div class="max-w-sm bg-white shadow dark:bg-gray-800 rounded-none">
-				<a href="#">
-					<img src="{{ employee.employee_image.url }}" alt="" />
-				</a>
+			<div class="max-w-sm bg-white rounded-none h-full flex items-center justify-center flex-col employee-card">
+				<img src="{{ employee.image.url }}" alt="{{ employee.name }}" />
+				<div class="overlay absolute">
+					<div class="top-decoration"></div>
+					<span class="name">{{ employee.name }}</span>
+					<div class="skill-list">
+						<ul>
+							{% for skills in employee.skills %}
+								<li>*{{ skills.skill }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
 			</div>
 		{% endfor %}
 	</div>
