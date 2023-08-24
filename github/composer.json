@@ -8,7 +8,7 @@
     ],
     "require": {
         "squizlabs/php_codesniffer": "*",
-        "wp-coding-standards/wpcs": "*"
+        "wp-coding-standards/wpcs": "^2.0"
     },
     "scripts": {
         "test": "phpcs --standard=WordPress-Extra --extensions=php ../web/app/themes --exclude=WordPress.Files.FileName -n -s",
