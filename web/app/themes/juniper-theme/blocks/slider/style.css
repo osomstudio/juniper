@@ -22,3 +22,72 @@
 .simple-slider .swiper-button-prev:after {
     display: none;
 }
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: flex;
+}
+
+.quote-slider-background {
+    height: 800px;
+    width: 100%;
+    top: 100px;
+    left: 0;
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%);    
+    min-height: 500px;
+    border-bottom: 12px solid var(--primary-green, #B4D43D);
+    background: var(--primary-petrol-dark, #093642);
+}
+
+.quote-swiper-outer .swiper-button-next,
+.quote-swiper-outer .swiper-button-prev {
+    bottom: 4rem;
+}
+
+.quote-swiper-outer .swiper-button-next::after,
+.quote-swiper-outer .swiper-button-prev::after {
+    padding: 1rem;    
+    --tw-bg-opacity: 1;
+    background-color: rgb(180 212 61 / var(--tw-bg-opacity));
+}
+
+.quote-swiper-outer .swiper-button-next {
+    right: 0;
+}
+
+.quote-swiper-outer .swiper-button-next::after {
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="43" height="25" viewBox="0 0 43 25" fill="none"><path d="M30.4409 23.0124L40.9471 12.5062L30.4409 2" stroke="%23093642" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="11.4531" y="10.7549" width="15.7593" height="3.50207" rx="1.75103" fill="%23093642"/><rect x="0.947021" y="10.7549" width="7.00413" height="3.50207" rx="1.75103" fill="%23093642"/></svg>');
+}
+
+.quote-swiper-outer .swiper-button-prev {
+    left: 0;
+}
+
+.quote-swiper-outer .swiper-button-prev::after {
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="25" viewBox="0 0 42 25" fill="none"><path d="M12.4531 1.9876L1.94693 12.4938L12.4531 23" stroke="%23093642" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="31.4409" y="14.2451" width="15.7593" height="3.50207" rx="1.75103" transform="rotate(-180 31.4409 14.2451)" fill="%23093642"/><rect x="41.947" y="14.2451" width="7.00413" height="3.50207" rx="1.75103" transform="rotate(-180 41.947 14.2451)" fill="%23093642"/></svg>');
+}
+
+.quote-swiper-outer .swiper-pagination-bullet {
+    border-radius: 0;
+    width: 2rem;
+    background: var(--greyscale-white, #F9F9F9);
+    opacity: 1;
+}
+
+.quote-swiper-outer .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    width: 5rem;
+    background: var(--primary-green, #B4D43D);
+}

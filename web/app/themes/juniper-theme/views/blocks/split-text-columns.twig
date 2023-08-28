@@ -1,0 +1,32 @@
+{#
+ 	Title: Split Text Columns
+ 	Description: Shows two columns of text & images with an optional link at the bottom
+ 	Category: formatting
+ 	Icon: admin-comments
+ 	Keywords: split text column
+ 	Mode: edit
+ 	Align: full
+ 	PostTypes: page post
+ 	SupportsAlign: left right full
+ 	SupportsMode: true
+ 	SupportsMultiple: true
+#}
+
+<div class="container mx-auto">
+	<div class="grid grid-cols-2 gap-8">
+		{% for item in fields.items %}
+			<div class="split-text-item flex flex-col text-center items-center">
+				{{ item.image }}
+				<div class="mt-20">
+					<p class="tagline">{{ item.tagline }}</p>
+					<h3>{{ item.title }}</h3>
+					<p>{{ item.text }}</p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<div class="w-full flex justify-center mt-20">
+		<a class="btn btn-primary w-fit" href="{{ fields.link.url }}">{{ fields.link.title }}</a>
+	</div>
+</div>
+

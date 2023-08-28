@@ -11,3 +11,19 @@
  	SupportsMode: true
  	SupportsMultiple: true
 #}
+
+<div class="container mx-auto">
+	<p class="tagline">{{ fields.tagline }}</p>
+	<h2>{{ fields.title }}</h2>
+	<p>{{ fields.intro_text }}</p>
+	<form class="w-full max-w-lg">
+		<div class="flex flex-wrap -mx-3 mb-6">
+			<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<input class="appearance-none block w-full text-gray-700 border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white signup-name" type="text" placeholder="Full name">
+			</div>
+			<div class="w-full md:w-1/2 px-3">
+				<input class="appearance-none block w-full text-gray-700 border border-gray-200 py-3 px-4 leading-tight focus:outline-none focus:bg-white signup-email" type="text" placeholder="Email Address">
+			</div>
+		</div>
+	</form>
+</div>
