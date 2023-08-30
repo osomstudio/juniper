@@ -23,6 +23,8 @@ class Jobs {
 				),
 				'public'      => true,
 				'has_archive' => true,
+				'show_in_rest' => true,
+				'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
 				'rewrite'     => array( 'slug' => $this->cpt_slug ),
 			)
 		);

@@ -1,0 +1,25 @@
+.job-facts-outer {
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%);    
+    min-height: 500px;
+    background: var(--primary-green, #B4D43D);
+    padding-top: 12px;
+}
+
+.job-facts-inner {
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%);    
+    min-height: 500px;
+    background: var(--primary-petrol-dark, #093642);
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+.job-facts-inner ul {
+    margin-left: 40px;
+}
+
+.job-facts-inner ul li {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none"><path d="M12.0759 18L16.0204 12.7104C16.8507 11.599 16.8075 10.0647 15.919 8.99813L13.3682 5.93887L13.1334 5.66008L8.41689 -1.47165e-06L0 0L9.07807 10.9965L3.75295 18L12.074 18L12.0759 18ZM9.67914 10.2106L2.15822 1.09459L8.06563 1.09459L12.5117 6.48149L9.67914 10.2106Z" fill="%23B4D43D"/></svg>');
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-bottom: 0.75rem;
+}

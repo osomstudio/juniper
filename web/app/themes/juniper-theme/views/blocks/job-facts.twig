@@ -1,0 +1,38 @@
+{#
+ 	Title: Job Facts
+ 	Description: Job single page overview
+ 	Category: formatting
+ 	Icon: admin-comments
+ 	Keywords: job facts
+ 	Mode: edit
+ 	Align: full
+ 	PostTypes: page post jobs projects
+ 	SupportsAlign: left right full
+ 	SupportsMode: true
+ 	SupportsMultiple: true
+#}
+
+<div class="job-facts-outer w-full">
+	<div class="job-facts-inner">
+		<div class="container max-w-[900px] mx-auto text-white py-10">
+			<h2 class="text-white mb-6">Deine Aufgaben:</h2>
+			<ul>
+				{% for item in fields.facts %}
+					<li>{{ item.fact }}</li>
+				{% endfor %}
+			</ul>
+
+			<h2 class="text-white mb-6">Dein Profil:</h2>
+			<ul>
+				{% for item in fields.requirements %}
+					<li>{{ item.requirement }}</li>
+				{% endfor %}
+			</ul>
+
+			<div class="border-white border-4 p-10 w-full text-center">
+				<p>Jahresbruttogehalt zwischen</p>
+				<p class="text-3xl"><span>€{{ fields.salary_range.salary_start }} - €{{ fields.salary_range.salary_end }}</span></p>
+			</div>
+		</div>
+	</div>
+</div>

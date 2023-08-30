@@ -1,0 +1,23 @@
+{#
+ 	Title: Jumbotron
+ 	Description: Jumbotron heading
+ 	Category: formatting
+ 	Icon: admin-comments
+ 	Keywords: jumbotron header
+ 	Mode: edit
+ 	Align: full
+ 	PostTypes: page post jobs projects
+ 	SupportsAlign: left right full
+ 	SupportsMode: true
+ 	SupportsMultiple: true
+#}
+
+<section class="bg-center bg-no-repeat bg-blend-multiply angled-bottom min-h-[970px] relative" style="background-image: url('{{ fields.background_image }}'); background-size: cover;">
+	<div class="jumbotron-shape-left"></div>
+	<div class="mx-0 w-full h-full flex flex-col justify-center bg-dark-transparent min-h-[970px]">
+		<div class="container mx-auto">
+			<h1 class="mb-4 text-white">{{ fields.title }}</h1>
+		</div>
+	</div>
+	<div class="jumbotron-shape-bottom"></div>
+</section>
