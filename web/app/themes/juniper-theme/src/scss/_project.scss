@@ -148,25 +148,15 @@ h3 {
     z-index: -1;
 }
 
-.split-text-background {    
-    height: 1000px;
-    width: 500px;
-    top: -200px;
-    right: 0;
-    clip-path: polygon(100% 0, 0 50%, 100% 100%);
-}
-
-.dark-style {
-    .split-text-background {  
-        height: 500px;  
-        width: 100%;
-        top: -80px;
-        left: 0;
-        clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
-        min-height: 500px;
+.textleft {
+    .split-text-background {    
+        height: 1000px;
+        width: 500px;
+        top: -200px;
+        right: 0;
+        clip-path: polygon(100% 0, 0 50%, 100% 100%);
     }
 }
-
 
 
 .contact-link {

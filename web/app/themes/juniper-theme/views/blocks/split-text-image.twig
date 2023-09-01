@@ -1,5 +1,5 @@
 {#
- 	Title: split-text-image
+ 	Title: Split Text Image
  	Description: This block shows an image on one side, and a title, text, and link on the other.
  	Category: formatting
  	Icon: admin-comments
@@ -11,20 +11,25 @@
  	SupportsMode: true
  	SupportsMultiple: true
 #}
-<div class="w-full relative py-10 {% if fields.style == 'dark' %} text-white dark-style {% endif %}">
+<div class="w-full relative py-28 {{ fields.orientation }} {% if fields.style == 'dark' %} text-white dark-style {% endif %}">
 	<div class="bg-dark absolute split-text-background background">
 	</div>
 	<div class="container mx-auto relative">
-		<div class="inline-flex {% if fields.orientation == 'textleft' %} flex-row-reverse {% endif %}">
-			<div>
-				<img src="{{ fields.image }}" />
+		<div class="inline-flex {{ fields.orientation }} {% if fields.orientation == 'textleft' %} flex-row-reverse {% endif %}">
+			<div class="img-wrapper w-1/2">
+				<div class="img-content">
+					{% if fields.orientation == 'textright' %}<div class="img-decoration"></div>{% endif %}
+					<div class="content-image" style="background-image: url('{{ fields.image }}');"></div>
+				</div>
 			</div>
-			<div>
-				<h5 class="text-xl font-bold">{{ fields.intro_title }}</h5>
-				<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">{{ fields.title }}</h1>
-				<h3 class="text-xl font-bold text-primary">{{ fields.subtitle }}</h3>
-				<p class="mb-3 text-gray-500 dark:text-gray-400">{{ fields.content }}</p>
-				<a class="btn {% if fields.style == 'dark' %} btn-transparent {% else %} btn-primary {% endif %} w-fit" href="{{ fields.link_value }}">{{ fields.link_text }}</a>
+			<div class="text-content w-1/2 h-100 flex flex-col justify-center">
+				<div class="text-inner">
+					<h5 class="text-xl font-bold">{{ fields.intro_title }}</h5>
+					<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">{{ fields.title }}</h1>
+					<h3 class="text-xl font-bold text-primary font-bold">{{ fields.subtitle }}</h3>
+					<p class="mb-3 text-gray-500 dark:text-gray-400">{{ fields.content }}</p>
+					<a class="btn {% if fields.style == 'dark' %} btn-transparent {% else %} btn-primary {% endif %} w-fit flex items-center" href="{{ fields.link_value }}">{{ fields.link_text }}</a>
+				</div>
 			</div>
 		</div>
 	</div>
