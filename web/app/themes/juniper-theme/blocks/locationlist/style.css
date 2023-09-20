@@ -1,3 +1,10 @@
 .location-info svg {
     margin-right: 1rem;
 }
+
+.location-list-background {
+    min-height: 800px;
+    top: 0;
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+    width: 100%;
+}

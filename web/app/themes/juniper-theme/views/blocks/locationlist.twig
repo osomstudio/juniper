@@ -14,6 +14,10 @@
 
 
 <div class="location-grid container mx-auto max-w-[800px]">
+	{% if fields.style == "dark" %}
+		<div class="bg-dark absolute location-list-background background">
+		</div>
+	{% endif %}
 	<div class="mb-5">
 		<p class="tagline">{{ fields.tagline }}</p>
 		<h2 class="mb-4">{{ fields.title }}</h2>

@@ -11,6 +11,63 @@
  	SupportsMode: true
  	SupportsMultiple: true
 #}
+{% if fields.style == "split" %}
+	<div class="w-full relative split-slider">
+		<div class="bg-dark absolute split-slider-background background h-full">
+		</div>
+		<div class="container min-h-[600px] py-32 mx-auto px-4 slider relative">
+			<div class="grid grid-cols-2 gap-8">
+				<div class="left text-white">
+					<h3 class="text-white">{{ fields.split_slider_static_items.title }}</h3>
+					<p>{{ fields.split_slider_static_items.text }}</p>
+					<a class="btn btn-primary" href="{{ fields.split_slider_static_items.link.url }}">{{ fields.split_slider_static_items.link.title }}</a>
+				</div>
+				<div class="right">
+					<div class="swiper mySwiper">
+						<div class="swiper-wrapper">
+							{% for slide in fields.split_slider_items %}
+								<div class="swiper-slide h-[400px]" style="background-image: url('{{ slide.slider_image.url }}');">
+									<h3>{{ slide.slider_title }}</h3>
+								</div>
+							{% endfor %}
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+					<div class="controls-wrapper inline-flex w-full justify-between">
+						<div class="swiper-button-prev bg-primary w-fit p-3">
+							<svg xmlns="http://www.w3.org/2000/svg" width="42" height="25" viewBox="0 0 42 25" fill="none">
+								<path d="M12.5061 1.9876L1.99991 12.4938L12.5061 23" stroke="#093642" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+								<rect x="31.4939" y="14.2446" width="15.7593" height="3.50207" rx="1.75103" transform="rotate(-180 31.4939 14.2446)" fill="#093642"/>
+								<rect x="42" y="14.2446" width="7.00413" height="3.50207" rx="1.75103" transform="rotate(-180 42 14.2446)" fill="#093642"/>
+							</svg>
+						</div>
+						<div class="swiper-button-next bg-primary w-fit p-3">
+							<svg xmlns="http://www.w3.org/2000/svg" width="42" height="25" viewBox="0 0 42 25" fill="none">
+								<path d="M29.4939 23.0124L40.0001 12.5062L29.4939 2" stroke="#093642" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+								<rect x="10.5061" y="10.7554" width="15.7593" height="3.50207" rx="1.75103" fill="#093642"/>
+								<rect y="10.7554" width="7.00413" height="3.50207" rx="1.75103" fill="#093642"/>
+								</svg>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var swiper = new Swiper(".mySwiper", {
+				slidesPerView: "auto",
+				spaceBetween: 30,
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+			});
+		</script>
+	</div>
+{% endif %}
 {% if fields.style == "timeline" %}
 	<div class="container min-h-[800px] my-12 mx-auto px-4 slider">
 		<div class="grid grid-cols-1 gap-8">

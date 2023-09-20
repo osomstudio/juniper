@@ -91,3 +91,28 @@
     width: 5rem;
     background: var(--primary-green, #B4D43D);
 }
+
+.split-slider-background {
+    min-height: 600px;
+    top: 0;
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+    width: 100%;
+}
+
+
+.split-slider .swiper-slide {
+    width: 80%;
+}
+
+.split-slider .controls-wrapper .swiper-button-prev,
+.split-slider .controls-wrapper .swiper-button-next {
+    position: relative;
+    left: unset;
+    right: unset;
+}
+
+
+.split-slider .controls-wrapper .swiper-button-prev::after,
+.split-slider .controls-wrapper .swiper-button-next::after {
+    display: none;
+}
