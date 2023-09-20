@@ -194,7 +194,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 					$description = $assoc_args['description'];
 				}
 
-				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/blocks/$slug_name/scripts.js", '' );
+				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/blocks/$slug_name/script.js", '' );
 				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/blocks/$slug_name/ajax.js", '' );
 
 				$css = ".$slug_name {}\n\n" .
