@@ -41,7 +41,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 
 				return array(
 					'lowercase_name' => $lowercase_name,
-					'slug_name'      => str_replace( ' ', '_', $lowercase_name ),
+					'slug_name'      => str_replace( ' ', '-', $lowercase_name ),
 					'rewrite_name'   => str_replace( ' ', '-', $lowercase_name ),
 				);
 			}
@@ -176,7 +176,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				}
 
 				$lowercase_name = strtolower( $og_name );
-				$slug_name      = str_replace( ' ', '_', $lowercase_name );
+				$slug_name      = str_replace( ' ', '-', $lowercase_name );
 
 				if ( file_exists( "../themes/juniper-theme/blocks/$slug_name/" ) ) {
 					WP_CLI::error( 'Block already exists' );
