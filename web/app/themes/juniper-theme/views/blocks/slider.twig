@@ -17,17 +17,27 @@
 		</div>
 		<div class="container min-h-[600px] py-32 mx-auto px-4 slider relative">
 			<div class="grid grid-cols-2 gap-8">
-				<div class="left text-white">
-					<h3 class="text-white">{{ fields.split_slider_static_items.title }}</h3>
-					<p>{{ fields.split_slider_static_items.text }}</p>
+				<div class="left text-white h-full flex flex-col justify-center">
+					<h2 class="text-white mb-4">{{ fields.split_slider_static_items.title }}</h2>
+					<div class="mb-4">{{ fields.split_slider_static_items.text }}</div>
 					<a class="btn btn-primary" href="{{ fields.split_slider_static_items.link.url }}">{{ fields.split_slider_static_items.link.title }}</a>
 				</div>
 				<div class="right">
-					<div class="swiper mySwiper">
+					<div class="swiper splitSwiper">
 						<div class="swiper-wrapper">
 							{% for slide in fields.split_slider_items %}
 								<div class="swiper-slide h-[400px]" style="background-image: url('{{ slide.slider_image.url }}');">
-									<h3>{{ slide.slider_title }}</h3>
+									<div class="slide-inner h-full w-full flex flex-col items-end justify-end p-4">
+										<h5 class="mb-3">{{ slide.slider_title }}</h5>
+										<a class="w-full" href="{{ slide.link.url }}">
+											<span>{{ slide.link.title }}</span>
+											<svg xmlns="http://www.w3.org/2000/svg" width="48" height="28" viewBox="0 0 48 28" fill="none">
+												<path d="M34 26L46 14L34 2" stroke="#1E1E1E" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+												<rect x="12.3127" y="12" width="18" height="4" rx="2" fill="#1E1E1E"/>
+												<rect x="0.312744" y="12" width="8" height="4" rx="2" fill="#1E1E1E"/>
+											</svg>
+										</a>
+									</div>
 								</div>
 							{% endfor %}
 						</div>
@@ -53,7 +63,7 @@
 			</div>
 		</div>
 		<script>
-			var swiper = new Swiper(".mySwiper", {
+			var swiper = new Swiper(".splitSwiper", {
 				slidesPerView: "auto",
 				spaceBetween: 30,
 				pagination: {

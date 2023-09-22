@@ -80,14 +80,16 @@
     content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="25" viewBox="0 0 42 25" fill="none"><path d="M12.4531 1.9876L1.94693 12.4938L12.4531 23" stroke="%23093642" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="31.4409" y="14.2451" width="15.7593" height="3.50207" rx="1.75103" transform="rotate(-180 31.4409 14.2451)" fill="%23093642"/><rect x="41.947" y="14.2451" width="7.00413" height="3.50207" rx="1.75103" transform="rotate(-180 41.947 14.2451)" fill="%23093642"/></svg>');
 }
 
-.quote-swiper-outer .swiper-pagination-bullet {
+.quote-swiper-outer .swiper-pagination-bullet,
+.splitSwiper .swiper-pagination-bullet {
     border-radius: 0;
     width: 2rem;
     background: var(--greyscale-white, #F9F9F9);
     opacity: 1;
 }
 
-.quote-swiper-outer .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.quote-swiper-outer .swiper-pagination-bullet.swiper-pagination-bullet-active,
+.splitSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
     width: 5rem;
     background: var(--primary-green, #B4D43D);
 }
@@ -95,14 +97,26 @@
 .split-slider-background {
     min-height: 600px;
     top: 0;
-    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 13%, 100% 100%, 0 87%);
     width: 100%;
 }
 
 
 .split-slider .swiper-slide {
     width: 80%;
+    color: var(--greyscale-black, #1E1E1E);
+    text-align: right;
+    font-family: "Red Hat Mono";
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3rem;
 }
+
+.split-slider .swiper-slide h3 {
+    color: var(--greyscale-black, #1E1E1E);
+}
+
 
 .split-slider .controls-wrapper .swiper-button-prev,
 .split-slider .controls-wrapper .swiper-button-next {
@@ -115,4 +129,26 @@
 .split-slider .controls-wrapper .swiper-button-prev::after,
 .split-slider .controls-wrapper .swiper-button-next::after {
     display: none;
+}
+
+.splitSwiper .slide-inner {
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(0,212,255,0) 100%);
+}
+
+.split-slider .slide-inner h5 {
+    font-family: "Red Hat Display Bold";
+}
+
+.split-slider .swiper-slide a svg {
+    display: inline;
+}
+
+.split-slider .swiper-slide a span {
+    padding: 0.25rem;
+    border-bottom: 3px solid var(--greyscale-black, #1E1E1E);
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.875rem; /* 166.667% */
 }
