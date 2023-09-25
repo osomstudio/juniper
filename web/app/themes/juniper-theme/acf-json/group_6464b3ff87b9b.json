@@ -21,7 +21,8 @@
                 "timeline": "Timeline",
                 "full": "Full Width",
                 "simple": "Simple",
-                "quote": "Quote"
+                "quote": "Quote",
+                "blog": "Blog"
             },
             "default_value": false,
             "return_format": "value",
@@ -284,6 +285,92 @@
             ]
         },
         {
+            "key": "field_651195775c492",
+            "label": "Simple Slider Static Items",
+            "name": "simple_slider_static_items",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6464b3ffab60b",
+                        "operator": "==",
+                        "value": "simple"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6511958f5c493",
+                    "label": "Tagline",
+                    "name": "tagline",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6511959f5c494",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_651195a55c495",
+                    "label": "Intro Text",
+                    "name": "intro_text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
+                }
+            ]
+        },
+        {
             "key": "field_64de131129314",
             "label": "Simple Slider Items",
             "name": "simple_slider_items",
@@ -506,7 +593,15 @@
             "type": "group",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6464b3ffab60b",
+                        "operator": "==",
+                        "value": "blog"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -564,7 +659,15 @@
             "type": "post_object",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6464b3ffab60b",
+                        "operator": "==",
+                        "value": "blog"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -601,5 +704,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695388279
+    "modified": 1695651339
 }

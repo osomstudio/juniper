@@ -682,6 +682,10 @@ video {
   margin-left: 0.25rem;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -720,10 +724,6 @@ video {
 
 .mt-auto {
   margin-top: auto;
-}
-
-.ml-auto {
-  margin-left: auto;
 }
 
 .block {
