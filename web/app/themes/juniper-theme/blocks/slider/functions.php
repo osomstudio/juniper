@@ -26,6 +26,8 @@ add_filter(
                 $context['fields']['simple_slider_items'][$key]['slide_image'] = wp_get_attachment_image( $context['fields']['simple_slider_items'][$key]['slide_image'], 'medium', array('height' => 100, 'width' => 100));
             }
         }
+
+        $context['instance'] = uniqid();
         return $context;
     }
 );
