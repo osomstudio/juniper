@@ -98,7 +98,7 @@
 				</div>
 			</div>
 			<div class="flex">
-				<div class="h-[600px] w-[600px]">
+				<div class="h-[600px] w-full">
 					<div class="timeline-slider snap-y snap-mandatory h-full overflow-scroll">
 						{% for item in fields.timeline_slider_items %}
 							<div data-slide-num="{{ loop.index }}" class="timeline-slide snap-start w-full h-screen flex flex-col items-start justify-center">
@@ -109,13 +109,22 @@
 						{% endfor %}
 					</div>
 				</div>
-				<button id="sliderScroll" class="btn btn-primary h-fit align-self-bottom mt-auto">
-					<svg xmlns="http://www.w3.org/2000/svg" width="26" height="43" viewBox="0 0 26 43" fill="none">
-						<path d="M2.35919 30.3337L12.8654 40.8399L23.3716 30.3337" stroke="#093642" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-						<rect x="14.6165" y="11.3459" width="15.7593" height="3.50207" rx="1.75103" transform="rotate(90 14.6165 11.3459)" fill="#093642"/>
-						<rect x="14.6165" y="0.839844" width="7.00413" height="3.50207" rx="1.75103" transform="rotate(90 14.6165 0.839844)" fill="#093642"/>
-					</svg>
-				</button>
+				<div class="flex flex-col">
+					<button id="sliderScrollUp" class="btn btn-primary h-fit align-self-bottom mt-auto">
+						<svg xmlns="http://www.w3.org/2000/svg" width="26" height="43" viewBox="0 0 26 43" fill="none">
+							<path d="M23.384 13.0273L12.8778 2.52106L2.37158 13.0273" stroke="#093642" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+							<rect x="11.1267" y="32.0148" width="15.7593" height="3.50207" rx="1.75103" transform="rotate(-90 11.1267 32.0148)" fill="#093642"/>
+							<rect x="11.1267" y="42.5211" width="7.00413" height="3.50207" rx="1.75103" transform="rotate(-90 11.1267 42.5211)" fill="#093642"/>
+						</svg>
+					</button>
+					<button id="sliderScrollDown" class="btn btn-primary h-fit">
+						<svg xmlns="http://www.w3.org/2000/svg" width="26" height="43" viewBox="0 0 26 43" fill="none">
+							<path d="M2.35919 30.3337L12.8654 40.8399L23.3716 30.3337" stroke="#093642" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+							<rect x="14.6165" y="11.3459" width="15.7593" height="3.50207" rx="1.75103" transform="rotate(90 14.6165 11.3459)" fill="#093642"/>
+							<rect x="14.6165" y="0.839844" width="7.00413" height="3.50207" rx="1.75103" transform="rotate(90 14.6165 0.839844)" fill="#093642"/>
+						</svg>
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -210,6 +219,58 @@
 				<!-- Initialize Swiper -->
 				<script>
 					var swiper = new Swiper(".quote-swiper", {
+						pagination: {
+							el: ".swiper-pagination",
+						},
+						navigation: {
+							nextEl: ".swiper-button-next",
+							prevEl: ".swiper-button-prev",
+						},
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% if fields.style == "blog" %}
+	<div class="relative w-100 blog-swiper-outer">
+		<div class="absolute blog-slider-background background w-[100vw]"></div>
+		<div class="container mx-auto min-h-[1000px]">
+			<div class="w-full text-center text-white">
+				<p class="tagline">{{ fields.blog_static_items.tagline }}</p>
+				<h2>{{ fields.blog_static_items.title }}</h2>
+			</div>
+			<div class="grid grid-cols-1 gap-8 max-w-[800px] mx-auto">
+				<div class="swiper blog-swiper h-[500px] relative">
+					<div class="blog-decoration bg-primary p-5 absolute top-0 left-10">
+						<svg xmlns="http://www.w3.org/2000/svg" width="61" height="59" viewBox="0 0 61 59" fill="none">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M27.7355 0H0.421387V30H16.2095C16.2095 32.1459 15.8247 34.2707 15.077 36.2533C14.3293 38.2358 13.2335 40.0372 11.8519 41.5545C10.4704 43.0719 8.83033 44.2755 7.0253 45.0967C5.22027 45.9179 3.28564 46.3406 1.33189 46.3406L1.33189 59C4.79927 59 8.23269 58.2499 11.4361 56.7925C14.6396 55.3351 17.5503 53.199 20.0021 50.5061C22.4539 47.8132 24.3988 44.6163 25.7257 41.0978C27.0526 37.5794 27.7355 33.8083 27.7355 30H27.7355V0Z" fill="#093642"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M60.5126 0H33.1985V30H48.9866C48.9866 32.1459 48.6018 34.2707 47.8541 36.2533C47.1065 38.2358 46.0106 40.0372 44.6291 41.5545C43.2476 43.0719 41.6075 44.2755 39.8024 45.0967C37.9974 45.9179 36.0628 46.3406 34.109 46.3406L34.109 59C37.5764 59 41.0098 58.2499 44.2133 56.7925C47.4167 55.3351 50.3274 53.199 52.7792 50.5061C55.231 47.8132 57.1759 44.6163 58.5028 41.0978C59.8297 37.5794 60.5127 33.8083 60.5127 30H60.5126V0Z" fill="#093642"/>
+						</svg>
+					</div>
+					<div class="swiper-wrapper">
+						{% for blog_item in fields.blog_slider_items %}
+							<div class="swiper-slide text-white flex flex-col items-center justify-center">
+								<div class="blog-slider-inner max-w-[800px] mx-auto h-100">
+									<p>{{ blog_item.blog }}</p>
+									<p class="uppercase mt-6">{{ blog_item.person }}</p>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="relative w-full">
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>
+				<!-- Swiper JS -->
+				<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+				<!-- Initialize Swiper -->
+				<script>
+					var swiper = new Swiper(".blog-swiper", {
 						pagination: {
 							el: ".swiper-pagination",
 						},

@@ -8,7 +8,7 @@ class Jobs {
 
 	public function __construct() {
 		$this->cpt_slug = substr( 'jobs', 0, 20 );
-		$this->cpt_name = substr( 'jobs', 0, 20 );
+		$this->cpt_name = substr( 'Jobs', 0, 20 );
 
 		add_action( 'init', array( $this, 'register_custom_cpt' ) );
 	}

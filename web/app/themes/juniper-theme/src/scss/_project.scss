@@ -230,7 +230,20 @@ h3 {
                 height: 1px;
                 top: 9px;
                 left: 27px;
+               
             }
+            @media only screen and (max-width: 1280px) {
+                &:not(:last-child):after {
+                    width: 210px;
+                }
+            }
+
+            @media only screen and (max-width: 1024px) {
+                &:not(:last-child):after {
+                    width: 140px;
+                }
+            }
+
         }
     }
 }

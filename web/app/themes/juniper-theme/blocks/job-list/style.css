@@ -1,0 +1,11 @@
+.job-list .background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    clip-path: polygon(0 13%, 100% 0, 100% 87%, 0 100%);
+    background: var(--primary-petrol-dark, #093642);
+}
+
+.job:not(:last-child) {
+    border-bottom: 3px solid #fff;
+}
