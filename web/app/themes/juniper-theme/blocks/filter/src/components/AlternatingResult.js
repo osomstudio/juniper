@@ -3,6 +3,7 @@ import React, {useState} from "react"
 const AlternatingResult = ({ index, post }) => {
     return (
         <div className={`w-full min-h-[600px] mb-40 inline-flex ${index % 2 === 0 ? 'even flex-row' : 'odd flex-row-reverse'}`}>
+            
             <div className="w-1/2">
                 <div className="teaser-image absolute z-0">
                     <div className="absolute decoration"></div>

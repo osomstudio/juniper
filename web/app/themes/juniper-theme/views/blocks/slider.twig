@@ -131,9 +131,11 @@
 {% endif %}
 
 {% if fields.style == "simple" %}
-	<div class="container my-12 mx-auto px-4 slider">
+	<div class="container my-12 mx-auto px-4 slider simple-swiper-{{ instance }}">
 		<div class="simple-slider relative">
-			<div class="swiper simple-swiper-{{ instance }}">
+			<p>{{ fields.simple_slider_static_items.tagline }}</p>
+			<h2 class="mb-20">{{ fields.simple_slider_static_items.title }}</h2>
+			<div class="swiper">
 				<div class="swiper-wrapper">
 					{% for item in fields.simple_slider_items %}
 						<div class="swiper-slide">
@@ -168,13 +170,14 @@
 			</div>
 		</div>
 		<script>
-			var swiper = new Swiper(".simple-swiper-{{ instance }}", {
-				slidesPerView: 6,
-				spaceBetween: 50,
+			var swiper = new Swiper(".simple-swiper-{{ instance }} .swiper", {
+				slidesPerView: 'auto',
+				spaceBetween: 24,
 				navigation: {
-					nextEl: ".swiper-button-next",
-					prevEl: ".swiper-button-prev",
+					nextEl: ".simple-swiper-{{ instance }} .swiper-button-next",
+					prevEl: ".simple-swiper-{{ instance }} .swiper-button-prev",
 				},
+				
 			});
 		</script>
 	</div>
@@ -219,11 +222,11 @@
 				<script>
 					var swiper = new Swiper(".quote-swiper-{{ instance }}", {
 						pagination: {
-							el: ".swiper-pagination",
+							el: ".quote-swiper-{{ instance }} .swiper-pagination",
 						},
 						navigation: {
-							nextEl: ".swiper-button-next",
-							prevEl: ".swiper-button-prev",
+							nextEl: ".quote-swiper-{{ instance }} .swiper-button-next",
+							prevEl: ".quote-swiper-{{ instance }} .swiper-button-prev",
 						},
 					});
 				</script>
@@ -271,11 +274,11 @@
 				<script>
 					var swiper = new Swiper(".blog-swiper-{{ instance }}", {
 						pagination: {
-							el: ".swiper-pagination",
+							el: ".blog-swiper-{{ instance }} .swiper-pagination",
 						},
 						navigation: {
-							nextEl: ".swiper-button-next",
-							prevEl: ".swiper-button-prev",
+							nextEl: ".blog-swiper-{{ instance }} .swiper-button-next",
+							prevEl: ".blog-swiper-{{ instance }} .swiper-button-prev",
 						},
 					});
 				</script>

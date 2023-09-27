@@ -1,4 +1,4 @@
-.simple-slider .swiper-slide .slide-inner {
+.simple-slider .swiper-slide {
     height: 200px;
     width: 200px;
     border: 1px solid var(--greyscale-90, #343434);
