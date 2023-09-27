@@ -559,14 +559,6 @@ video {
   }
 }
 
-.visible {
-  visibility: visible;
-}
-
-.static {
-  position: static;
-}
-
 .fixed {
   position: fixed;
 }
@@ -575,16 +567,8 @@ video {
   position: absolute;
 }
 
-.\!relative {
-  position: relative !important;
-}
-
 .relative {
   position: relative;
-}
-
-.sticky {
-  position: sticky;
 }
 
 .left-0 {
@@ -603,8 +587,20 @@ video {
   top: 0px;
 }
 
+.top-5 {
+  top: 1.25rem;
+}
+
 .z-50 {
   z-index: 50;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-0 {
+  z-index: 0;
 }
 
 .m-auto {
@@ -644,6 +640,11 @@ video {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .-mb-4 {
@@ -726,6 +727,22 @@ video {
   margin-top: auto;
 }
 
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mr-10 {
+  margin-right: 2.5rem;
+}
+
+.mb-40 {
+  margin-bottom: 10rem;
+}
+
 .block {
   display: block;
 }
@@ -740,10 +757,6 @@ video {
 
 .inline-flex {
   display: inline-flex;
-}
-
-.table {
-  display: table;
 }
 
 .grid {
@@ -801,6 +814,10 @@ video {
 
 .min-h-\[300px\] {
   min-height: 300px;
+}
+
+.min-h-\[400px\] {
+  min-height: 400px;
 }
 
 .min-h-\[600px\] {
@@ -884,6 +901,10 @@ video {
   max-width: 24rem;
 }
 
+.max-w-\[300px\] {
+  max-width: 300px;
+}
+
 .shrink {
   flex-shrink: 1;
 }
@@ -920,6 +941,10 @@ video {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -994,12 +1019,6 @@ video {
 
 .overflow-scroll {
   overflow: scroll;
-}
-
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .rounded {
@@ -1116,6 +1135,11 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .py-28 {
   padding-top: 7rem;
   padding-bottom: 7rem;
@@ -1199,14 +1223,6 @@ video {
   text-transform: uppercase;
 }
 
-.lowercase {
-  text-transform: lowercase;
-}
-
-.italic {
-  font-style: italic;
-}
-
 .leading-none {
   line-height: 1;
 }
@@ -1249,16 +1265,8 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.underline {
-  text-decoration-line: underline;
-}
-
 .bg-blend-multiply {
   background-blend-mode: multiply;
-}
-
-.outline {
-  outline-style: solid;
 }
 
 .filter {

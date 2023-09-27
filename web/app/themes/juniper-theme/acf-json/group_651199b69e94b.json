@@ -1,0 +1,97 @@
+{
+    "key": "group_651199b69e94b",
+    "title": "Filter",
+    "fields": [
+        {
+            "key": "field_651199b6236a6",
+            "label": "Post Type",
+            "name": "post_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "post": "post",
+                "page": "page",
+                "attachment": "attachment",
+                "revision": "revision",
+                "nav_menu_item": "nav_menu_item",
+                "custom_css": "custom_css",
+                "customize_changeset": "customize_changeset",
+                "oembed_cache": "oembed_cache",
+                "user_request": "user_request",
+                "wp_block": "wp_block",
+                "wp_template": "wp_template",
+                "wp_template_part": "wp_template_part",
+                "wp_global_styles": "wp_global_styles",
+                "wp_navigation": "wp_navigation",
+                "acf-post-type": "acf-post-type",
+                "acf-taxonomy": "acf-taxonomy",
+                "acf-field-group": "acf-field-group",
+                "acf-field": "acf-field",
+                "wpcf7_contact_form": "wpcf7_contact_form",
+                "jobs": "jobs",
+                "projects": "projects",
+                "services": "services"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6511a1f41ab6d",
+            "label": "Style",
+            "name": "style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "article": "Article",
+                "alternating": "Alternating"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/filter"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1695654421
+}
