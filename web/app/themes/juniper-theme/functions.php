@@ -23,9 +23,9 @@ if ( file_exists( $composer_autoload ) ) {
 require_once 'inc/include.php';
 
 function juniper_theme_enqueue() {
-	$refresh_cache_time = time();
+	$refresh_cache_time     = time();
 	$template_directory_uri = get_template_directory_uri();
-	
+
 	wp_enqueue_style( 'app-css', $template_directory_uri . '/dist/src/css/_app.css', array(), $refresh_cache_time );
 	wp_enqueue_script( 'app-js', $template_directory_uri . '/dist/src/js/_app.js', array(), $refresh_cache_time, true );
 }
