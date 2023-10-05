@@ -65,26 +65,28 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 
 				$this->validate_name( $og_name );
 
-				extract( $this->get_needed_names( $og_name ) );
+				extract( $this->get_needed_names( $og_name ) ); // phpcs:ignore
 
-				if ( file_exists( $this->mu_plugins . "/../themes/juniper-theme/inc/Cpt/$slug_name.php" ) ) {
+				$class_name = ucfirst( $slug_name );
+
+				if ( file_exists( $this->mu_plugins . "/../themes/juniper-theme/inc/Cpt/$class_name.php" ) ) {
 					WP_CLI::error( 'Custom post type already exists' );
 				}
 
 				$replace_array = array(
-					array( 'replace_cpt_slug', $slug_name ),
+					array( 'replace_cpt_slug', $class_name ),
 					array( 'replace_cpt_name', $og_name ),
 					array( 'replace_rewrite_name', $rewrite_name ),
 				);
 
-				$file_contents = file_get_contents( $this->mu_plugins . '/../../../dev/cpt.txt' );
+				$file_contents = file_get_contents( $this->mu_plugins . '/../../../dev/cpt.txt' ); // phpcs:ignore
 				foreach ( $replace_array as $search_replace ) {
 					$file_contents = str_replace( $search_replace[0], $search_replace[1], $file_contents );
 				}
 
-				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/inc/Cpt/$slug_name.php", $file_contents );
+				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/inc/Cpt/$class_name.php", $file_contents );
 
-				$new_class = "\$juniper_$slug_name = new \Juniper\cpt\\$slug_name();" . PHP_EOL;
+				$new_class = "\$juniper_$slug_name = new \Juniper\Cpt\\$class_name();" . PHP_EOL;
 				file_put_contents( $this->mu_plugins . '/../themes/juniper-theme/inc/include.php', $new_class, FILE_APPEND );
 
 				shell_exec( 'phpcbf --standard=WordPress-Extra ' . $this->mu_plugins . "/../themes/juniper-theme/inc/Cpt/$slug_name.php" );
