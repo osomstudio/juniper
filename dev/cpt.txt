@@ -19,7 +19,7 @@ class replace_cpt_slug {
 			array(
 				'labels'      => array(
 					'name'          => __( $this->cpt_name ),
-					'singular_name' => __( $this->cpt_name, ),
+					'singular_name' => __( $this->cpt_name ),
 				),
 				'public'      => true,
 				'has_archive' => true,
