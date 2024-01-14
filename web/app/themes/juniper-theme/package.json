@@ -17,18 +17,19 @@
 	},
 	"devDependencies": {
 		"@parcel/transformer-sass": "^2.5.0",
+		"@wordpress/scripts": "^26.19.0",
+		"browserslist": "^4.21.9",
 		"eslint": "^8.40.0",
 		"eslint-config-airbnb-base": "^15.0.0",
 		"husky": "^4.3.8",
 		"litepicker": "^2.0.11",
 		"parcel": "^2.5.0",
-		"sass": "^1.26.5",
-		"browserslist": "^4.21.9"
+		"sass": "^1.26.5"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "parcel watch src/js/_app.js blocks/**/*.js blocks/**/*.scss --public-url ./ --no-source-maps",
-		"build": "parcel build src/js/_app.js src/css/_app.scss blocks/**/*.js blocks/**/*.scss --public-url ./",
+		"dev": "wp-scripts start src/js/_app.js blocks/**/*.js blocks/**/*.scss --output-path=dist",
+		"build": "wp-scripts build src/js/_app.js src/css/_app.scss blocks/**/*.js blocks/**/*.scss --output-path=dist",
 		"build-editor": "parcel build src/js/_editor.js --public-url ./",
 		"cypress": "./node_modules/.bin/cypress open",
 		"flint": "eslint --fix ./src/js/**/*",
