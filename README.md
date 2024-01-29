@@ -11,7 +11,7 @@
 
 ## Overview
 
-JuniperTheme is symbiosis of <a href="https://github.com/roots/bedrock">Bedrock</a> boilerplate and <a href="https://github.com/timber/timber">Timber</a>.
+Juniper is symbiosis of <a href="https://github.com/roots/bedrock">Bedrock</a> boilerplate and <a href="https://github.com/timber/timber">Timber</a>.
 
 Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
 Timber allows you to use twig templating system in your WP project.
