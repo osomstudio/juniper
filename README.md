@@ -7,7 +7,6 @@
 
 <p align="center">
   <strong>Juniper - WordPress starter boilerplate + theme</strong>
-  <strong>Created by [OsomStudio](https://osomstudio.com)</strong>
 </p>
 
 ## Overview
