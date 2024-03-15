@@ -8,7 +8,6 @@ web/app/uploads/*
 
 # WordPress
 web/wp
-web/.htaccess
 
 # Logs
 *.log
@@ -35,5 +34,3 @@ node_modules
 web/app/advanced-cache.php
 web/app/cache
 web/app/w3tc-config
-
-!web/.htaccess
