@@ -2,7 +2,7 @@
     "name": "junipertheme/junipertheme",
     "type": "library",
     "require": {
-        "timber/timber": "^1.19",
+        "timber/timber": "^2.0",
         "palmiak/timber-acf-wp-blocks": "^1.15"
     },
     "autoload": {
@@ -15,5 +15,10 @@
             "name": "bartnovak",
             "email": "b.nowak@osomstudio.com"
         }
-    ]
+    ],
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
 }

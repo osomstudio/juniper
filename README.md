@@ -11,7 +11,7 @@
 
 ## Overview
 
-JuniperTheme is symbiosis of <a href="https://github.com/roots/bedrock">Bedrock</a> boilerplate and <a href="https://github.com/timber/timber">Timber</a>.
+Juniper is symbiosis of <a href="https://github.com/roots/bedrock">Bedrock</a> boilerplate and <a href="https://github.com/timber/timber">Timber</a>.
 
 Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
 Timber allows you to use twig templating system in your WP project.
@@ -29,6 +29,7 @@ With this approach you can create theme code with logic files separated from fro
 
 - PHP >= 7.4
 - Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+- PHPCS & PHPCBF with WordPress-Extra standard installed
 
 ## Installation
 
@@ -67,11 +68,20 @@ The main operations that we automate have been handled by below scripts: :
 
 2) work.sh - used every time you work on a project. It compiles the styles in real time by calling a parcel script to listen for file changes.
 
-Other scripts worth mentioning are:
+## WP-CLI Commands
+ 
+1. Adding Custom Post Types - After getting the name, a CPT will be created. Its editing will of course be possible later, because this command will generate a file in the theme directory.
+```sh
+$ wp add cpt --name="Product"
+```
+2. Adding Taxonomies - Add a name of the taxonomy you want and the slug name of the posts you want it to be attached to and this command will take care of the rest
+```sh
+$ wp add taxonomy --name="Category" --post="product"
+```
+3. Adding Gutenberg Blocks - This creates a custom Gutenberg block for the user utilizin the ACF Timber Blocks solution which allows us to use one .twig file with the appropriate comment to create a block. Keywords and description fields are optional
+```sh
+$ wp add block --name="Reviews" --keywords="quote,stars" --description="Show three newest reviews"
+```
 
-1) block.sh - a set of commands that will create a custom Gutenberg block for the user. Juniper utilizes the ACF Timber Blocks solution, which requires only one .twig file with the appropriate comment to create a block.
-2) cpt.sh - here the name speaks for itself. After going through the configuration, a CPT will be created. Its editing will of course be possible later, because this command will generate a file in the theme directory.
-
-3) taxonomy.sh - similarly to the antecedent case, the answer to questions posed by a series of commands allows you to expeditiously create a taxonomy assigned to a given type of post.
 
 ## 

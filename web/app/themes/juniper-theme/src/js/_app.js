@@ -1,4 +1,3 @@
-import '../css/_app.scss';
 // import pageTransitions from './animations/transitions';
 // import * as basicScroll from 'basicscroll'
 import utils from './utils';

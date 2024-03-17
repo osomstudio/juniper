@@ -17,15 +17,17 @@ $composer_autoload = __DIR__ . '/vendor/autoload.php';
 
 if ( file_exists( $composer_autoload ) ) {
 	require_once $composer_autoload;
-	$timber = new Timber\Timber();
+	Timber\Timber::init();
 }
 
 require_once 'inc/include.php';
 
 function juniper_theme_enqueue() {
-	$refresh_cache_time = time();
-	wp_enqueue_style( 'app-css', get_template_directory_uri() . '/dist/_app.css', array(), $refresh_cache_time );
-	wp_enqueue_script( 'app-js', get_template_directory_uri() . '/dist/src/js/_app.js', array(), $refresh_cache_time, true );
+	$refresh_cache_time     = time();
+	$template_directory_uri = get_template_directory_uri();
+
+	wp_enqueue_style( 'app-css', $template_directory_uri . '/dist/src/css/_app.css', array(), $refresh_cache_time );
+	wp_enqueue_script( 'app-js', $template_directory_uri . '/dist/src/js/_app.js', array(), $refresh_cache_time, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'juniper_theme_enqueue' );
