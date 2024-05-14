@@ -1,85 +1,103 @@
 {
-  "name": "osomstudio/juniper",
-  "type": "project",
-  "license": "MIT",
-  "description": "",
-  "homepage": "https://github.com/osomstudio/juniper",
-  "authors": [
-    {
-      "name": "OsomStudio",
-      "homepage": "https://osomstudio.com"
-    }
-  ],
-  "keywords": [
-    "juniper", "timber", "bedrock", "composer", "roots", "wordpress", "wp", "wp-config"
-  ],
-  "support": {
-    "issues": "https://github.com/osomstudio/juniper/issues"
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org",
-      "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
-    },
-    {
-      "type": "composer",
-      "url": "https://pivvenit.github.io/acf-composer-bridge/composer/v3/wordpress-plugin/"
-    }
-  ],
-  "require": {
-    "php": ">=7.1",
-    "composer/installers": "^1.12",
-    "vlucas/phpdotenv": "*",
-    "oscarotero/env": "^2.1",
-    "roots/bedrock-autoloader": "^1.0",
-    "roots/bedrock-disallow-indexing": "^2.0",
-    "roots/wordpress": "6.4.3",
-    "roots/wp-config": "1.0.0",
-    "roots/wp-password-bcrypt": "1.0.0",
-    "soberwp/models": "dev-master",
-    "wpackagist-plugin/contact-form-7": "5.7.5.1",
-    "wpackagist-plugin/wordpress-seo": "*",
-    "wpackagist-plugin/w3-total-cache": "2.3.1",
-    "wpackagist-plugin/contact-form-7-honeypot":"2.1.1",
-    "wpackagist-plugin/webp-express":"0.25.5",
-    "wpackagist-plugin/svg-support":"2.5.5",
-    "advanced-custom-fields/advanced-custom-fields-pro": "6.1.2"
-  },
-  "require-dev": {
-    "squizlabs/php_codesniffer": "^3.6.0",
-    "roave/security-advisories": "dev-latest",
-    "wp-coding-standards/wpcs": "*"
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "preferred-install": "dist",
-    "allow-plugins": {
-      "pivvenit/acf-pro-installer": true,
-      "composer/installers": true,
-      "roots/wordpress-core-installer": true
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "extra": {
-    "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/app/themes/{$name}/": ["type:wordpress-theme"]
-    },
-    "wordpress-install-dir": "web/wp"
-  },
-  "scripts": {
-    "post-root-package-install": [
-      "php -r \"copy('.env.example', '.env');\""
+    "name": "osomstudio/juniper",
+    "type": "project",
+    "license": "MIT",
+    "homepage": "https://github.com/osomstudio/juniper",
+    "authors": [
+        {
+            "name": "OsomStudio",
+            "homepage": "https://osomstudio.com"
+        }
     ],
-    "test": [
-      "phpcs"
+    "keywords": [
+        "juniper",
+        "timber",
+        "bedrock",
+        "composer",
+        "roots",
+        "wordpress",
+        "wp",
+        "wp-config"
     ],
-    "start": [
-      "composer install",
-      "cd web/app/themes/* && npm install && composer install"
-    ]
-  }
+    "support": {
+        "issues": "https://github.com/osomstudio/juniper/issues"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        },
+        {
+            "type": "composer",
+            "url": "https://connect.advancedcustomfields.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "composer/installers": "^2.2",
+        "vlucas/phpdotenv": "^5.5",
+        "oscarotero/env": "^2.1",
+        "roots/bedrock-autoloader": "^1.0",
+        "roots/bedrock-disallow-indexing": "^2.0",
+        "roots/wordpress": "^6.5",
+        "roots/wp-config": "1.0.0",
+        "roots/wp-password-bcrypt": "^1.1",
+        "wpackagist-plugin/contact-form-7": "5.7.5.1",
+        "wpackagist-plugin/wordpress-seo": "*",
+        "wpackagist-plugin/w3-total-cache": "2.3.1",
+        "wpackagist-plugin/contact-form-7-honeypot": "2.1.1",
+        "wpackagist-plugin/webp-express": "0.25.5",
+        "wpackagist-plugin/svg-support": "2.5.5",
+        "wpengine/advanced-custom-fields-pro": "^6.2"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "squizlabs/php_codesniffer": "^3.6.0",
+        "wp-coding-standards/wpcs": "^3.1"
+    },
+    "extra": {
+        "installer-paths": {
+            "web/app/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin"
+            ],
+            "web/app/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "web/app/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        },
+        "wordpress-install-dir": "web/wp"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "test": [
+            "phpcs --standard=WordPress-Extra -snp --basepath=. --ignore=vendor,node_modules --extensions=php --exclude=WordPress.Files.FileName ./web/app/themes"
+        ],
+        "start": [
+            "composer install",
+            "cd web/app/themes/* && npm install && composer install"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "composer/installers": true,
+            "roots/wordpress-core-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true,
+        "platform": {
+            "php": "8.1"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
