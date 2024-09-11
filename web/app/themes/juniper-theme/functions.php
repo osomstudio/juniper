@@ -86,7 +86,7 @@ add_action(
 			'core/button',
 			array(
 				'name'  => 'arrowed',
-				'label' => __( 'Arrowed', 'viking' ),
+				'label' => __( 'Arrowed', 'juniper' ),
 			)
 		);
 
@@ -94,7 +94,7 @@ add_action(
 			'core/button',
 			array(
 				'name'  => 'arrowed-external',
-				'label' => __( 'Arrowed external', 'viking' ),
+				'label' => __( 'Arrowed external', 'juniper' ),
 			)
 		);
 
@@ -102,7 +102,7 @@ add_action(
 			'core/group',
 			array(
 				'name'  => 'mobile',
-				'label' => __( 'Mobile', 'viking' ),
+				'label' => __( 'Mobile', 'juniper' ),
 			)
 		);
 	}
