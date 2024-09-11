@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Unica+One:300,400,500,800');
-
 html {
 	line-height: 1.15;
 	-webkit-font-smoothing: antialiased;
@@ -8,55 +6,11 @@ html {
 }
 
 body {
-	font-family: 'Unica+One', sans-serif;
+	font-family: myriad-pro, myriad-pro-condensed, myriad-pro-semiextended, myriad-pro-semi-condensed, Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-weight: inherit;
 }
 
 $big: 2.8rem;
 $title: 2.2rem;
 $med: 1.125rem;
 $small: 0.875rem;
-
-h1,
-.h1 {
-	font-size: $big;
-}
-
-h2,
-.h2 {
-	font-size: $title;
-}
-
-h3,
-.h3 {
-	font-size: $med;
-}
-
-h4,
-.h4 {
-	font-size: $med;
-}
-
-.small {
-	font-size: $small;
-}
-
-.text {
-	$space: $gap;
-
-	ol,
-	ul,
-	p,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5 {
-		&:not(:first-child) {
-			margin-top: $space;
-		}
-	}
-
-	&--white {
-		color: $white;
-	}
-}
