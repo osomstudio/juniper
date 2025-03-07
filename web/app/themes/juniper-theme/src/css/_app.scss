@@ -1,4 +1,2 @@
-@import 'base/mixins';
-@import 'base/reset';
-@import './../css/vendor/swiper.scss';
-@import "style-editor";
+@use 'base';
+@use 'vendor/swiper';

@@ -27,11 +27,16 @@ function juniper_theme_enqueue() {
 	$template_directory_uri = get_template_directory_uri();
 
 	wp_enqueue_style( 'app-css', $template_directory_uri . '/dist/src/css/_app.css', array(), $refresh_cache_time );
-	wp_enqueue_style( 'style-editor-css', $template_directory_uri . '/dist/src/css/_style-editor.css', array(), $refresh_cache_time );
 	wp_enqueue_script( 'app-js', $template_directory_uri . '/dist/src/js/_app.js', array(), $refresh_cache_time, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'juniper_theme_enqueue' );
+
+add_theme_support( 'editor-styles' );
+add_action( 'admin_init', 'juniper_editor_styles', 1000 );
+function juniper_editor_styles() {
+	add_editor_style( '/dist/src/css/_app.css' );
+}
 
 /**
  * This ensures that Timber is loaded and available as a PHP class.
@@ -70,40 +75,3 @@ Timber::$autoescape = false;
 //StarterSite class
 require_once 'class-startersite.php';
 new StarterSite();
-
-
-add_theme_support( 'editor-styles' );
-add_action( 'admin_init', 'juniper_editor_styles', 1000 );
-function juniper_editor_styles() {
-	// Enqueue editor styles.
-	add_editor_style( '/dist/src/css/_style-editor.css' );
-}
-
-add_action(
-	'init',
-	function() {
-		register_block_style(
-			'core/button',
-			array(
-				'name'  => 'arrowed',
-				'label' => __( 'Arrowed', 'juniper' ),
-			)
-		);
-
-		register_block_style(
-			'core/button',
-			array(
-				'name'  => 'arrowed-external',
-				'label' => __( 'Arrowed external', 'juniper' ),
-			)
-		);
-
-		register_block_style(
-			'core/group',
-			array(
-				'name'  => 'mobile',
-				'label' => __( 'Mobile', 'juniper' ),
-			)
-		);
-	}
-);
