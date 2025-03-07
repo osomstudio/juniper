@@ -2,7 +2,7 @@
 /**
  * Title: CTA
  * Slug: juniper-theme/cta
- * Categories: my-custom-category
+ * Categories: cta
  * Description: A description of the pattern
  * Keywords: footer, links, copyright, keywords used in the search
  */

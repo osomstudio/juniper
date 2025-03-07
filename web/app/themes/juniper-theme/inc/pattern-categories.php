@@ -6,6 +6,7 @@ function remove_core_patterns() : void {
 }
 
 register_block_pattern_category(
-	'hero',
-	array( 'label' => __( 'Hero', 'juniper-theme' ) )
+	'cta',
+	array( 'label' => __( 'CTA', 'juniper-theme' ) )
 );
+
