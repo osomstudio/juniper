@@ -216,6 +216,11 @@
       "area": "header",
       "name": "header",
       "title": "Header"
+    },
+    {
+      "area": "header",
+      "name": "top-bar",
+      "title": "Top bar"
     }
   ],
   "customTemplates": [

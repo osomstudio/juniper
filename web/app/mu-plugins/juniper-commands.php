@@ -214,6 +214,9 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				"\t\twp_enqueue_script('$slug_name-js', \$theme_path . '/dist/blocks/$slug_name/script.js', array(), \$time, true);\n" .
 				"\t}\n" .
 				"});\n\n" .
+				"add_action('admin_init', function() {\n" .
+				"\t\tadd_editor_style('/dist/blocks/$slug_name/style.css');\n" .
+				"});\n\n" .
 				"add_filter(\n" .
 				"\t'timber/acf-gutenberg-blocks-data/$slug_name',\n" .
 				"\tfunction( \$context ) {\n" .
@@ -229,14 +232,13 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				"\tKeywords: $keywords\n" .
 				"\tMode: edit\n" .
 				"\tAlign: full\n" .
-				"\tPostTypes: page post\n" .
 				"\tSupportsAlign: left right full\n" .
 				"\tSupportsMode: true\n" .
 				"\tSupportsMultiple: true\n" .
 				'#}';
 				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/views/blocks/$slug_name.twig", $html );
 
-				shell_exec( 'phpcbf --standard=WordPress-Extra ' . $this->mu_plugins . "/../themes/juniper-theme/Blocks/$slug_name/functions.php" );
+				shell_exec( 'phpcbf -d error_reporting="E_ALL&~E_DEPRECATED" --standard="WordPress-Extra"  ' . $this->mu_plugins . "/../themes/juniper-theme/Blocks/$slug_name/functions.php" );
 			}
 		}
 
