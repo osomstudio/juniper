@@ -32,6 +32,11 @@ function juniper_theme_enqueue() {
 
 add_action( 'wp_enqueue_scripts', 'juniper_theme_enqueue' );
 
+add_theme_support( 'editor-styles' );
+add_action( 'admin_init', 'juniper_editor_styles', 1000 );
+function juniper_editor_styles() {
+	add_editor_style( '/dist/src/css/_app.css' );
+}
 
 /**
  * This ensures that Timber is loaded and available as a PHP class.

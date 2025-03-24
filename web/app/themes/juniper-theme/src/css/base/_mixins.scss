@@ -118,7 +118,7 @@
 
 
 /*
-* Sets item width and height 
+* Sets item width and height
 */
 @mixin box($width, $height:$width, $display:inline-flex) {
 	width: $width;
@@ -176,38 +176,4 @@
 	$randomNum: $min + floor($rand * (($max - $min) + 1));
 
 	@return $randomNum;
-}
-
-@mixin hover-underline($color: $secondary, $pos: -3px, $height: 1px) {
-	position: relative;
-
-	&::after {
-		content: '';
-		position: absolute;
-		width: 100%;
-		height: $height;
-		pointer-events: none;
-		left: 0;
-		bottom: $pos;
-		max-width: 0%;
-		transition: $transition;
-		background: $color;
-	}
-
-	&.active,
-	&:hover {
-		&::after {
-			max-width: 100%;
-		}
-	}
-}
-
-
-@mixin hover-scale($amount: 1.1) {
-	transform: scale(1);
-	transition: $transition;
-
-	&:hover {
-		transform: scale($amount)
-	}
 }
