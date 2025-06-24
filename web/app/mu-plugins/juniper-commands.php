@@ -69,7 +69,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 
 				$class_name = ucfirst( $slug_name );
 
-				if ( file_exists( $this->mu_plugins . "/../themes/juniper-theme/inc/Cpt/$class_name.php" ) ) {
+				if ( file_exists( $this->mu_plugins . "/../themes/juniper-tailwind-theme/inc/Cpt/$class_name.php" ) ) {
 					WP_CLI::error( 'Custom post type already exists' );
 				}
 
@@ -84,13 +84,13 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 					$file_contents = str_replace( $search_replace[0], $search_replace[1], $file_contents );
 				}
 
-				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/inc/Cpt/$class_name.php", $file_contents );
+				file_put_contents( $this->mu_plugins . "/../themes/juniper-tailwind-theme/inc/Cpt/$class_name.php", $file_contents );
 
 				$new_class = "\$juniper_$slug_name = new \Juniper\Cpt\\$class_name();" . PHP_EOL;
-				file_put_contents( $this->mu_plugins . '/../themes/juniper-theme/inc/include.php', $new_class, FILE_APPEND );
+				file_put_contents( $this->mu_plugins . '/../themes/juniper-tailwind-theme/inc/include.php', $new_class, FILE_APPEND );
 
-				shell_exec( 'phpcbf --standard=WordPress-Extra ' . $this->mu_plugins . "/../themes/juniper-theme/inc/Cpt/$slug_name.php" );
-				shell_exec( 'phpcbf --standard=WordPress-Extra ' . $this->mu_plugins . '/../themes/juniper-theme/inc/include.php' );
+				shell_exec( 'phpcbf --standard=WordPress-Extra ' . $this->mu_plugins . "/../themes/juniper-tailwind-theme/inc/Cpt/$slug_name.php" );
+				shell_exec( 'phpcbf --standard=WordPress-Extra ' . $this->mu_plugins . '/../themes/juniper-tailwind-theme/inc/include.php' );
 			}
 
 			/**
@@ -124,7 +124,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 
 				extract( $this->get_needed_names( $og_name ) );
 
-				if ( file_exists( $this->mu_plugins . "/../themes/juniper-theme/inc/Taxonomies/$slug_name.php" ) ) {
+				if ( file_exists( $this->mu_plugins . "/../themes/juniper-tailwind-theme/inc/Taxonomies/$slug_name.php" ) ) {
 					WP_CLI::error( 'Taxonomy already exists' );
 				}
 
@@ -140,12 +140,12 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 					$file_contents = str_replace( $search_replace[0], $search_replace[1], $file_contents );
 				}
 
-				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/inc/Taxonomies/$slug_name.php", $file_contents );
+				file_put_contents( $this->mu_plugins . "/../themes/juniper-tailwind-theme/inc/Taxonomies/$slug_name.php", $file_contents );
 
 				$new_class = "\$juniper_$slug_name = new \Juniper\Taxonomies\\$slug_name();" . PHP_EOL;
-				file_put_contents( $this->mu_plugins . '/../themes/juniper-theme/inc/include.php', $new_class, FILE_APPEND );
+				file_put_contents( $this->mu_plugins . '/../themes/juniper-tailwind-theme/inc/include.php', $new_class, FILE_APPEND );
 
-				shell_exec( 'phpcbf --standard=WordPress-Extra ' . $this->mu_plugins . '/../themes/juniper-theme/inc/include.php' );
+				shell_exec( 'phpcbf --standard=WordPress-Extra ' . $this->mu_plugins . '/../themes/juniper-tailwind-theme/inc/include.php' );
 			}
 
 
@@ -180,11 +180,11 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				$lowercase_name = strtolower( $og_name );
 				$slug_name      = str_replace( ' ', '-', $lowercase_name );
 
-				if ( file_exists( "../themes/juniper-theme/blocks/$slug_name/" ) ) {
+				if ( file_exists( "../themes/juniper-tailwind-theme/blocks/$slug_name/" ) ) {
 					WP_CLI::error( 'Block already exists' );
 				}
 
-				mkdir( $this->mu_plugins . "/../themes/juniper-theme/blocks/$slug_name/", 0755 );
+				mkdir( $this->mu_plugins . "/../themes/juniper-tailwind-theme/blocks/$slug_name/", 0755 );
 
 				$keywords = '';
 				if ( key_exists( 'keywords', $assoc_args ) ) {
@@ -196,14 +196,14 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 					$description = $assoc_args['description'];
 				}
 
-				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/blocks/$slug_name/script.js", '' );
-				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/blocks/$slug_name/ajax.js", '' );
+				file_put_contents( $this->mu_plugins . "/../themes/juniper-tailwind-theme/blocks/$slug_name/script.js", '' );
+				file_put_contents( $this->mu_plugins . "/../themes/juniper-tailwind-theme/blocks/$slug_name/ajax.js", '' );
 
 				$css = ".$slug_name {}\n\n" .
 				"body.wp-admin {\n" .
 				"\t.$slug_name {}\n" .
 				'}';
-				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/blocks/$slug_name/style.scss", $css );
+				file_put_contents( $this->mu_plugins . "/../themes/juniper-tailwind-theme/blocks/$slug_name/style.scss", $css );
 
 				$php = "<?php\n\n" .
 				"add_action('wp_enqueue_scripts', function() {\n" .
@@ -222,7 +222,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				"\tfunction( \$context ) {\n" .
 				"\treturn \$context;\n" .
 				'});';
-				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/blocks/$slug_name/functions.php", $php );
+				file_put_contents( $this->mu_plugins . "/../themes/juniper-tailwind-theme/blocks/$slug_name/functions.php", $php );
 
 				$html = "{#\n" .
 				"\tTitle: $og_name\n" .
@@ -236,9 +236,9 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				"\tSupportsMode: true\n" .
 				"\tSupportsMultiple: true\n" .
 				'#}';
-				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/views/blocks/$slug_name.twig", $html );
+				file_put_contents( $this->mu_plugins . "/../themes/juniper-tailwind-theme/views/blocks/$slug_name.twig", $html );
 
-				shell_exec( 'phpcbf -d error_reporting="E_ALL&~E_DEPRECATED" --standard="WordPress-Extra"  ' . $this->mu_plugins . "/../themes/juniper-theme/Blocks/$slug_name/functions.php" );
+				shell_exec( 'phpcbf -d error_reporting="E_ALL&~E_DEPRECATED" --standard="WordPress-Extra"  ' . $this->mu_plugins . "/../themes/juniper-tailwind-theme/Blocks/$slug_name/functions.php" );
 			}
 		}
 

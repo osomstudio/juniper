@@ -1,8 +1,8 @@
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^(www.)?juniper.local$
+RewriteCond %{HTTP_HOST} ^(www.)?juniper.ddev.site$
 RewriteCond %{REQUEST_URI} !^/web/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /web/$1
-RewriteCond %{HTTP_HOST} ^(www.)?juniper.local$
+RewriteCond %{HTTP_HOST} ^(www.)?juniper.ddev.site$
 RewriteRule ^(/)?$ web/index.php [L]
