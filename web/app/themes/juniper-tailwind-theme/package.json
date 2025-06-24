@@ -28,8 +28,8 @@
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "parcel watch src/js/_app.js blocks/**/*.js blocks/**/*.scss --public-url ./ --no-source-maps",
-		"build": "parcel build src/js/_app.js src/css/_app.scss blocks/**/*.js blocks/**/*.scss --public-url ./",
+		"dev": "parcel watch src/css/_app.css src/js/_app.js blocks/**/*.js blocks/**/*.scss --public-url ./ --no-source-maps",
+		"build": "parcel build src/css/_app.css src/js/_app.js blocks/**/*.js blocks/**/*.scss --public-url ./",
 		"build-editor": "parcel build src/js/_editor.js --public-url ./",
 		"cypress": "./node_modules/.bin/cypress open",
 		"flint": "eslint --fix ./src/js/**/*",
