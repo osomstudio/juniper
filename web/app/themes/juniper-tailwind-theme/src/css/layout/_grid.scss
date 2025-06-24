@@ -1,0 +1,168 @@
+body {
+	overflow-x: hidden;
+}
+
+.container {
+	@include grid;
+
+	&--left {
+		margin-left: 5%;
+
+		@include media($gridWidth + 50, min) {
+			margin-left: calc(50% - (#{$gridWidth} / 2));
+		}
+	}
+
+	&--right {
+		margin-right: 5%;
+
+		@include media($gridWidth + 50, min) {
+			margin-right: calc(50% - (#{$gridWidth} / 2));
+		}
+	}
+}
+
+.grid {
+	display: grid;
+	width: 100%;
+
+	@for $i from 1 to 13 {
+		&--#{$i} {
+			@include media($colBreak, min) {
+				grid-template-columns: repeat(#{$i}, auto);
+			}
+		}
+	}
+
+	&--gap {
+		grid-row-gap: $gap;
+		grid-column-gap: $gap;
+
+		padding-bottom: $gap;
+
+		&--small {
+			padding-top: $gap;
+			grid-row-gap: $ps;
+			grid-column-gap: $ps;
+		}
+
+		&--med {
+			padding-top: $gap;
+			grid-row-gap: $pm;
+			grid-column-gap: $pm;
+		}
+
+		&--big {
+			padding-top: $gap;
+			grid-row-gap: $pb;
+			grid-column-gap: $pb;
+		}
+	}
+}
+
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+
+	&--center {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	@include media($colBreak, min) {
+		@for $i from 1 to 13 {
+			&--#{$i} {
+				width: calc(8.3333333% * #{$i});
+			}
+		}
+	}
+}
+
+.align {
+
+	&--start {
+		align-items: flex-start;
+	}
+
+	&--center {
+		align-items: center;
+	}
+
+	&--strech {
+		align-items: stretch;
+	}
+
+	&--end {
+		align-items: flex-end;
+	}
+}
+
+.justify {
+	&--start {
+		justify-content: flex-start;
+	}
+
+	&--center {
+		justify-content: center;
+	}
+
+	&--space {
+		justify-content: space-between;
+	}
+
+	&--end {
+		justify-content: flex-end
+	}
+}
+
+.gap {
+	padding: $gap;
+
+	&-r {
+		padding-right: $gap;
+
+		&-s {
+			padding-right: $ps;
+		}
+
+		&-m {
+			padding-right: $pm;
+		}
+	}
+
+	&-l {
+		padding-left: $gap;
+
+		&-s {
+			padding-left: $ps;
+		}
+
+		&-m {
+			padding-left: $pm;
+		}
+	}
+
+	&-b {
+		padding-bottom: $gap;
+
+		&-s {
+			padding-bottom: $ps;
+		}
+
+		&-m {
+			padding-bottom: $pm;
+		}
+	}
+
+	&-t {
+		padding-top: $gap;
+
+		&-s {
+			padding-top: $ps;
+		}
+
+		&-m {
+			padding-top: $pm;
+		}
+	}
+}
