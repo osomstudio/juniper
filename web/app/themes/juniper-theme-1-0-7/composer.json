@@ -1,0 +1,24 @@
+{
+    "name": "junipertheme/junipertheme",
+    "type": "library",
+    "require": {
+        "timber/timber": "^2.0",
+        "bartnovak/timber-acf-wp-blocks": "^0.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Juniper\\": "inc"
+        }
+    },
+    "authors": [
+        {
+            "name": "bartnovak",
+            "email": "b.nowak@osomstudio.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}

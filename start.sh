@@ -37,26 +37,27 @@ echo "I found composer.json. Let's begin downloading required libraries."
 sleep 2
 
 echo "# DATABASE" >> .env;
-read -p "Enter db name: " dbname
-echo "DB_NAME=$dbname" >> .env;
-read -p "Enter db username: " dbuser
-echo "DB_USER=$dbuser" >> .env;
-read -p "Enter db password: " dbpwd
-echo "DB_PASSWORD=$dbpwd" >> .env;
-read -e -p "Enter db host (default: localhost): " -i "localhost" dbhost
-echo "DB_HOST=$dbhost" >> .env;
-read -e -p "Enter db prefix (default: wp_): " -i "wp_" dbprefix
-echo "DB_PREFIX=$dbprefix" >> .env;
+# read -p "Enter db name: " dbname
+echo "DB_NAME=db" >> .env;
+# read -p "Enter db username: " dbuser
+echo "DB_USER=db" >> .env;
+# read -p "Enter db password: " dbpwd
+echo "DB_PASSWORD=db" >> .env;
+# read -e -p "Enter db host (default: localhost): " -i "localhost" dbhost
+echo "DB_HOST=db" >> .env;
+# read -e -p "Enter db prefix (default: wp_): " -i "wp_" dbprefix
+echo "DB_PREFIX=wp_" >> .env;
 echo "#/ DATABASE" >> .env;
 echo >> .env;
 echo >> .env;
 echo "# ENV" >> .env;
 echo "WP_ENV=development" >> .env
-read -p "Enter local domain name (eg. wordpress.local): " domain
-echo "WP_HOME=http://$domain" >> .env;
+# read -p "Enter local domain name (eg. wordpress.local): " domain
+# echo "WP_HOME=http://$domain" >> .env;
+echo "WP_HOME=${DDEV_PRIMARY_URL}" >> .env;
 echo 'WP_SITEURL=${WP_HOME}/wp' >> .env;
-read -p "Enter ACF PRO KEY: " acfprokey
-echo "ACF_PRO_KEY=$acfprokey" >> .env
+# read -p "Enter ACF PRO KEY: " acfprokey
+# echo "ACF_PRO_KEY=$acfprokey" >> .env
 echo "#/ ENV" >> .env;
 echo >> .env;
 echo >> .env;
@@ -73,7 +74,7 @@ echo "#/ SALTS" >> .env;
 
 composer install --ignore-platform-reqs
 
-cd web/app/themes/juniper-theme
+cd web/app/themes/juniper-tailwind-theme
 npm install
 
 composer install --ignore-platform-reqs

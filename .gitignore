@@ -37,3 +37,6 @@ web/app/w3tc-config
 web-exppress
 
 .htaccess
+
+## ddev
+.ddev

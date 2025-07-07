@@ -1,0 +1,151 @@
+$header: 120px;
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: $toplayer;
+	background: #fff;
+	padding: 0 5%;
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: $header;
+	}
+}
+
+.logo {
+
+	img,
+	svg {
+		height: 50px;
+		width: auto;
+	}
+}
+
+.nav {
+	transition: $transition;
+	$menuGap: 20px;
+
+	&__items {
+		display: flex;
+		align-items: center;
+	}
+
+
+	&__item {
+		margin-left: $menuGap;
+	}
+
+	@include media($mobile) {
+		@include cover();
+		clip-path: circle(0% at 100% 0);
+		@include center;
+		position: fixed;
+		z-index: $toplayer;
+		background: $white;
+		pointer-events: none;
+		flex-direction: column;
+
+		.nav {
+			&__items {
+				padding-right: $menuGap;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+			}
+
+			&__item {
+				opacity: 0;
+				font-size: $title;
+				margin-bottom: 1vh;
+			}
+		}
+	}
+}
+
+.hamburger {
+	position: relative;
+	cursor: pointer;
+	transition: transform 400ms;
+	user-select: none;
+	width: 60px;
+	height: 60px;
+	z-index: $toplayer+1;
+
+	@include media($mobile, min) {
+		display: none;
+	}
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	&__line {
+		fill: none;
+		transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+		stroke: #000;
+		stroke-width: 5.5;
+		stroke-linecap: round;
+
+		&--top {
+			stroke-dasharray: 40 160;
+
+		}
+
+		&--middle {
+			stroke-dasharray: 40 142;
+			transform-origin: 50%;
+			transition: transform 400ms;
+		}
+
+		&--bottom {
+			stroke-dasharray: 40 85;
+			transform-origin: 50%;
+			transition: transform 400ms, stroke-dashoffset 400ms;
+		}
+	}
+
+}
+
+.nav--toggled {
+	.nav {
+		pointer-events: all;
+		clip-path: circle(141.4% at 100% 0);
+
+		&__item {
+			opacity: 1;
+			transition-delay: 0.1s;
+		}
+	}
+
+	.hamburger {
+		transform: rotate(45deg);
+
+		&__line {
+			fill: none;
+			transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+			stroke: #000;
+			stroke-width: 5.5;
+			stroke-linecap: round;
+
+			&--top {
+				stroke-dashoffset: -64px;
+
+			}
+
+			&--middle {
+				transform: rotate(90deg);
+
+			}
+
+			&--bottom {
+				stroke-dashoffset: -64px;
+
+			}
+		}
+	}
+}
