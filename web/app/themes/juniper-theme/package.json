@@ -12,6 +12,7 @@
 		"postcss": "^8.4"
 	},
 	"devDependencies": {
+		"@fullhuman/postcss-purgecss": "^7.0.2",
 		"@parcel/transformer-sass": "^2.12",
 		"browserslist": "^4.23",
 		"eslint": "^8.56",
@@ -24,7 +25,8 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "parcel watch src/css/_app.scss src/js/_app.js blocks/**/*.js blocks/**/*.scss --public-url ./ --no-source-maps",
-		"build": "parcel build src/js/_app.js src/css/_app.scss blocks/**/*.js blocks/**/*.scss --public-url ./",
+		"build": "NODE_ENV=production parcel build src/js/_app.js src/css/_app.scss blocks/**/*.js blocks/**/*.scss --public-url ./",
+		"build:nopurge": "parcel build src/js/_app.js src/css/_app.scss blocks/**/*.js blocks/**/*.scss --public-url ./",
 		"cypress": "./node_modules/.bin/cypress open",
 		"flint": "eslint --fix ./src/js/**/*",
 		"pretest": "eslint --ignore-path .gitignore ./src/js/**/* --fix && eslint --ignore-path .gitignore ./blocks/**/*.js --fix"

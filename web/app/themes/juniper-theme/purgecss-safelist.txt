@@ -1,0 +1,72 @@
+# PurgeCSS Safelist Reference
+# This file documents important classes that should never be purged
+# Classes are already configured in .postcssrc.js
+
+## WordPress Core Classes
+- wp-* (all WordPress core classes)
+- admin-* (admin bar)
+- logged-in (logged in state)
+- post-* (post type classes)
+- page-* (page classes)
+- term-* (taxonomy term classes)
+- menu-* (menu classes)
+- current-menu-item
+- current-menu-ancestor
+- current-page-ancestor
+
+## Gutenberg/Block Editor
+- wp-block-*
+- block-editor-*
+- acf-block-*
+- has-* (Gutenberg state classes)
+- is-* (Gutenberg state classes)
+- align* (alignfull, alignwide, etc.)
+- editor-styles-wrapper
+
+## Bootstrap Dynamic Classes
+- show
+- active
+- open
+- collapse
+- collapsing
+- fade
+- modal-backdrop
+- modal-open
+- dropdown-menu-end
+- dropdown-menu-start
+
+## JavaScript-Added Classes
+Common patterns that are added dynamically:
+- .is-visible
+- .is-active
+- .is-loading
+- .is-sticky
+- .has-error
+- .has-success
+- .loading
+- .loaded
+- .error
+- .success
+- .disabled
+- .selected
+
+## Third-Party Libraries
+- swiper-* (Swiper slider)
+- barba-* (Barba.js transitions)
+- gsap-* (GSAP animations)
+- litepicker* (Litepicker date picker)
+
+## Custom Project Classes
+Add your project-specific dynamic classes here:
+- (example: .js-active-tab)
+- (example: .header-scrolled)
+
+## Data Attributes (Already safelisted)
+- [data-*]
+- [aria-*]
+
+## Notes for Developers
+1. If you notice missing styles after build, check browser console for missing classes
+2. Add frequently used dynamic classes to .postcssrc.js safelist
+3. Test thoroughly after enabling PurgeCSS in production
+4. Use 'npm run build:nopurge' if you need to debug PurgeCSS issues
