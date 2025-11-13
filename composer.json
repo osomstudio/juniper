@@ -43,15 +43,15 @@
         "oscarotero/env": "^2.1",
         "roots/bedrock-autoloader": "^1.0",
         "roots/bedrock-disallow-indexing": "^2.0",
-        "roots/wordpress": "^6.7.2",
+        "roots/wordpress": "6.8.3",
         "roots/wp-config": "1.0.0",
         "roots/wp-password-bcrypt": "^1.1",
-        "wpackagist-plugin/contact-form-7": "6.0.4",
-        "wpackagist-plugin/wordpress-seo": "24.6",
-        "wpackagist-plugin/w3-total-cache": "2.8.6",
-        "wpackagist-plugin/contact-form-7-honeypot": "2.1.7",
+        "wpackagist-plugin/contact-form-7": "6.1.3",
+        "wpackagist-plugin/wordpress-seo": "26.3",
+        "wpackagist-plugin/w3-total-cache": "2.8.14",
+        "wpackagist-plugin/contact-form-7-honeypot": "3.2.1",
         "wpackagist-plugin/webp-express": "0.25.9",
-        "wpengine/advanced-custom-fields-pro": "^6.2"
+        "wpengine/advanced-custom-fields-pro": "6.6.2"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
