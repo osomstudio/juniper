@@ -2,24 +2,24 @@
 	"name": "parcel-juniper-theme",
 	"version": "1.0.0",
 	"dependencies": {
-		"@barba/core": "^2.9",
-		"@barba/prefetch": "^2.1",
+		"@barba/core": "^2.10",
+		"@barba/prefetch": "^2.2",
 		"bootstrap": "^5.3",
-		"cypress": "^13.9",
-		"gsap": "^3.12.5",
+		"cypress": "^15.6",
+		"gsap": "^3.13.0",
 		"imagesloaded": "^5.0",
 		"jquery": "^3.7",
-		"postcss": "^8.4"
+		"postcss": "^8.5"
 	},
 	"devDependencies": {
-		"@parcel/transformer-sass": "^2.12",
-		"browserslist": "^4.23",
+		"@parcel/transformer-sass": "^2.16",
+		"browserslist": "^4.28",
 		"eslint": "^8.56",
 		"eslint-config-airbnb-base": "^15.0",
-		"husky": "^9.0",
+		"husky": "^9.1",
 		"litepicker": "^2.0",
-		"parcel": "^2.12",
-		"sass": "^1.77"
+		"parcel": "^2.16",
+		"sass": "^1.94"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
