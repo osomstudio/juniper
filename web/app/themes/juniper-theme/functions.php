@@ -39,6 +39,16 @@ function juniper_editor_styles() {
 }
 
 /**
+ * This fixes the duplicate title issue with Rank Math and Yoast SEO.
+ */
+add_action( 'wp_head', 'juniper_fix_rankmath_duplicate_title', 0 );
+function juniper_fix_rankmath_duplicate_title(): void {
+	if ( defined( 'RANK_MATH_VERSION' ) || defined( 'WPSEO_VERSION' ) ) {
+		remove_action( 'wp_head', '_block_template_render_title_tag', 1 );
+	}
+}
+
+/**
  * This ensures that Timber is loaded and available as a PHP class.
  * If not, it gives an error message to help direct developers on where to activate
  */
