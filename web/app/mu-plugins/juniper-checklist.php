@@ -14,6 +14,8 @@ add_action( 'init', 'juniper_disable_emojis' );
 
 add_filter( 'xmlrpc_enabled', '__return_false' );
 
+remove_action('wp_head', 'rsd_link');
+
 
 function juniper_remove_wp_version() {
 	return '';
