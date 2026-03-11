@@ -17,14 +17,16 @@ function juniper_get_cached_options( bool $use_cache = false ): array {
 	$use_cache = apply_filters( 'juniper_use_options_cache', $use_cache );
 
 	if ( ! $use_cache ) {
-		return get_fields( 'options' ) ?: array();
+		$fields = get_fields( 'options' );
+		return $fields ? $fields : array();
 	}
 
 	$cache_key = 'juniper_acf_options';
 	$options   = get_transient( $cache_key );
 
 	if ( false === $options ) {
-		$options = get_fields( 'options' ) ?: array();
+		$options = get_fields( 'options' );
+		$options = $options ? $options : array();
 		set_transient( $cache_key, $options, WEEK_IN_SECONDS );
 	}
 
