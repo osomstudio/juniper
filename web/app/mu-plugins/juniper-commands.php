@@ -208,10 +208,10 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				$php = "<?php\n\n" .
 				"add_action('wp_enqueue_scripts', function() {\n" .
 				"\tif (has_block('acf/$slug_name')) {\n" .
-				"\t\$time = time();\n" .
+				"\t\$version    = wp_get_theme()->get( 'Version' );\n" .
 				"\t\$theme_path = get_template_directory_uri();\n\n" .
-				"\t\twp_enqueue_style('$slug_name-css', \$theme_path . '/dist/blocks/$slug_name/style.css', array(), \$time, 'all');\n" .
-				"\t\twp_enqueue_script('$slug_name-js', \$theme_path . '/dist/blocks/$slug_name/script.js', array(), \$time, true);\n" .
+				"\t\twp_enqueue_style('$slug_name-css', \$theme_path . '/dist/blocks/$slug_name/style.css', array(), \$version, 'all');\n" .
+				"\t\twp_enqueue_script('$slug_name-js', \$theme_path . '/dist/blocks/$slug_name/script.js', array(), \$version, true);\n" .
 				"\t}\n" .
 				"});\n\n" .
 				"add_action('admin_init', function() {\n" .
