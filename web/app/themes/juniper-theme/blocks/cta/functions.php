@@ -4,7 +4,7 @@ add_action(
 	'wp_enqueue_scripts',
 	function() {
 		if ( has_block( 'acf/cta' ) ) {
-			$version       = wp_get_theme()->get( 'Version' );
+			$version    = wp_get_theme()->get( 'Version' );
 			$theme_path = get_template_directory_uri();
 
 			wp_enqueue_style( 'cta-css', $theme_path . '/dist/blocks/cta/style.css', array(), $version, 'all' );
