@@ -1,5 +1,6 @@
 <?php
 
+require_once 'optimization.php';
 require_once 'gutenberg-styles.php';
 require_once 'pattern-categories.php';
 
