@@ -10,7 +10,7 @@
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:heading -->
-	<h2 class="wp-block-heading asddsa">Testing 123123</h2>
+	<h2 class="wp-block-heading">Testing</h2>
 	<!-- /wp:heading -->
 
 	<!-- wp:paragraph -->

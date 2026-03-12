@@ -2,13 +2,7 @@
 	"name": "parcel-juniper-theme",
 	"version": "1.0.0",
 	"dependencies": {
-		"@barba/core": "^2.10",
-		"@barba/prefetch": "^2.2",
-		"bootstrap": "^5.3",
 		"cypress": "^15.6",
-		"gsap": "^3.13.0",
-		"imagesloaded": "^5.0",
-		"jquery": "^3.7",
 		"postcss": "^8.5"
 	},
 	"devDependencies": {
@@ -16,8 +10,6 @@
 		"browserslist": "^4.28",
 		"eslint": "^8.56",
 		"eslint-config-airbnb-base": "^15.0",
-		"husky": "^9.1",
-		"litepicker": "^2.0",
 		"parcel": "^2.16",
 		"sass": "^1.94"
 	},
