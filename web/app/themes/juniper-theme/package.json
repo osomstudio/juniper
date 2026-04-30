@@ -2,16 +2,16 @@
 	"name": "parcel-juniper-theme",
 	"version": "1.0.0",
 	"dependencies": {
-		"cypress": "^15.6",
-		"postcss": "^8.5"
+		"cypress": "15.14.2",
+		"postcss": "8.5.12"
 	},
 	"devDependencies": {
-		"@parcel/transformer-sass": "^2.16",
-		"browserslist": "^4.28",
-		"eslint": "^8.56",
-		"eslint-config-airbnb-base": "^15.0",
-		"parcel": "^2.16",
-		"sass": "^1.94"
+		"@parcel/transformer-sass": "2.16.4",
+		"browserslist": "4.28.2",
+		"eslint": "8.2.0",
+		"eslint-config-airbnb-base": "15.0.0",
+		"parcel": "2.16.4",
+		"sass": "1.99.0"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
