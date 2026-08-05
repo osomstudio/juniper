@@ -17,6 +17,6 @@
     },
     "scripts": {
         "test": "phpcs --standard=WordPress-Extra --extensions=php ../web/app/themes --exclude=WordPress.Files.FileName -s",
-        "set" : "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
+        "set" : "phpcs --config-set installed_paths vendor/phpcsstandards/phpcsextra,vendor/phpcsstandards/phpcsutils,vendor/wp-coding-standards/wpcs"
     }
 }
