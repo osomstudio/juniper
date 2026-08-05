@@ -15,7 +15,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 			private $mu_plugins;
 
 			public function __construct() {
-				$this->mu_plugins = dirname( __FILE__ );
+				$this->mu_plugins = __DIR__;
 			}
 
 			private function get_name( $assoc_args ) {
@@ -205,6 +205,11 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				'}';
 				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/blocks/$slug_name/style.scss", $css );
 
+				$keywords_list   = array_filter( array_map( 'trim', explode( ',', $keywords ) ) );
+				$keywords_php    = empty( $keywords_list ) ? 'array()' : "array( '" . implode( "', '", array_map( 'addslashes', $keywords_list ) ) . "' )";
+				$title_php       = addslashes( $og_name );
+				$description_php = addslashes( $description );
+
 				$php = "<?php\n\n" .
 				"add_action('wp_enqueue_scripts', function() {\n" .
 				"\tif (has_block('acf/$slug_name')) {\n" .
@@ -217,28 +222,49 @@ if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( 'WP_CLI' ) ) {
 				"add_action('admin_init', function() {\n" .
 				"\t\tadd_editor_style('/dist/blocks/$slug_name/style.css');\n" .
 				"});\n\n" .
-				"add_filter(\n" .
-				"\t'timber/acf-gutenberg-blocks-data/$slug_name',\n" .
-				"\tfunction( \$context ) {\n" .
-				"\treturn \$context;\n" .
-				'});';
+				"add_action(\n" .
+				"\t'acf/init',\n" .
+				"\tfunction() {\n" .
+				"\t\tif ( ! function_exists( 'acf_register_block_type' ) ) {\n" .
+				"\t\t\treturn;\n" .
+				"\t\t}\n\n" .
+				"\t\tacf_register_block_type(\n" .
+				"\t\t\tarray(\n" .
+				"\t\t\t\t'name'            => '$slug_name',\n" .
+				"\t\t\t\t'title'           => __( '$title_php', 'juniper-theme' ),\n" .
+				"\t\t\t\t'description'     => __( '$description_php', 'juniper-theme' ),\n" .
+				"\t\t\t\t'render_template' => __DIR__ . '/render.php',\n" .
+				"\t\t\t\t'category'        => 'formatting',\n" .
+				"\t\t\t\t'icon'            => 'admin-comments',\n" .
+				"\t\t\t\t'keywords'        => $keywords_php,\n" .
+				"\t\t\t\t'mode'            => 'edit',\n" .
+				"\t\t\t\t'align'           => 'full',\n" .
+				"\t\t\t\t'supports'        => array(\n" .
+				"\t\t\t\t\t'align'    => array( 'left', 'right', 'full' ),\n" .
+				"\t\t\t\t\t'mode'     => true,\n" .
+				"\t\t\t\t\t'multiple' => true,\n" .
+				"\t\t\t\t),\n" .
+				"\t\t\t)\n" .
+				"\t\t);\n" .
+				"\t}\n" .
+				');';
 				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/blocks/$slug_name/functions.php", $php );
 
-				$html = "{#\n" .
-				"\tTitle: $og_name\n" .
-				"\tDescription: $description\n" .
-				"\tCategory: formatting\n" .
-				"\tIcon: admin-comments\n" .
-				"\tKeywords: $keywords\n" .
-				"\tMode: edit\n" .
-				"\tAlign: full\n" .
-				"\tSupportsAlign: left right full\n" .
-				"\tSupportsMode: true\n" .
-				"\tSupportsMultiple: true\n" .
-				'#}';
-				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/views/blocks/$slug_name.twig", $html );
+				$render_php = "<?php\n" .
+				"/**\n" .
+				" * $og_name block render template.\n" .
+				" *\n" .
+				" * @param array  \$block      The block settings and attributes.\n" .
+				" * @param string \$content    The block inner HTML (empty).\n" .
+				" * @param bool   \$is_preview True during backend preview render.\n" .
+				" * @param int    \$post_id    The post ID the block is rendered on.\n" .
+				" */\n" .
+				"?>\n\n" .
+				"<div class=\"$slug_name\">\n\n" .
+				'</div>';
+				file_put_contents( $this->mu_plugins . "/../themes/juniper-theme/blocks/$slug_name/render.php", $render_php );
 
-				shell_exec( 'phpcbf -d error_reporting="E_ALL&~E_DEPRECATED" --standard="WordPress-Extra"  ' . $this->mu_plugins . "/../themes/juniper-theme/Blocks/$slug_name/functions.php" );
+				shell_exec( 'phpcbf -d error_reporting="E_ALL&~E_DEPRECATED" --standard="WordPress-Extra"  ' . $this->mu_plugins . "/../themes/juniper-theme/blocks/$slug_name/functions.php" );
 			}
 		}
 
