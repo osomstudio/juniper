@@ -7,8 +7,13 @@
         }
     ],
     "require": {
-        "squizlabs/php_codesniffer": "*",
-        "wp-coding-standards/wpcs": "^2.0"
+        "squizlabs/php_codesniffer": "^3.13.4",
+        "wp-coding-standards/wpcs": "3.4.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     },
     "scripts": {
         "test": "phpcs --standard=WordPress-Extra --extensions=php ../web/app/themes --exclude=WordPress.Files.FileName -s",
