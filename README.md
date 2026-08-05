@@ -11,18 +11,18 @@
 
 ## Overview
 
-Juniper is symbiosis of <a href="https://github.com/roots/bedrock">Bedrock</a> boilerplate and <a href="https://github.com/timber/timber">Timber</a>.
+Juniper is built on top of the <a href="https://github.com/roots/bedrock">Bedrock</a> boilerplate.
 
 Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
-Timber allows you to use twig templating system in your WP project.
-With this approach you can create theme code with logic files separated from frontend.
+The theme is a native WordPress block theme (Full Site Editing templates/parts) combined with native ACF Blocks
+(PHP `render.php` templates, no templating engine in between).
 
 ## Features
 
 - Easy WordPress configuration with environment specific files
 - File structure which makes keeping and maintaining your project on a Git a lot easier
 - Dependency management with [Composer](https://getcomposer.org)
-- Twig templating system
+- Native WordPress block theme (FSE templates/parts) + native ACF Blocks
 - Bash console scripts to make creating project from the scratch much easier
 
 ## Requirements
@@ -78,7 +78,7 @@ $ wp add cpt --name="Product"
 ```sh
 $ wp add taxonomy --name="Category" --post="product"
 ```
-3. Adding Gutenberg Blocks - This creates a custom Gutenberg block for the user utilizin the ACF Timber Blocks solution which allows us to use one .twig file with the appropriate comment to create a block. Keywords and description fields are optional
+3. Adding Gutenberg Blocks - This scaffolds a native ACF block (registered via `acf_register_block_type()`) with a plain PHP `render.php` template. Keywords and description fields are optional
 ```sh
 $ wp add block --name="Reviews" --keywords="quote,stars" --description="Show three newest reviews"
 ```

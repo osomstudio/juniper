@@ -1,23 +1,16 @@
 <?php
 /**
- * Timber Juniper Theme
+ * Juniper Theme
  * https://github.com/osomstudio/JuniperTheme
  *
  * @package  WordPress
- * @subpackage  Timber
- * @since   Timber 0.1
+ * @subpackage  Juniper
  */
 
-/**
- * If you are installing Timber as a Composer dependency in your theme, you'll need this block
- * to load your dependencies and initialize Timber. If you are using Timber via the WordPress.org
- * plug-in, you can safely delete this block.
- */
 $composer_autoload = __DIR__ . '/vendor/autoload.php';
 
 if ( file_exists( $composer_autoload ) ) {
 	require_once $composer_autoload;
-	Timber\Timber::init();
 }
 
 require_once 'inc/include.php';
@@ -38,40 +31,41 @@ function juniper_editor_styles() {
 	add_editor_style( '/dist/src/css/_app.css' );
 }
 
-/**
- * This ensures that Timber is loaded and available as a PHP class.
- * If not, it gives an error message to help direct developers on where to activate
- */
-if ( ! class_exists( 'Timber' ) ) {
+add_action( 'after_setup_theme', 'juniper_theme_supports' );
+function juniper_theme_supports() {
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
 
-	add_action(
-		'admin_notices',
-		function () {
-			echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
-		}
+	// Let WordPress manage the document title.
+	add_theme_support( 'title-tag' );
+
+	// Enable support for Post Thumbnails on posts and pages.
+	add_theme_support( 'post-thumbnails' );
+
+	// Switch default core markup for search form, comment form, and comments to output valid HTML5.
+	add_theme_support(
+		'html5',
+		array(
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		)
 	);
 
-	add_filter(
-		'template_include',
-		function ( $template ) {
-			return get_stylesheet_directory() . '/static/no-timber.html';
-		}
+	// Enable support for Post Formats.
+	add_theme_support(
+		'post-formats',
+		array(
+			'aside',
+			'image',
+			'video',
+			'quote',
+			'link',
+			'gallery',
+			'audio',
+		)
 	);
-	return;
+
+	add_theme_support( 'menus' );
 }
-
-/**
- * Sets the directories (inside your theme) to find .twig files
- */
-Timber::$dirname = array( 'templates', 'views' );
-
-/**
- * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
- * No prob! Just set this value to true
- */
-Timber::$autoescape = false;
-
-
-//StarterSite class
-require_once 'class-startersite.php';
-new StarterSite();

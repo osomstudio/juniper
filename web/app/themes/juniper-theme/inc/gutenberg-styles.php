@@ -1,6 +1,6 @@
 <?php
 add_action( 'init', 'juniper_register_blocks_styles' );
-function juniper_register_blocks_styles() : void {
+function juniper_register_blocks_styles(): void {
 	register_block_style(
 		'core/button',
 		array(
