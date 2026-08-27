@@ -16,7 +16,7 @@ class JuniperAjaxFilteringposts {
 	public string $action_name;
 
 	/**
-	 * ACF Block name.
+	 * Block name.
 	 *
 	 * @var string Block name.
 	 */
@@ -83,7 +83,7 @@ class JuniperAjaxFilteringposts {
 	 * @return void
 	 */
 	public function register_script() {
-		if ( has_block( 'acf/' . $this->block_name ) ) {
+		if ( has_block( 'juniper-theme/' . $this->block_name ) ) {
 			wp_enqueue_script( 'ajax-' . $this->action_name, $this->js_directory, array( 'jquery' ), time(), true );
 			wp_localize_script(
 				'ajax-' . $this->action_name,

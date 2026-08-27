@@ -1,0 +1,13 @@
+<?php
+/**
+ * replace_block_title_text block render template.
+ *
+ * @param array    $attributes Block attributes.
+ * @param string   $content    The block inner HTML (empty).
+ * @param WP_Block $block      Block instance.
+ */
+?>
+
+<div <?php echo get_block_wrapper_attributes( array( 'class' => 'replace_block_slug' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_block_wrapper_attributes() already returns an escaped attribute string. ?>>
+
+</div>

@@ -1,0 +1,25 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "juniper-theme/cta",
+    "title": "CTA",
+    "category": "formatting",
+    "icon": "admin-comments",
+    "description": "A heading and text call-to-action block.",
+    "keywords": [],
+    "textdomain": "juniper-theme",
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "text": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "supports": {
+        "align": ["left", "right", "full"]
+    },
+    "render": "file:./render.php"
+}

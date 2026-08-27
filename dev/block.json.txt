@@ -1,0 +1,16 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "juniper-theme/replace_block_slug",
+    "title": replace_block_title_json,
+    "category": "formatting",
+    "icon": "admin-comments",
+    "description": replace_block_description_json,
+    "keywords": [replace_block_keywords_json],
+    "textdomain": "juniper-theme",
+    "attributes": {},
+    "supports": {
+        "align": ["left", "right", "full"]
+    },
+    "render": "file:./render.php"
+}

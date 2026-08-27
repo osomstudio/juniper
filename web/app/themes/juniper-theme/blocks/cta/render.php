@@ -2,19 +2,18 @@
 /**
  * CTA block render template.
  *
- * @param array  $block      The block settings and attributes.
- * @param string $content    The block inner HTML (empty).
- * @param bool   $is_preview True during backend preview render.
- * @param int    $post_id    The post ID the block is rendered on.
+ * @param array    $attributes Block attributes (heading, text).
+ * @param string   $content    The block inner HTML (empty).
+ * @param WP_Block $block      Block instance.
  */
 
-$heading = get_field( 'heading' );
-$text    = get_field( 'text' );
+$heading = $attributes['heading'] ?? '';
+$text    = $attributes['text'] ?? '';
 ?>
 
-<div class="cta">
+<div <?php echo get_block_wrapper_attributes( array( 'class' => 'cta' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_block_wrapper_attributes() already returns an escaped attribute string. ?>>
 	<?php if ( $heading ) : ?>
-		<h2 class="cta__heading"><?php echo esc_html( $heading ); ?></h2>
+		<h2 class="cta__heading"><?php echo wp_kses_post( $heading ); ?></h2>
 	<?php endif; ?>
 
 	<?php if ( $text ) : ?>

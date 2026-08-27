@@ -30,10 +30,6 @@
                 "wpackagist-plugin/*",
                 "wpackagist-theme/*"
             ]
-        },
-        {
-            "type": "composer",
-            "url": "https://connect.advancedcustomfields.com"
         }
     ],
     "require": {
@@ -49,8 +45,7 @@
         "wpackagist-plugin/wordpress-seo": "27.5",
         "wpackagist-plugin/w3-total-cache": "2.9.4",
         "wpackagist-plugin/contact-form-7-honeypot": "3.5.0",
-        "wpackagist-plugin/webp-express": "0.25.14",
-        "wpengine/advanced-custom-fields-pro": "6.8.0"
+        "wpackagist-plugin/webp-express": "0.25.14"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",

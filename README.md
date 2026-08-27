@@ -14,7 +14,7 @@
 Juniper is built on top of the <a href="https://github.com/roots/bedrock">Bedrock</a> boilerplate.
 
 Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
-The theme is a native WordPress block theme (Full Site Editing templates/parts) combined with native ACF Blocks
+The theme is a native WordPress block theme (Full Site Editing templates/parts) with native Gutenberg blocks
 (PHP `render.php` templates, no templating engine in between).
 
 ## Features
@@ -22,13 +22,14 @@ The theme is a native WordPress block theme (Full Site Editing templates/parts) 
 - Easy WordPress configuration with environment specific files
 - File structure which makes keeping and maintaining your project on a Git a lot easier
 - Dependency management with [Composer](https://getcomposer.org)
-- Native WordPress block theme (FSE templates/parts) + native ACF Blocks
+- Native WordPress block theme (FSE templates/parts) with native Gutenberg blocks
 - Bash console scripts to make creating project from the scratch much easier
 
 ## Requirements
 
-- PHP >= 8.1
+- PHP >= 8.2
 - Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+- Node.js & npm (for compiling theme assets with Parcel)
 - PHPCS & PHPCBF with WordPress-Extra standard installed
 
 ## Installation
@@ -41,7 +42,7 @@ The theme is a native WordPress block theme (Full Site Editing templates/parts) 
    ```
    and follow the instructions in the console.
    Type in details from step 1 and 2. .env file will
-   be crated for you (all DB and site details sits there)
+   be created for you (all DB and site details sits there)
 4. Fill correct domain details in .htaccess in main catalogue.
 5. Check if /web/ directory has .htaccess file with default WP entries.
 6. Run 
@@ -62,9 +63,9 @@ You can update them with the same easy way by changing version in composer.json.
 
 ## Bash scripts
 
-The main operations that we automate have been handled by below scripts: :
+The main operations that we automate have been handled by below scripts:
 
-1) start.sh - used for the initial configuration of the project. Through this process, we areable to enter the basic data to the database, define the main URL and ACF key. After providing those information, the installer will generate an .env file, which in our case will contain all configuration data (as in wp-config.php in a vanilla WordPress installation).
+1) start.sh - used for the initial configuration of the project. Through this process, we are able to enter the basic data to the database and define the main URL. After providing that information, the installer will generate an .env file, which in our case will contain all configuration data (as in wp-config.php in a vanilla WordPress installation).
 
 2) work.sh - used every time you work on a project. It compiles the styles in real time by calling a parcel script to listen for file changes.
 
@@ -78,10 +79,7 @@ $ wp add cpt --name="Product"
 ```sh
 $ wp add taxonomy --name="Category" --post="product"
 ```
-3. Adding Gutenberg Blocks - This scaffolds a native ACF block (registered via `acf_register_block_type()`) with a plain PHP `render.php` template. Keywords and description fields are optional
+3. Adding Gutenberg Blocks - Scaffolds a native Gutenberg block (`block.json` + `edit.js` + `render.php` + `functions.php`, registered via `register_block_type()`) in `web/app/themes/juniper-theme/blocks/`, following the same pattern as `blocks/cta/` - see [Creating a Block](web/app/themes/juniper-theme/README.md#creating-a-block) in the theme README. Keywords and description fields are optional.
 ```sh
 $ wp add block --name="Reviews" --keywords="quote,stars" --description="Show three newest reviews"
 ```
-
-
-## 

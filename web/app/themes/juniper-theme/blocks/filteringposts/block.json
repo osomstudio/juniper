@@ -1,0 +1,16 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "juniper-theme/filteringposts",
+    "title": "Filtering Posts",
+    "category": "formatting",
+    "icon": "admin-comments",
+    "description": "A post filtering form with AJAX-loaded results.",
+    "keywords": [],
+    "textdomain": "juniper-theme",
+    "attributes": {},
+    "supports": {
+        "align": ["left", "right", "full"]
+    },
+    "render": "file:./render.php"
+}

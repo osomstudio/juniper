@@ -1,0 +1,16 @@
+/* global wp */
+
+const { registerBlockType } = wp.blocks;
+const { useBlockProps } = wp.blockEditor;
+const { createElement: el } = wp.element;
+
+function Edit() {
+  const blockProps = useBlockProps({ className: 'replace_block_slug' });
+
+  return el('div', blockProps);
+}
+
+registerBlockType('juniper-theme/replace_block_slug', {
+  edit: Edit,
+  save: () => null,
+});
