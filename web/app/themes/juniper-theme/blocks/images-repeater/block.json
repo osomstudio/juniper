@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "juniper-theme/images-repeater",
+    "title": "Images Repeater",
+    "category": "media",
+    "icon": "format-gallery",
+    "description": "A repeatable list of images with optional captions.",
+    "keywords": ["gallery", "images", "repeater"],
+    "textdomain": "juniper-theme",
+    "attributes": {
+        "images": {
+            "type": "array",
+            "default": []
+        }
+    },
+    "supports": {
+        "align": ["left", "right", "full"]
+    },
+    "render": "file:./render.php"
+}
