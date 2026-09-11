@@ -12,6 +12,21 @@ web/wp
 # Logs
 *.log
 
+# Database
+*.sql
+*.sqlite
+*.gz
+
+# Archives / dumps (avoid accidental zips, backups, DB exports)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bak
+*.dump
+
 # Dotenv
 .env
 .env.*
